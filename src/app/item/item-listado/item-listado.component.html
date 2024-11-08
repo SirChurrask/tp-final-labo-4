@@ -1,0 +1,16 @@
+<div>
+  @if(AllItems.length){
+<ul>
+  @for (item of AllItems; track $index){
+    <h3>{{item.name}}</h3>
+    <p>{{item.description}}</p>
+    <p>{{item.value}}</p>
+  }
+</ul>
+  }
+  </div>
+<div>
+  @if(!AllItems.length){
+    <p>Cargando...</p>
+  }
+</div>

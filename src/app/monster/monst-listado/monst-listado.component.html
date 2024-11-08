@@ -1,0 +1,22 @@
+<div>
+  @if(AllBois.length){
+<ul>
+  @for (monster of AllBois; track $index){
+    @if (monster.type == 'large'){
+      <h3>{{monster.name}}</h3>
+    <p>{{monster.description}}</p>
+    <p>{{monster.species}}</p>
+    <p>{{monster.elements}}</p>
+    @for (ailment of monster.ailments; track $index){
+      <p>{{ailment.name}}</p>
+    }
+    }
+  }
+</ul>
+}
+</div>
+<div>
+  @if(!AllBois.length){
+    <p>Cargando...</p>
+  }
+</div>

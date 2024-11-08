@@ -1,0 +1,19 @@
+<div>
+  @if(armorList.length){
+<ul>
+  @for (armor of armorList; track $index){
+    <h3>{{armor.name}}</h3>
+    <p>{{armor.type}}</p>
+    @for (skill of armor.skills; track $index){
+      <p>{{skill.skillName}}</p>
+      <p>{{skill.description}}</p>
+    }
+  }
+</ul>
+  }
+  </div>
+<div>
+  @if(!armorList.length){
+    <p>Cargando...</p>
+  }
+</div>
