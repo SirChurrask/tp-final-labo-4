@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { DOCUMENT } from '../../../../../node_modules/@angular/common/index';
 import { User } from '../../interfaces/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -16,22 +17,19 @@ export class RegisterFormComponent {
 
   service = inject(UserService);
   form: FormGroup;
+  router = inject(Router);
+
+  ngOnInit(): void {
+    if(this.service.getLogged()){
+      this.router.navigate(['/']);
+    }
+  }
 
   constructor(private fb: FormBuilder){
     this.form = this.fb.group({
       username: new FormControl('',[Validators.required,Validators.minLength(5)]),
       password: new FormControl('',[Validators.minLength(5),Validators.required]),
     })
-    this.service.getAllUser().subscribe(
-      {
-        next: (users : User[]) => {
-          console.log(users);
-        },
-        error: (err: Error) => {
-          console.log(err.message)
-        }
-      }
-    )
   }
 
   submitted : boolean = false;
@@ -45,24 +43,29 @@ export class RegisterFormComponent {
       console.log("Invalid form");
       return;
     }
-    /*this.service.getUserAvilable(this.form.get("username")?.value)
-    .then( data => {
-      if(data != undefined){
-        this.userNotAvailable = data;
-        if(this.userNotAvailable){
-          this.changeDiv();
+    this.service.getUserAvilable(this.form.get("username")?.value).subscribe({
+      next: (data) => {
+        if(data.length){
+          this.userNotAvailable = true;
+          if(this.userNotAvailable){
+            this.changeDiv();
+          }
         }else{
           console.log(this.form.value)
-          this.service.postUser(this.form.value)
-          .then(data => console.log(data))
-          .then(() => { this.userRegistered = true } )
+          this.service.postUser(this.form.value).subscribe({
+            next: (data) => {
+              console.log(data);
+              this.userRegistered = true;
+            },
+            error: (err: Error) => { console.log(err) }
+          })
         }
-      }
-    })*/
+      },
+      error: (err: Error) => {console.log(err)}
+    })
   }
 
   changeDiv(){
     this.notAvailableTextContent = "Username " + this.form.get("username")?.value + " not available";
   }
-
 }
