@@ -75,7 +75,6 @@ export class UserService {
   }
 
   logOut(){
-    console.log("log out")
     this.changeLogged(false)
     this.userId = "";
     this.router.navigate(['/']);
