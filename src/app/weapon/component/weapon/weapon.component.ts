@@ -70,6 +70,7 @@ export class WeaponComponent implements OnInit{
 
   activeFilter(){
     if (!this.filterSnS && !this.filterGS && !this.filterDB && !this.filterLS && !this.filterH && !this.filterHH && !this.filterL && !this.filterGL && !this.filterSA && !this.filterCB && !this.filterIG && !this.filterB && !this.filterLB && !this.filterHB){
+      this.filterweapons = [];
       this.filterActive = false;
     }
     else{
@@ -88,7 +89,7 @@ export class WeaponComponent implements OnInit{
   }
 
   removeFilteredWeapons(weapontype: string){
-    this.filterweapons.filter (a => !(a.type === weapontype))
+    this.filterweapons =  this.filterweapons.filter (a => !(a.type === weapontype));
     //reemplazar todo lo de abajo con esto
   }
 
@@ -237,6 +238,16 @@ export class WeaponComponent implements OnInit{
     }
     this.activeFilter();
   }
+
+  /*
+  rarity: number | null = null;
+
+  filterPerRarity(){
+    if (this.rarity){
+      this.filterweapons = this.filterweapons.filter( a => a.rarity === this.rarity);
+    }
+  }
+  */
 
   ngOnInit(){
     this.cargarWeapons();
