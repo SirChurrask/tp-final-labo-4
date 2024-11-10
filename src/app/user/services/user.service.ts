@@ -41,8 +41,10 @@ export class UserService {
   }
 
   postUser(user: User): Observable<User> {
+    user.acquired = [];
+    user.pending = [];
     
-    return this.http.post<User>(this.url, user);
+    return this.http.post<User>(this.url,user);
   }
 
   getUserAvilable(term: string): Observable<User[]>{
