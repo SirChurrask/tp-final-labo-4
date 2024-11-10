@@ -32,7 +32,7 @@ export const routes: Routes = [
   {
     path: 'Armors/:id', component: ArmorSetDetallesComponent
   },
-
+  {
     path: 'login', component: LoginFormComponent
   },
   {
