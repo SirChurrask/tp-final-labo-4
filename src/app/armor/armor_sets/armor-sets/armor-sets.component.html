@@ -1,9 +1,17 @@
+<fieldset>
+  <legend>Filtro</legend>
+  <button (click)="toggleFilter(1)">Cabeza</button>
+  <button (click)="toggleFilter(2)">Pecho</button>
+  <button (click)="toggleFilter(3)">Guantes</button>
+  <button (click)="toggleFilter(4)">Cintura</button>
+  <button (click)="toggleFilter(5)">Piernas</button>
+</fieldset>
 <div>
-  @if(armorList.length){
+  @if(armorList.length && !filtroActivo){
 <ul>
   @for (armor of armorList; track $index){
     <h3>{{armor.name}}</h3>
-    <p>{{armor.type}}</p>
+    <p>{{armor.rarity}}</p>
     @for (skill of armor.skills; track $index){
       <p>{{skill.skillName}}</p>
       <p>{{skill.description}}</p>
@@ -11,7 +19,26 @@
   }
 </ul>
   }
-  </div>
+</div>
+<div>
+    @if(armadurasFiltradas.length && filtroActivo){
+  <ul>
+    @for (armor of armadurasFiltradas; track $index){
+      <h3>{{armor.name}}</h3>
+      <p>{{armor.rarity}}</p>
+      @for (skill of armor.skills; track $index){
+        <p>{{skill.skillName}}</p>
+        <p>{{skill.description}}</p>
+      }
+    }
+  </ul>
+  }
+</div>
+<div>
+   @if(!armadurasFiltradas.length && filtroActivo){
+    <p>Filtrando...</p>
+   }
+</div>
 <div>
   @if(!armorList.length){
     <p>Cargando...</p>
