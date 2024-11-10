@@ -1,9 +1,11 @@
 {
   "user": [
     {
-      "id": "b59d",
+      "id": "0e8b",
       "username": "Punknel",
-      "password": "12345"
+      "password": "12345",
+      "acquired": [],
+      "pending": []
     }
   ]
 }
