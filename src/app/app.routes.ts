@@ -6,6 +6,8 @@ import { ArmorSetsComponent } from './armor/armor_sets/armor-sets/armor-sets.com
 import { WeaponPipe } from './weapon/page/weapon.pipe';
 import { WeaponComponent } from './weapon/component/weapon/weapon.component';
 import { ListaPendientesComponent } from './user/components/lista-pendientes/lista-pendientes.component';
+import { LoginFormComponent } from './user/components/login-form/login-form.component';
+import { RegisterFormComponent } from './user/components/register-form/register-form.component';
 
 export const routes: Routes = [
   {
@@ -23,4 +25,10 @@ export const routes: Routes = [
   {
     path: 'Pendientes', component: ListaPendientesComponent
   },
+  {
+    path: 'login', component: LoginFormComponent
+  },
+  {
+    path: 'register', component: RegisterFormComponent
+  }
 ];
