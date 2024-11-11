@@ -16,7 +16,7 @@ export class ArmorService {
     return this.http.get<Armor[]>(this.urlBase);
   }
 
-  getArmorSetByID(id: number): Observable<ArmorSet> {
+  getArmorSetByID(id: string | null): Observable<ArmorSet> {
     return this.http.get<ArmorSet>(`${this.urlBase}/sets/${id}`);
   }
 }  //Even flow

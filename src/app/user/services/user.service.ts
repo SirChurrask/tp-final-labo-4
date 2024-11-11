@@ -20,6 +20,10 @@ export class UserService {
 
   private userId : string = '';
 
+  getUserId(){
+    return this.userId;
+  }
+
   getLogged(){
     return this.logged.value;
   }
@@ -41,7 +45,8 @@ export class UserService {
   }
 
   postUser(user: User): Observable<User> {
-    
+    user.acquired = [];
+    user.pending = [];
     return this.http.post<User>(this.url, user);
   }
 
@@ -65,7 +70,7 @@ export class UserService {
         }else{
           return false;
         }
-        
+
       }),
       catchError(error => {
         console.error('Error al obtener datos:', error);

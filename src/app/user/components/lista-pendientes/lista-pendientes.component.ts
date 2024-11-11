@@ -7,7 +7,7 @@ import { ArmorSetsComponent } from '../../../armor/armor_sets/armor-sets/armor-s
 @Component({
   selector: 'app-lista-pendientes',
   standalone: true,
-  imports: [WeaponComponent, ArmorSetsComponent],
+  imports: [],
   templateUrl: './lista-pendientes.component.html',
   styleUrl: './lista-pendientes.component.css'
 })

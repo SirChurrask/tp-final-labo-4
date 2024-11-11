@@ -1,0 +1,19 @@
+<h3>{{weapon.name}}</h3>
+@if(showImage){
+  <img class="images" src={{weapon.assets.image}}/>
+}
+@if(weapon.crafting.craftable){
+  @for(material of weapon.crafting.craftingMaterials; track $index){
+    <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+  }
+}
+@if(!weapon.crafting.craftable){
+  @for(material of weapon.crafting.upgradeMaterials; track $index){
+    <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+  }
+}
+<div *ngIf="logged">
+  <input type="button" value="Adquired">
+  <input type="button" value="Pending" (click)="addPending()">
+</div>
+

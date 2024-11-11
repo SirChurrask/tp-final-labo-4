@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ArmorService } from '../../service/armor.service';
 import { ArmorSet } from '../../interface/armor-set';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-armor-set-detalles',
@@ -11,11 +12,13 @@ import { ArmorSet } from '../../interface/armor-set';
 })
 export class ArmorSetDetallesComponent implements OnInit{
 
+  constructor(private route: ActivatedRoute) {}
+
   armrService = inject(ArmorService);
 
   armorSet: ArmorSet | null = null;
 
-  cargarArmorSet(id: number){
+  cargarArmorSet(id: string | null){
     this.armrService.getArmorSetByID(id).subscribe({
       next: (arrmor: ArmorSet) => {
         this.armorSet = arrmor;
@@ -26,7 +29,8 @@ export class ArmorSetDetallesComponent implements OnInit{
     })
   }
 
-  ngOnInit(): void {
-
+  ngOnInit(){
+    const armorID = this.route.snapshot.paramMap.get('id');
+    this.cargarArmorSet(armorID);
   }
 }

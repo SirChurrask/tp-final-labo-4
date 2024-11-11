@@ -2,16 +2,24 @@ import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { WeaponsService } from '../../service/weapons.service';
 import { Weapon } from '../../interface/weapon';
 import { ListaPendientesComponent } from '../../../user/components/lista-pendientes/lista-pendientes.component';
+import { WeaponCardComponent } from '../weapon-card/weapon-card.component';
+import { UserService } from '../../../user/services/user.service';
+import { WantedItem } from '../../../shared/interface/wanted-item';
+import { PendingService } from '../../../shared/service/pending.service';
 
 @Component({
   selector: 'app-weapon',
   standalone: true,
-  imports: [],
+  imports: [WeaponCardComponent],
   templateUrl: './weapon.component.html',
   styleUrl: './weapon.component.css'
 })
 export class WeaponComponent implements OnInit{
   WeapnService = inject(WeaponsService);
+  db = inject(UserService);
+  ps = inject(PendingService);
+
+  logged : boolean = false;
 
   allweapons: Array<Weapon> = [];
 
@@ -249,7 +257,16 @@ export class WeaponComponent implements OnInit{
   }
   */
 
+  addPending(item : WantedItem){
+    this.ps.putPending(item);
+  }
+
+
   ngOnInit(){
     this.cargarWeapons();
+    this.db.currentData.subscribe(
+      value => { this.logged = value}
+    )
+    this.ps.getPending();
   }
 }
