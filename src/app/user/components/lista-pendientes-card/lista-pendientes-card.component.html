@@ -1,0 +1,15 @@
+<legend>
+  <p>{{weapon.name}}</p>
+  <p>{{weapon.type}}</p>
+  @if(weapon.crafting.craftable){
+    @for(material of weapon.crafting.craftingMaterials; track $index){
+      <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+    }
+  }
+  @if(!weapon.crafting.craftable){
+    @for(material of weapon.crafting.upgradeMaterials; track $index){
+      <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+    }
+  }
+</legend>
+

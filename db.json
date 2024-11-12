@@ -11,7 +11,26 @@
       "id": "7881",
       "username": "SirChurrask",
       "password": "carne",
-      "pending": [],
+      "pending": [
+        {
+          "id": 6,
+          "type": "weapon",
+          "materiales": [
+            {
+              "id": 119,
+              "acquired": false
+            },
+            {
+              "id": 118,
+              "acquired": false
+            },
+            {
+              "id": 123,
+              "acquired": false
+            }
+          ]
+        }
+      ],
       "acquired": [
         {
           "id": 1076,

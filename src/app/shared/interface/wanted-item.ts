@@ -1,7 +1,7 @@
 import { materiales } from "../../weapon/interface/weapon";
 
 export interface WantedItem {
-  typr: string;
+  type: string;
   materiales: materiales;
   id: string;
 }

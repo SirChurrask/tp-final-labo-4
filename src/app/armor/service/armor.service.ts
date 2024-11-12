@@ -16,6 +16,10 @@ export class ArmorService {
     return this.http.get<Armor[]>(this.urlBase);
   }
 
+  getArmorById(id: string): Observable<Armor> {
+    return this.http.get<Armor>(`${this.urlBase}/${id}`);
+  }
+
   getArmorSetByID(id: string | null): Observable<ArmorSet> {
     return this.http.get<ArmorSet>(`${this.urlBase}/sets/${id}`);
   }

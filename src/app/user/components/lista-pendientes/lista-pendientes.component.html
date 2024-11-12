@@ -16,8 +16,7 @@
   @if (pendientesWeapon.length){
     <h3>Weapon</h3>
     @for (weapon of pendientesWeapon; track $index){
-      <p>{{weapon.name}}</p>
-      <p>{{weapon.type}}</p>
+      <app-lista-pendientes-card [weapon]="weapon"></app-lista-pendientes-card>
     }
   }
 </div>

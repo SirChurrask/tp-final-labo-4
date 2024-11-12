@@ -28,19 +28,6 @@ export class WeaponComponent implements OnInit{
 
   showImage: boolean = false;
 
-  cargarWeapons(){
-    this.WeapnService.getWeapons().subscribe(
-      {
-        next: (weapons: Weapon[]) => {
-        this.allweapons = weapons;
-        },
-        error: (err: Error) =>{
-          console.log(err.message);
-        }
-      }
-    )
-  }
-
   mostrarimagen(){
     if(!this.showImage){
       this.showImage = true;
@@ -262,11 +249,14 @@ export class WeaponComponent implements OnInit{
 
 
   ngOnInit(){
-    this.cargarWeapons();
+    this.WeapnService.currentData.subscribe(
+      value => {this.allweapons = value}
+    )
     this.db.currentData.subscribe(
       value => { this.logged = value}
     )
     this.ps.getPending();
     this.as.getAcquired();
+    this.WeapnService.getWeapons();
   }
 }
