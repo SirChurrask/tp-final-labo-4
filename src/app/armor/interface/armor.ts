@@ -3,7 +3,7 @@ import { Skill } from "./skill"
 
 export interface Armor {
 
-    id: number,
+    id: string,
     type: string,
     rank: string,
     rarity: number,
