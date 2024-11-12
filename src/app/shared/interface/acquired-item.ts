@@ -1,4 +1,4 @@
-export interface AdquiredItem {
+export interface AcquiredItem {
   id: string;
   type: string;
 }

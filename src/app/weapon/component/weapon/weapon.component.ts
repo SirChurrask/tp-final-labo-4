@@ -6,6 +6,8 @@ import { WeaponCardComponent } from '../weapon-card/weapon-card.component';
 import { UserService } from '../../../user/services/user.service';
 import { WantedItem } from '../../../shared/interface/wanted-item';
 import { PendingService } from '../../../shared/service/pending.service';
+import { AcquiredService } from '../../../shared/service/acquired.service';
+import { AcquiredItem } from '../../../shared/interface/acquired-item';
 
 @Component({
   selector: 'app-weapon',
@@ -18,6 +20,7 @@ export class WeaponComponent implements OnInit{
   WeapnService = inject(WeaponsService);
   db = inject(UserService);
   ps = inject(PendingService);
+  as = inject(AcquiredService);
 
   logged : boolean = false;
 
@@ -46,14 +49,6 @@ export class WeaponComponent implements OnInit{
       this.showImage = false;
     }
   }
-
-  /*@Output() guardWeapon = new EventEmitter<Weapon>();
-
-  enviarWeapon(enviar: Weapon){
-    alert("Arma enviada a Pendientes");
-    //console.log(enviar);
-    this.guardWeapon.emit(enviar);
-  } */
 
   //filtro
 
@@ -261,6 +256,10 @@ export class WeaponComponent implements OnInit{
     this.ps.putPending(item);
   }
 
+  addAcquired(item: AcquiredItem){
+    this.as.putAcquired(item);
+  }
+
 
   ngOnInit(){
     this.cargarWeapons();
@@ -268,5 +267,6 @@ export class WeaponComponent implements OnInit{
       value => { this.logged = value}
     )
     this.ps.getPending();
+    this.as.getAcquired();
   }
 }

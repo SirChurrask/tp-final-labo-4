@@ -6,6 +6,22 @@
       "password": "12345",
       "acquired": [],
       "pending": []
+    },
+    {
+      "id": "7881",
+      "username": "SirChurrask",
+      "password": "carne",
+      "pending": [],
+      "acquired": [
+        {
+          "id": 1076,
+          "type": "weapon"
+        },
+        {
+          "id": 1138,
+          "type": "weapon"
+        }
+      ]
     }
   ]
 }

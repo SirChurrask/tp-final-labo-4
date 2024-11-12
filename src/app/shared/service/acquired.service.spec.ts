@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AdquiredService } from './adquired.service';
+import { AcquiredService } from './acquired.service';
 
-describe('AdquiredService', () => {
-  let service: AdquiredService;
+describe('AcquiredService', () => {
+  let service: AcquiredService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AdquiredService);
+    service = TestBed.inject(AcquiredService);
   });
 
   it('should be created', () => {

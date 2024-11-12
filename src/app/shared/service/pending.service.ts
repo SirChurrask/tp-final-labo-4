@@ -29,7 +29,6 @@ export class PendingService {
     }else{
       console.log("item alredy on wanted items")
     }
-
   }
 
   getPending() : void{

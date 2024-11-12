@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 export class WeaponCardComponent{
 
   @Output() addWantedEvent = new EventEmitter();
+  @Output() addAcquiredEvent = new EventEmitter();
   @Input() logged : boolean = false;
   @Input() showImage : boolean = false;
   @Input() weapon : Weapon = {
@@ -62,16 +63,23 @@ export class WeaponCardComponent{
   addPending(){
     this.addWantedEvent.emit({
       id: this.weapon.id,
-      type: this.weapon.type,
+      type: 'weapon',
       materiales:  this.weapon.crafting.craftingMaterials.length ?
       (this.weapon.crafting.craftingMaterials.map((x) => {return {
         id: x.item.id,
-        adquired: false
+        acquired: false
       }})) :
       (this.weapon.crafting.upgradeMaterials.map((x) => {return {
         id: x.item.id,
-        adquired: false
+        acquired: false
       }}))
+    })
+  }
+
+  addAcquired(){
+    this.addAcquiredEvent.emit({
+      id: this.weapon.id,
+      type: 'weapon',
     })
   }
 }

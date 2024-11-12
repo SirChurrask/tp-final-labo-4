@@ -26,7 +26,7 @@
     <p>all weapons</p>
 <ul>
   @for (weapon of allweapons; track $index){
-    <app-weapon-card (addWantedEvent)="addPending($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
+    <app-weapon-card (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
   }
 </ul>
 }
@@ -36,7 +36,7 @@
     <p>filter weapons</p>
     <ul>
       @for (weapon of filterweapons; track $index){
-       <app-weapon-card (addWantedEvent)="addPending($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
+       <app-weapon-card (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
       }
     </ul>
   }
