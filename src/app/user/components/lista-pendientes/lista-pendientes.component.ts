@@ -58,6 +58,18 @@ export class ListaPendientesComponent implements OnInit {
         error: (err: Error) => {console.log(err)}
       })
     }
+
+    let a : boolean | Observable<Armor[]> = this.Armorservice.getArmors();
+    if(typeof w == 'boolean'){
+      this.order();
+    }else{
+      w.subscribe({
+        next: () =>{
+          this.order();
+        },
+        error: (err: Error) => {console.log(err)}
+      })
+    }
   }
 
   ngOnInit(){

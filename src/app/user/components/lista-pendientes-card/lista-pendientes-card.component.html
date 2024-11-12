@@ -1,4 +1,11 @@
-<legend>
+<legend *ngIf="armor">
+  <p>{{armor.name}}</p>
+  <p>{{armor.type}}</p>
+  @for(material of armor.crafting.materials; track $index){
+      <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+    }
+</legend>
+<legend *ngIf="weapon">
   <p>{{weapon.name}}</p>
   <p>{{weapon.type}}</p>
   @if(weapon.crafting.craftable){

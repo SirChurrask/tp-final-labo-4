@@ -44,7 +44,20 @@ export class ListaAdquiridosComponent implements OnInit{
   }
 
   orderByType(){
+    //wepon
     let w : boolean | Observable<Weapon[]> = this.weaponservice.getWeapons();
+    if(typeof w == 'boolean'){
+      this.order();
+    }else{
+      w.subscribe({
+        next: () =>{
+          this.order();
+        },
+        error: (err: Error) => {console.log(err)}
+      })
+    }
+    //armor
+    let a : boolean | Observable<Armor[]> = this.Armorservice.getArmors();
     if(typeof w == 'boolean'){
       this.order();
     }else{

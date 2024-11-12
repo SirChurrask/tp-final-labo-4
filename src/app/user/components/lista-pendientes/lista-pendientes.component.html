@@ -7,8 +7,7 @@
   @if (pendientesArmor.length){
     <h3>Armor</h3>
     @for (armor of pendientesArmor; track $index){
-      <p>{{armor.name}}</p>
-      <p>{{armor.type}}</p>
+      <app-lista-pendientes-card [armor]="armor"></app-lista-pendientes-card>
     }
   }
 </div>
