@@ -1,31 +1,28 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Armor } from '../../../armor/interface/armor';
 import { Weapon } from '../../../weapon/interface/weapon';
-import { WeaponComponent } from '../../../weapon/component/weapon/weapon.component';
-import { ArmorSetsComponent } from '../../../armor/armor_sets/armor-sets/armor-sets.component';
+import { AcquiredItem } from '../../../shared/interface/acquired-item';
 import { UserService } from '../../services/user.service';
 import { PendingService } from '../../../shared/service/pending.service';
 import { AcquiredService } from '../../../shared/service/acquired.service';
 import { WeaponsService } from '../../../weapon/service/weapons.service';
-import { WantedItem } from '../../../shared/interface/wanted-item';
 import { ArmorService } from '../../../armor/service/armor.service';
 import { Router } from '@angular/router';
-import { ListaPendientesCardComponent } from '../lista-pendientes-card/lista-pendientes-card.component';
-import { CommonModule } from '@angular/common';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
+import { ListaAdquiridosCardComponent } from '../lista-adquiridos-card/lista-adquiridos-card.component';
 
 @Component({
-  selector: 'app-lista-pendientes',
+  selector: 'app-lista-adquiridos',
   standalone: true,
-  imports: [ListaPendientesCardComponent,CommonModule],
-  templateUrl: './lista-pendientes.component.html',
-  styleUrl: './lista-pendientes.component.css'
+  imports: [ListaAdquiridosCardComponent],
+  templateUrl: './lista-adquiridos.component.html',
+  styleUrl: './lista-adquiridos.component.css'
 })
-export class ListaPendientesComponent implements OnInit {
+export class ListaAdquiridosComponent implements OnInit{
 
-  pendientesArmor: Array<Armor> = [];
-  pendientesWeapon: Array<Weapon> = [];
-  data: WantedItem[] = [];
+  adquiridosArmor: Array<Armor> = [];
+  adquiridosWeapon: Array<Weapon> = [];
+  data: AcquiredItem[] = [];
   logged: boolean = false;
   db = inject(UserService);
   ps = inject(PendingService);
@@ -38,7 +35,7 @@ export class ListaPendientesComponent implements OnInit {
   orderArmor(){
     for (let element of this.data) {
       if (element.type == 'armor'){
-        this.pendientesArmor.push(this.Armorservice.getArmorById(element.id));
+        this.adquiridosArmor.push(this.Armorservice.getArmorById(element.id));
       }
     }
   }
@@ -46,14 +43,15 @@ export class ListaPendientesComponent implements OnInit {
   orderWeapon(){
     for (let element of this.data){
       if (element.type == 'weapon'){
-        this.pendientesWeapon.push(this.weaponservice.getWeaponbyId(element.id));
+        this.adquiridosWeapon.push(this.weaponservice.getWeaponbyId(element.id));
       }
     }
   }
 
   orderByType(){
-    this.pendientesArmor = [];
-    this.pendientesWeapon = [];
+    this.adquiridosArmor = [];
+    this.adquiridosWeapon = [];
+    //wepon
     let w : boolean | Observable<Weapon[]> = this.weaponservice.getWeapons();
     if(typeof w == 'boolean'){
       this.orderWeapon();
@@ -65,7 +63,7 @@ export class ListaPendientesComponent implements OnInit {
         error: (err: Error) => {console.log(err)}
       })
     }
-
+    //armor
     let a : boolean | Observable<Armor[]> = this.Armorservice.getArmors();
     if(typeof a == 'boolean'){
       this.orderArmor();
@@ -92,7 +90,7 @@ export class ListaPendientesComponent implements OnInit {
     this.ps.getPending();
     this.as.getAcquired();
 
-    this.ps.currentData.subscribe(
+    this.as.currentdata.subscribe(
       value => {
         if(value != undefined){
           this.data = value;

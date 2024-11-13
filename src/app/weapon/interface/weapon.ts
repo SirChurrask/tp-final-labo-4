@@ -2,7 +2,7 @@ import { Item } from "../../item/interface/item"
 
 export interface Weapon {
 
-    id: number,
+    id: string,
     type: string,
     rarity: number,
     attack: {

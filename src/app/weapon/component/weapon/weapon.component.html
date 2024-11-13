@@ -26,20 +26,7 @@
     <p>all weapons</p>
 <ul>
   @for (weapon of allweapons; track $index){
-    <h3>{{weapon.name}}</h3>
-    @if(showImage){
-      <img class="images" src={{weapon.assets.image}}/>
-    }
-    @if(weapon.crafting.craftable){
-      @for(material of weapon.crafting.craftingMaterials; track $index){
-        <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-      }
-    }
-    @if(!weapon.crafting.craftable){
-      @for(material of weapon.crafting.upgradeMaterials; track $index){
-        <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-      }
-    }
+    <app-weapon-card (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
   }
 </ul>
 }
@@ -49,20 +36,7 @@
     <p>filter weapons</p>
     <ul>
       @for (weapon of filterweapons; track $index){
-        <h3>{{weapon.name}}</h3>
-        @if(showImage){
-          <img class="images" src={{weapon.assets.image}}/>
-        }
-        @if(weapon.crafting.craftable){
-          @for(material of weapon.crafting.craftingMaterials; track $index){
-            <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-          }
-        }
-        @if(!weapon.crafting.craftable){
-          @for(material of weapon.crafting.upgradeMaterials; track $index){
-            <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-          }
-        }
+       <app-weapon-card (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
       }
     </ul>
   }

@@ -10,12 +10,7 @@
   @if(armorList.length && !filtroActivo){
 <ul>
   @for (armor of armorList; track $index){
-    <h3>{{armor.name}}</h3>
-    <p>{{armor.rarity}}</p>
-    @for (skill of armor.skills; track $index){
-      <p>{{skill.skillName}}</p>
-      <p>{{skill.description}}</p>
-    }
+    <app-armor-card (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [armor]="armor"></app-armor-card>
   }
 </ul>
   }
@@ -24,12 +19,7 @@
     @if(armadurasFiltradas.length && filtroActivo){
   <ul>
     @for (armor of armadurasFiltradas; track $index){
-      <h3>{{armor.name}}</h3>
-      <p>{{armor.rarity}}</p>
-      @for (skill of armor.skills; track $index){
-        <p>{{skill.skillName}}</p>
-        <p>{{skill.description}}</p>
-      }
+      <app-armor-card (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [armor]="armor"></app-armor-card>
     }
   </ul>
   }
