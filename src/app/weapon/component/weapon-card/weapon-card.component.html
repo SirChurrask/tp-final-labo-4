@@ -25,8 +25,6 @@
       <p >{{item.type}} {{item.damage}}</p>
     }
   </div>
-  
-  
 
   <!-- @if(weapon.crafting.craftable){
     @for(material of weapon.crafting.craftingMaterials; track $index){
@@ -40,9 +38,9 @@
     }
   } -->
 
-  <div *ngIf="logged">
-    <input type="button" value="Acquired" (click)="addAcquired()">
-    <input type="button" value="Pending" (click)="addPending()">
+  <div class="divPending" *ngIf="logged">
+    <input type="button" value="+ Acquired" (click)="addAcquired()">
+    <input type="button" value="+ Pending" (click)="addPending()">
   </div>
  </div>
   

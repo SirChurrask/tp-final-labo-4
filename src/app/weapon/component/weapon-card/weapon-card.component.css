@@ -14,9 +14,26 @@
 }
 
 .boxDurability > p{
+    margin-top: 0.5rem;
     margin-right: 0.1rem;
     width: 2rem;
     text-align: center;
+    
+}
+
+.divPending > input{
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    background-color: rgb(50 50 50);
+    min-height: 2rem;
+    border-radius: 0.75rem;
+    color: white;
+    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+    1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+
+.divPending > input:hover{
+    transform: scale(1.1);
 }
 
 p{

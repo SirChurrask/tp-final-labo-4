@@ -43,7 +43,20 @@ export class WeaponComponent implements OnInit{
       this.filterType.push(type);
     }
     this.activeFilter();
+    this.changeButtonBC();
     this.cargando = false;
+  }
+
+  changeButtonBC(){
+    let buttons : any = document.getElementsByClassName("filterButton");
+    for(let i = 0;i < buttons.length;i++){
+      let aux = buttons[i];
+      if(this.filterElement.includes(aux.name) || this.filterType.includes(aux.name))
+        aux.style.background = '#414a66';
+      else{
+        aux.style.background = '#323232';
+      }
+    }
   }
 
   toggleFilterElement(element: string){
@@ -54,6 +67,7 @@ export class WeaponComponent implements OnInit{
       this.filterElement.push(element);
     }
     this.activeFilter();
+    this.changeButtonBC();
     this.cargando = false;
   }
 
@@ -96,6 +110,4 @@ export class WeaponComponent implements OnInit{
     this.WeapnService.getWeapons();
     this.filterweapons = this.WeapnService.getWeaponsValue();
   }
-
-  
 }
