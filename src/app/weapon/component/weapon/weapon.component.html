@@ -1,52 +1,36 @@
 <div id="weaponList">
-  <fieldset>
-    <legend>Filtro</legend>
-    <div>
-    <button (click)="toggleFilter(1)">Sword and Shield</button>
-    <button (click)="toggleFilter(2)">Greatsword</button>
-    <button (click)="toggleFilter(3)">Dual Blades</button>
-    <button (click)="toggleFilter(4)">Longsword</button>
-    <button (click)="toggleFilter(5)">Hammer</button>
-    <button (click)="toggleFilter(6)">Hunting Horn</button>
-    <button (click)="toggleFilter(7)">Lance</button>
-    <button (click)="toggleFilter(8)">Gunlance</button>
-    <button (click)="toggleFilter(9)">Switch Axe</button>
-    <button (click)="toggleFilter(10)">Charge Blade</button>
-    <button (click)="toggleFilter(11)">Insect Glaive</button>
-    <button (click)="toggleFilter(12)">Bow</button>
-    <button (click)="toggleFilter(13)">Light Bowgun</button>
-    <button (click)="toggleFilter(14)">Heavy Bowgun</button>
+
+  <div id="divFiltro">
+    <button (click)="toggleFilterType('sword-and-shield')"><img class="image" scr="https://assets.mhw-db.com/weapons/sword-and-shield/icons/bba6138275380056204165eb9ed5d9cb.2e880e7ffa9e558cef1365b0d2e492a092f399a8.png"/>Sword and Shield</button>
+    <button (click)="toggleFilterType('great-sword')">Greatsword</button>
+    <button (click)="toggleFilterType('dual-blades')">Dual Blades</button>
+    <button (click)="toggleFilterType('long-sword')">Longsword</button>
+    <button (click)="toggleFilterType('hammer')">Hammer</button>
+    <button (click)="toggleFilterType('hunting-horn')">Hunting Horn</button>
+    <button (click)="toggleFilterType('lance')">Lance</button>
+    <button (click)="toggleFilterType('gunlance')">Gunlance</button>
+    <button (click)="toggleFilterType('switch-axe')">Switch Axe</button>
+    <button (click)="toggleFilterType('charge-blade')">Charge Blade</button>
+    <button (click)="toggleFilterType('insect-glaive')">Insect Glaive</button>
+    <button (click)="toggleFilterType('bow')">Bow</button>
+    <button (click)="toggleFilterType('light-bowgun')">Light Bowgun</button>
+    <button (click)="toggleFilterType('heavy-bowgun')">Heavy Bowgun</button>
   </div>
-  </fieldset>
+
   <div>
     <h2>Weapons</h2>
   </div>
-  <div>
-    @if(allweapons.length && !filterActive){
-  <ul>
-    @for (weapon of allweapons; track $index){
-      <app-weapon-card class="weaponCard" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
-    }
-  </ul>
-  }
-  </div>
-  <div>
-    @if (filterActive){
+  <div *ngIf="!cargando; else cargandoP">
+
       <ul>
         @for (weapon of filterweapons; track $index){
         <app-weapon-card class="weaponCard" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
         }
       </ul>
-    }
   </div>
-  <div>
-    @if(!filterweapons.length && filterActive){
-      <p>Filtrando...</p>
-    }
-  </div>
-  <div>
-    @if(!allweapons.length && !filterActive){
-      <p style="margin-left: 4rem;">Cargando...</p>
-    }
-  </div>
+
 </div>
+
+<ng-template #cargandoP>
+  <p style="margin-left: 4rem;">Cargando...</p>
+</ng-template>

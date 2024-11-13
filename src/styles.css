@@ -4,6 +4,14 @@ body{
     margin: 0%;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: larger;
+    background-repeat: repeat;
+
+    /* background-image: url('../media/background/pattern-bc2.webp');
+    background-size: 40%; */
+
+     background-image: url('../media/background/pattern-bc.png');
+    background-size: 10%;
+    
 }
 
 html{
@@ -11,10 +19,15 @@ html{
 }
 
 .pageBC{
-    background-color: rgba(128, 121, 121, 0.6);
+    
+    
+    background-color: rgba(128, 121, 121, 0.8);
     margin-left: 3rem;
     margin-right: 3rem;
     margin-top: 0%;
     margin-bottom: 0%;
+    padding: 3rem;
+    text-shadow: 2px 0 white, -2px 0 white, 0 2px white, 0 -2px white,
+    1px 1px white, -1px -1px white, 1px -1px white, -1px 1px white;
 }
 
