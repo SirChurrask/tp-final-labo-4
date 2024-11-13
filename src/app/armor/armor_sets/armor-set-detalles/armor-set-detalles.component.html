@@ -1,1 +1,13 @@
-<p>armor-set-detalles works!</p>
+<div>
+  @if (armorSet){
+    <h2>{{armorSet.name}}</h2>
+    <p>Rango: {{armorSet.rank}}</p>
+    @for (piece of armorSet.pieces; track $index){
+      <h4>{{piece.type}}</h4>
+      <p>{{piece.name}}</p>
+      <img class="image" src="{{piece.assets.imageMale}}"/>
+      <img class="image" src="{{piece.assets.imageFemale}}"/>
+    }
+    <h3>Bonus: {{armorSet.bonus?.name}}</h3>
+  }
+</div>

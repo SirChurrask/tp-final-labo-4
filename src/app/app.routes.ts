@@ -11,6 +11,7 @@ import { ArmorSetDetallesComponent } from './armor/armor_sets/armor-set-detalles
 
 import { LoginFormComponent } from './user/components/login-form/login-form.component';
 import { RegisterFormComponent } from './user/components/register-form/register-form.component';
+import { ListaAdquiridosComponent } from './user/components/lista-adquiridos/lista-adquiridos.component';
 
 
 export const routes: Routes = [
@@ -28,6 +29,9 @@ export const routes: Routes = [
   },
   {
     path: 'Pendientes', component: ListaPendientesComponent
+  },
+  {
+    path: 'Adquiridos', component: ListaAdquiridosComponent
   },
   {
     path: 'Armors/:id', component: ArmorSetDetallesComponent

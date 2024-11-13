@@ -2,23 +2,33 @@ import { Router } from '@angular/router';
 import { Armor } from '../../interface/armor';
 import { ArmorService } from './../../service/armor.service';
 import { Component, EventEmitter, inject, OnInit, Output} from '@angular/core';
+import { UserService } from '../../../user/services/user.service';
+import { PendingService } from '../../../shared/service/pending.service';
+import { AcquiredService } from '../../../shared/service/acquired.service';
+import { WantedItem } from '../../../shared/interface/wanted-item';
+import { AcquiredItem } from '../../../shared/interface/acquired-item';
+import { ArmorCardComponent } from '../armor-card/armor-card.component';
 
 @Component({
   selector: 'app-armor-sets',
   standalone: true,
-  imports: [],
+  imports: [ArmorCardComponent],
   templateUrl: './armor-sets.component.html',
   styleUrl: './armor-sets.component.css'
 })
 export class ArmorSetsComponent implements OnInit{
 
   armorService = inject(ArmorService)
+  db = inject(UserService);
+  ps = inject(PendingService);
+  as = inject(AcquiredService);
 
-  armorList: Armor[] = []
+  logged : boolean = false;
+  armorList: Armor[] = [];
 
-  routes = inject(Router)
+  routes = inject(Router);
 
-  listarArmor(){
+  /*listarArmor(){
     this.armorService.getArmor().subscribe({
       next: (arrmor: Armor[]) => {
         this.armorList = arrmor;
@@ -27,14 +37,7 @@ export class ArmorSetsComponent implements OnInit{
         console.log(err.message);
       },
       })
-  }
-
-  @Output() guardArmor = new EventEmitter<Armor>();
-
-  enviarArmor(enviar: Armor){
-    //console.log(enviar);
-    this.guardArmor.emit(enviar);
-  }
+  }*/
 
   armadurasFiltradas: Array<Armor> = [];
 
@@ -140,12 +143,24 @@ export class ArmorSetsComponent implements OnInit{
     this.activeFilter();
   }
 
-  routeDetalles(id: number){
-    this.routes.navigate([`Armors/${id}`]);
+  addPending(item : WantedItem){
+    this.ps.putPending(item);
+  }
+
+  addAcquired(item: AcquiredItem){
+    this.as.putAcquired(item);
   }
 
   ngOnInit(): void {
-    this.listarArmor();
+    this.armorService.currentData.subscribe(
+      value => {this.armorList = value}
+    )
+    this.db.currentData.subscribe(
+      value => { this.logged = value}
+    )
+    this.ps.getPending();
+    this.as.getAcquired();
+    this.armorService.getArmors();
   }
 
 }

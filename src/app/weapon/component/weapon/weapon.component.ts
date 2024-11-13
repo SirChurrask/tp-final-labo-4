@@ -2,33 +2,31 @@ import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { WeaponsService } from '../../service/weapons.service';
 import { Weapon } from '../../interface/weapon';
 import { ListaPendientesComponent } from '../../../user/components/lista-pendientes/lista-pendientes.component';
+import { WeaponCardComponent } from '../weapon-card/weapon-card.component';
+import { UserService } from '../../../user/services/user.service';
+import { WantedItem } from '../../../shared/interface/wanted-item';
+import { PendingService } from '../../../shared/service/pending.service';
+import { AcquiredService } from '../../../shared/service/acquired.service';
+import { AcquiredItem } from '../../../shared/interface/acquired-item';
 
 @Component({
   selector: 'app-weapon',
   standalone: true,
-  imports: [],
+  imports: [WeaponCardComponent],
   templateUrl: './weapon.component.html',
   styleUrl: './weapon.component.css'
 })
 export class WeaponComponent implements OnInit{
   WeapnService = inject(WeaponsService);
+  db = inject(UserService);
+  ps = inject(PendingService);
+  as = inject(AcquiredService);
+
+  logged : boolean = false;
 
   allweapons: Array<Weapon> = [];
 
   showImage: boolean = false;
-
-  cargarWeapons(){
-    this.WeapnService.getWeapons().subscribe(
-      {
-        next: (weapons: Weapon[]) => {
-        this.allweapons = weapons;
-        },
-        error: (err: Error) =>{
-          console.log(err.message);
-        }
-      }
-    )
-  }
 
   mostrarimagen(){
     if(!this.showImage){
@@ -38,14 +36,6 @@ export class WeaponComponent implements OnInit{
       this.showImage = false;
     }
   }
-
-  /*@Output() guardWeapon = new EventEmitter<Weapon>();
-
-  enviarWeapon(enviar: Weapon){
-    alert("Arma enviada a Pendientes");
-    //console.log(enviar);
-    this.guardWeapon.emit(enviar);
-  } */
 
   //filtro
 
@@ -249,7 +239,24 @@ export class WeaponComponent implements OnInit{
   }
   */
 
+  addPending(item : WantedItem){
+    this.ps.putPending(item);
+  }
+
+  addAcquired(item: AcquiredItem){
+    this.as.putAcquired(item);
+  }
+
+
   ngOnInit(){
-    this.cargarWeapons();
+    this.WeapnService.currentData.subscribe(
+      value => {this.allweapons = value}
+    )
+    this.db.currentData.subscribe(
+      value => { this.logged = value}
+    )
+    this.ps.getPending();
+    this.as.getAcquired();
+    this.WeapnService.getWeapons();
   }
 }

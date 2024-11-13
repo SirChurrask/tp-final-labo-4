@@ -21,6 +21,10 @@ export class UserService {
 
   private userId : string = '';
 
+  getUserId(){
+    return this.userId;
+  }
+
   getLogged(){
     return this.logged.value;
   }
@@ -53,6 +57,7 @@ export class UserService {
     user.password = encodedPass;
     
     return this.http.post<User>(this.url,user);
+
   }
 
   getUserAvilable(term: string): Observable<User[]>{
@@ -76,7 +81,6 @@ export class UserService {
           }else{
             return false;
           }
-        
       }),
       catchError(error => {
         console.error('Error al obtener datos:', error);
