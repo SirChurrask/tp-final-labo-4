@@ -1,21 +1,51 @@
 <legend *ngIf="armorCheck && !weaponCheck">
-  <p>{{armor.name}}</p>
+  <h3>{{armor.name}}</h3>
   <p>{{armor.type}}</p>
   @for(material of armor.crafting.materials; track $index){
       <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+      @for (item of materialesNecesarios; track $index) {
+        @if (item.id == material.item.id && item.adquirido) {
+          <p>Material Adquirido!</p>
+          <button (click)="adquirirMaterial(item.id)">Borrar</button>
+        }
+        @if (item.id == material.item.id && !item.adquirido) {
+          <p>Material Faltante</p>
+          <button (click)="adquirirMaterial(item.id)">Adquirir</button>
+        }
+      }
     }
 </legend>
 <legend *ngIf="!armorCheck && weaponCheck">
-  <p>{{weapon.name}}</p>
+  <h3>{{weapon.name}}</h3>
   <p>{{weapon.type}}</p>
   @if(weapon.crafting.craftable){
     @for(material of weapon.crafting.craftingMaterials; track $index){
       <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+      @for (item of materialesNecesarios; track $index) {
+        @if (item.id == material.item.id && item.adquirido) {
+          <p>Material Adquirido!</p>
+          <button (click)="adquirirMaterial(item.id)">Borrar</button>
+        }
+        @if (item.id == material.item.id && !item.adquirido) {
+          <p>Material Faltante</p>
+          <button (click)="adquirirMaterial(item.id)">Adquirir</button>
+        }
+      }
     }
   }
   @if(!weapon.crafting.craftable){
     @for(material of weapon.crafting.upgradeMaterials; track $index){
       <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+      @for (item of materialesNecesarios; track $index) {
+        @if (item.id == material.item.id && item.adquirido) {
+          <p>Material Adquirido!</p>
+          <button (click)="adquirirMaterial(item.id)">Borrar</button>
+        }
+        @if (item.id == material.item.id && !item.adquirido) {
+          <p>Material Faltante</p>
+          <button (click)="adquirirMaterial(item.id)">Borrar</button>
+        }
+      }
     }
   }
 </legend>

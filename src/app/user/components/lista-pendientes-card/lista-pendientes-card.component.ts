@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Weapon } from '../../../weapon/interface/weapon';
 import { Armor } from '../../../armor/interface/armor';
 import { CommonModule } from '@angular/common';
+import { Material } from '../../../shared/interface/material';
 
 @Component({
   selector: 'app-lista-pendientes-card',
@@ -109,4 +110,18 @@ export class ListaPendientesCardComponent {
   }
   @Input() armorCheck: boolean = false;
   @Input() weaponCheck: boolean = false;
+  @Input() materialesNecesarios: Array<Material> = [];
+
+  adquirirMaterial(idMaterial: number){
+    for(let item of this.materialesNecesarios){
+      if (item.id == idMaterial){
+        if (item.adquirido){
+          item.adquirido = false;
+        }else {
+          item.adquirido = true;
+          alert('material adquirido!');
+        }
+      }
+    }
+  }
 }
