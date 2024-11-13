@@ -35,37 +35,44 @@ export class ListaPendientesComponent implements OnInit {
   router = inject(Router);
 
 
-  order(){
+  orderArmor(){
     for (let element of this.data) {
-      if (element.type == 'weapon'){
-        this.pendientesWeapon.push(this.weaponservice.getWeaponbyId(element.id));
-      }
       if (element.type == 'armor'){
         this.pendientesArmor.push(this.Armorservice.getArmorById(element.id));
       }
     }
   }
 
+  orderWeapon(){
+    for (let element of this.data){
+      if (element.type == 'weapon'){
+        this.pendientesWeapon.push(this.weaponservice.getWeaponbyId(element.id));
+      }
+    }
+  }
+
   orderByType(){
+    this.pendientesArmor = [];
+    this.pendientesWeapon = [];
     let w : boolean | Observable<Weapon[]> = this.weaponservice.getWeapons();
     if(typeof w == 'boolean'){
-      this.order();
+      this.orderWeapon();
     }else{
       w.subscribe({
         next: () =>{
-          this.order();
+          this.orderWeapon();
         },
         error: (err: Error) => {console.log(err)}
       })
     }
 
     let a : boolean | Observable<Armor[]> = this.Armorservice.getArmors();
-    if(typeof w == 'boolean'){
-      this.order();
+    if(typeof a == 'boolean'){
+      this.orderArmor();
     }else{
-      w.subscribe({
+      a.subscribe({
         next: () =>{
-          this.order();
+          this.orderArmor();
         },
         error: (err: Error) => {console.log(err)}
       })
