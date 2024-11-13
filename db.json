@@ -1,88 +1,12 @@
 {
   "user": [
     {
-      "id": "0ec5",
-      "username": "Durotron",
-      "password": "12345",
+      "id": "0c6a",
+      "username": "DuroTron",
+      "password": "$2a$10$X4wmY6O9/lwTIoBOnlk3pueeWMjWaO1hSAhX9im6I7Z13zHvEQAtW",
       "acquired": [],
       "pending": []
-    },
-    {
-      "id": "7881",
-      "username": "SirChurrask",
-      "password": "carne",
-      "pending": [
-        {
-          "id": 6,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 119,
-              "acquired": false
-            },
-            {
-              "id": 118,
-              "acquired": false
-            },
-            {
-              "id": 123,
-              "acquired": false
-            }
-          ]
-        },
-        {
-          "id": 129,
-          "type": "armor",
-          "materiales": [
-            {
-              "id": 318,
-              "acquired": false
-            },
-            {
-              "id": 319,
-              "acquired": false
-            },
-            {
-              "id": 320,
-              "acquired": false
-            },
-            {
-              "id": 204,
-              "acquired": false
-            }
-          ]
-        }
-      ],
-      "acquired": [
-        {
-          "id": 1076,
-          "type": "weapon"
-        },
-        {
-          "id": 1138,
-          "type": "weapon"
-        },
-        {
-          "id": 28,
-          "type": "armor"
-        },
-        {
-          "id": 29,
-          "type": "armor"
-        },
-        {
-          "id": 30,
-          "type": "armor"
-        },
-        {
-          "id": 31,
-          "type": "armor"
-        },
-        {
-          "id": 32,
-          "type": "armor"
-        }
-      ]
+
     }
   ]
 }
