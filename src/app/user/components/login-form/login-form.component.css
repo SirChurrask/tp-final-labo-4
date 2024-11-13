@@ -1,0 +1,13 @@
+.alert{
+    color: red;
+}
+
+h2{
+    text-align: center;
+}
+
+form, .ng-template{
+    text-align: center;
+    border-top: 0cap;
+    border-bottom: 0cap;
+}

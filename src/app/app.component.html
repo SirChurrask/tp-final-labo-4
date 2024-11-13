@@ -1,25 +1,30 @@
 <header>
-  <h2>Hello!</h2>
+  <div id="arriba">
+    <h2 class="arriba2">{{title}}</h2>
+    <app-nav-user class="arriba2"></app-nav-user>
+  </div>
+  
 
   <nav>
     <a routerLink="/Items">
-      items :O -
+      Items
     </a>
     <a routerLink="/Monsters">
-      chobis -
+      Monsters
     </a>
     <a routerLink="/Armors">
-      arrmor -
+      Armors
     </a>
     <a routerLink="/Weapons">
-      Weponn -
+      Weapons
     </a>
     <a routerLink="/Pendientes">
       Pending
     </a>
   </nav>
 
-  <app-nav-user></app-nav-user>
+  
 </header>
 
 <router-outlet />
+
