@@ -107,4 +107,6 @@ export class ListaPendientesCardComponent {
       ]
     }
   }
+  @Input() armorCheck: boolean = false;
+  @Input() weaponCheck: boolean = false;
 }

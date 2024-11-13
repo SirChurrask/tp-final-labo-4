@@ -51,6 +51,28 @@
               "acquired": false
             }
           ]
+        },
+        {
+          "id": 291,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 234,
+              "acquired": false
+            },
+            {
+              "id": 232,
+              "acquired": false
+            },
+            {
+              "id": 235,
+              "acquired": false
+            },
+            {
+              "id": 159,
+              "acquired": false
+            }
+          ]
         }
       ],
       "acquired": [
