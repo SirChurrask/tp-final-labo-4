@@ -25,13 +25,13 @@ export class WeaponComponent implements OnInit{
 
   logged : boolean = false;
 
-  allweapons: Array<Weapon> = [];
-
   showImage: boolean = false;
 
   filterweapons: Array<Weapon> = [];
 
-  filterType: string[] = []
+  filterType: string[] = [];
+
+  filterElement: string[] = [];
 
   cargando: boolean = true;
 
@@ -42,20 +42,34 @@ export class WeaponComponent implements OnInit{
     }else{
       this.filterType.push(type);
     }
-    if(this.filterType.length){
-      this.activeFilter();
-    }else{
-      this.filterweapons = this.allweapons;
-    }
+    this.activeFilter();
     this.cargando = false;
-    console.log(this.filterweapons)
+  }
+
+  toggleFilterElement(element: string){
+    this.cargando = true;
+    if(this.filterElement.includes(element)){
+      this.filterElement = this.filterElement.filter( x => x != element);
+    }else{
+      this.filterElement.push(element);
+    }
+    this.activeFilter();
+    this.cargando = false;
   }
 
   activeFilter(){
-    
-    this.filterweapons = this.allweapons.filter(x => this.filterType.includes(x.type));
+
+    if(this.filterType.length){
+      this.filterweapons = this.WeapnService.getWeaponsValue().filter(x => this.filterType.includes(x.type));
+    }else{
+      this.filterweapons = this.WeapnService.getWeaponsValue();
+    }
+    if(this.filterElement.length){
+     this.filterweapons = this.filterweapons.filter(x => x.elements.map( element => element.type).some( ele => this.filterElement.includes(ele)));
+    };
     
   }
+  
 
   addPending(item : WantedItem){
     this.ps.putPending(item);
@@ -70,7 +84,6 @@ export class WeaponComponent implements OnInit{
     
     this.WeapnService.currentData.subscribe(
       value => {
-        this.allweapons = value;
         this.filterweapons = value;
         this.cargando = false;
       }
@@ -78,9 +91,11 @@ export class WeaponComponent implements OnInit{
     this.db.currentData.subscribe(
       value => { this.logged = value}
     )
-    
     this.ps.getPending();
     this.as.getAcquired();
     this.WeapnService.getWeapons();
+    this.filterweapons = this.WeapnService.getWeaponsValue();
   }
+
+  
 }
