@@ -1,53 +1,52 @@
-<fieldset>
-  <legend>Filtro</legend>
+<div id="weaponList">
+  <fieldset>
+    <legend>Filtro</legend>
+    <div>
+    <button (click)="toggleFilter(1)">Sword and Shield</button>
+    <button (click)="toggleFilter(2)">Greatsword</button>
+    <button (click)="toggleFilter(3)">Dual Blades</button>
+    <button (click)="toggleFilter(4)">Longsword</button>
+    <button (click)="toggleFilter(5)">Hammer</button>
+    <button (click)="toggleFilter(6)">Hunting Horn</button>
+    <button (click)="toggleFilter(7)">Lance</button>
+    <button (click)="toggleFilter(8)">Gunlance</button>
+    <button (click)="toggleFilter(9)">Switch Axe</button>
+    <button (click)="toggleFilter(10)">Charge Blade</button>
+    <button (click)="toggleFilter(11)">Insect Glaive</button>
+    <button (click)="toggleFilter(12)">Bow</button>
+    <button (click)="toggleFilter(13)">Light Bowgun</button>
+    <button (click)="toggleFilter(14)">Heavy Bowgun</button>
+  </div>
+  </fieldset>
   <div>
-  <button (click)="toggleFilter(1)">Sword and Shield</button>
-  <button (click)="toggleFilter(2)">Greatsword</button>
-  <button (click)="toggleFilter(3)">Dual Blades</button>
-  <button (click)="toggleFilter(4)">Longsword</button>
-  <button (click)="toggleFilter(5)">Hammer</button>
-  <button (click)="toggleFilter(6)">Hunting Horn</button>
-  <button (click)="toggleFilter(7)">Lance</button>
-  <button (click)="toggleFilter(8)">Gunlance</button>
-  <button (click)="toggleFilter(9)">Switch Axe</button>
-  <button (click)="toggleFilter(10)">Charge Blade</button>
-  <button (click)="toggleFilter(11)">Insect Glaive</button>
-  <button (click)="toggleFilter(12)">Bow</button>
-  <button (click)="toggleFilter(13)">Light Bowgun</button>
-  <button (click)="toggleFilter(14)">Heavy Bowgun</button>
-</div>
-</fieldset>
-<div>
-  <h2>Weapons</h2>
-  <p (click)="mostrarimagen()" style="color: blue;">mostrar imagenes</p>
-</div>
-<div>
-  @if(allweapons.length && !filterActive){
-    <p>all weapons</p>
-<ul>
-  @for (weapon of allweapons; track $index){
-    <app-weapon-card (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
+    <h2>Weapons</h2>
+  </div>
+  <div>
+    @if(allweapons.length && !filterActive){
+  <ul>
+    @for (weapon of allweapons; track $index){
+      <app-weapon-card class="weaponCard" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
+    }
+  </ul>
   }
-</ul>
-}
-</div>
-<div>
-  @if (filterActive){
-    <p>filter weapons</p>
-    <ul>
-      @for (weapon of filterweapons; track $index){
-       <app-weapon-card (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
-      }
-    </ul>
-  }
-</div>
-<div>
-  @if(!filterweapons.length && filterActive){
-    <p>Filtrando...</p>
-  }
-</div>
-<div>
-  @if(!allweapons.length && !filterActive){
-    <p>Cargando...</p>
-  }
+  </div>
+  <div>
+    @if (filterActive){
+      <ul>
+        @for (weapon of filterweapons; track $index){
+        <app-weapon-card class="weaponCard" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
+        }
+      </ul>
+    }
+  </div>
+  <div>
+    @if(!filterweapons.length && filterActive){
+      <p>Filtrando...</p>
+    }
+  </div>
+  <div>
+    @if(!allweapons.length && !filterActive){
+      <p style="margin-left: 4rem;">Cargando...</p>
+    }
+  </div>
 </div>

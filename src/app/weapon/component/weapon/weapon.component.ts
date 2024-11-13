@@ -250,7 +250,10 @@ export class WeaponComponent implements OnInit{
 
   ngOnInit(){
     this.WeapnService.currentData.subscribe(
-      value => {this.allweapons = value}
+      value => {
+        this.allweapons = value;
+        console.log(this.allweapons);
+      }
     )
     this.db.currentData.subscribe(
       value => { this.logged = value}

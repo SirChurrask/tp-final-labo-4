@@ -12,7 +12,6 @@ header{
     flex-direction: column;
     align-items: center;
 
-    margin-bottom: 1rem;
 }
 
 .arriba2{
@@ -47,3 +46,7 @@ nav > a{
     justify-content: space-between;
     width: 100%;
 }
+
+
+    
+

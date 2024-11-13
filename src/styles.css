@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-color: gray;
+    background-color: black;
     margin: 0%;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: larger;
@@ -8,5 +8,13 @@ body{
 
 html{
     margin: 0%;
+}
+
+.pageBC{
+    background-color: rgba(128, 121, 121, 0.6);
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
 

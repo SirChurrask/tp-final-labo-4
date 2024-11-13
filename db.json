@@ -4,9 +4,94 @@
       "id": "0c6a",
       "username": "DuroTron",
       "password": "$2a$10$X4wmY6O9/lwTIoBOnlk3pueeWMjWaO1hSAhX9im6I7Z13zHvEQAtW",
-      "acquired": [],
-      "pending": []
-
+      "acquired": [
+        {
+          "id": 1,
+          "type": "weapon"
+        },
+        {
+          "id": 2,
+          "type": "weapon"
+        },
+        {
+          "id": 3,
+          "type": "weapon"
+        }
+      ],
+      "pending": [
+        {
+          "id": 1075,
+          "type": "weapon",
+          "materiales": [
+            {
+              "id": 116,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 1076,
+          "type": "weapon",
+          "materiales": [
+            {
+              "id": 116,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 1077,
+          "type": "weapon",
+          "materiales": [
+            {
+              "id": 121,
+              "acquired": false
+            },
+            {
+              "id": 117,
+              "acquired": false
+            },
+            {
+              "id": 116,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 116,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 116,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 201,
+              "acquired": false
+            },
+            {
+              "id": 147,
+              "acquired": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }

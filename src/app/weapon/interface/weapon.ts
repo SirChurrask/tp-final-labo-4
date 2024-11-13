@@ -30,11 +30,7 @@ export interface Weapon {
     slots: [{
       rank: number
     }],
-    elements: [{
-      type: string,
-      damage: number,
-      hidden: boolean
-    }],
+    elements: element[],
     crafting: {
     craftable: boolean,
     previous: number|null,
@@ -43,8 +39,8 @@ export interface Weapon {
     upgradeMaterials: materiales[]
     },
     assets: {
-    icon: string,
-    image: string
+      icon: string,
+      image: string
     }
 
 }
@@ -52,4 +48,10 @@ export interface Weapon {
 export interface materiales{
   quantity: number,
   item: Item
+}
+
+export interface element{
+  type: string,
+  damage: number,
+  hidden: boolean
 }
