@@ -6,73 +6,39 @@
       "password": "$2a$10$X4wmY6O9/lwTIoBOnlk3pueeWMjWaO1hSAhX9im6I7Z13zHvEQAtW",
       "acquired": [
         {
-          "id": 2,
-          "type": "armor"
-        },
-        {
-          "id": 862,
-          "type": "weapon"
-        },
-        {
-          "id": 844,
-          "type": "weapon"
-        },
-        {
-          "id": 87,
-          "type": "weapon"
-        },
-        {
-          "id": 127,
-          "type": "weapon"
-        },
-        {
-          "id": 12,
-          "type": "armor"
-        },
-        {
-          "id": 48,
-          "type": "armor"
-        },
-        {
-          "id": 29,
+          "id": 33,
           "type": "armor",
           "materiales": [
             {
-              "id": 214,
+              "id": 220,
               "acquired": true
             },
             {
-              "id": 216,
+              "id": 221,
               "acquired": true
             },
             {
-              "id": 213,
-              "acquired": true
-            },
-            {
-              "id": 147,
+              "id": 222,
               "acquired": true
             }
           ]
         },
         {
-          "id": 31,
+          "id": 1,
           "type": "armor",
           "materiales": [
             {
-              "id": 214,
+              "id": 116,
               "acquired": true
-            },
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "type": "armor",
+          "materiales": [
             {
-              "id": 215,
-              "acquired": true
-            },
-            {
-              "id": 213,
-              "acquired": true
-            },
-            {
-              "id": 154,
+              "id": 116,
               "acquired": true
             }
           ]
@@ -80,133 +46,21 @@
       ],
       "pending": [
         {
-          "id": 32,
+          "id": 2,
           "type": "armor",
           "materiales": [
             {
-              "id": 213,
-              "acquired": true
-            },
-            {
-              "id": 214,
-              "acquired": false
-            },
-            {
-              "id": 215,
-              "acquired": true
-            },
-            {
-              "id": 200,
+              "id": 116,
               "acquired": false
             }
           ]
         },
         {
-          "id": 354,
-          "type": "weapon",
+          "id": 3,
+          "type": "armor",
           "materiales": [
             {
-              "id": 440,
-              "acquired": true
-            },
-            {
-              "id": 408,
-              "acquired": true
-            },
-            {
-              "id": 409,
-              "acquired": true
-            },
-            {
-              "id": 411,
-              "acquired": true
-            }
-          ]
-        },
-        {
-          "id": 355,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 318,
-              "acquired": false
-            },
-            {
-              "id": 168,
-              "acquired": false
-            },
-            {
-              "id": 122,
-              "acquired": false
-            },
-            {
-              "id": 124,
-              "acquired": false
-            }
-          ]
-        },
-        {
-          "id": 356,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 324,
-              "acquired": false
-            },
-            {
-              "id": 169,
-              "acquired": false
-            },
-            {
-              "id": 123,
-              "acquired": false
-            },
-            {
-              "id": 125,
-              "acquired": false
-            }
-          ]
-        },
-        {
-          "id": 357,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 327,
-              "acquired": false
-            },
-            {
-              "id": 169,
-              "acquired": false
-            },
-            {
-              "id": 434,
-              "acquired": false
-            },
-            {
-              "id": 125,
-              "acquired": false
-            }
-          ]
-        },
-        {
-          "id": 358,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 121,
-              "acquired": false
-            },
-            {
-              "id": 247,
-              "acquired": false
-            },
-            {
-              "id": 246,
-              "acquired": false
-            },
-            {
-              "id": 166,
+              "id": 116,
               "acquired": false
             }
           ]

@@ -47,8 +47,6 @@ export class ListaPendientesComponent implements OnInit {
   }
 
   updateMaterial(item: WantedItem){
-    // let i = this.userPending.indexOf(this.userPending.filter(x => x.id == item.id)[0]);
-    // this.userPending[i] = item;
     this.ps.updatePending(this.userPending);
   }
 
