@@ -8,11 +8,12 @@ import {MatButtonModule} from '@angular/material/button';
 import { WeaponCardComponent } from "../../../weapon/component/weapon-card/weapon-card.component";
 import { ArmorCardComponent } from "../../../armor/armor_sets/armor-card/armor-card.component";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-lista-pendientes-card',
   standalone: true,
-  imports: [CommonModule, MatTooltipModule, MatButtonModule, WeaponCardComponent, ArmorCardComponent],
+  imports: [CommonModule, MatTooltipModule, MatButtonModule, WeaponCardComponent, ArmorCardComponent,FormsModule],
   templateUrl: './lista-pendientes-card.component.html',
   styleUrl: './lista-pendientes-card.component.css'
 })
@@ -120,6 +121,10 @@ export class ListaPendientesCardComponent {
   @Input() weaponCheck: boolean = false;
   @Input() materialesNecesarios: Array<Material> = [];
   @Output() deleteWantedEvent = new EventEmitter();
+
+  mostrar(){
+    console.log(this.materialesNecesarios);
+  }
 
   adquirirMaterial(idMaterial: number){
     for(let item of this.materialesNecesarios){

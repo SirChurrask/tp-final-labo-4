@@ -50,6 +50,7 @@ export class ListaPendientesComponent implements OnInit {
   }
 
   orderArmor(){
+    this.pendientesArmor = [];
     for (let element of this.data) {
       if (element.type == 'armor'){
         this.pendientesArmor.push(this.Armorservice.getArmorById(element.id));
@@ -58,6 +59,7 @@ export class ListaPendientesComponent implements OnInit {
   }
 
   orderWeapon(){
+    this.pendientesWeapon = [];
     for (let element of this.data){
       if (element.type == 'weapon'){
         this.pendientesWeapon.push(this.weaponservice.getWeaponbyId(element.id));
