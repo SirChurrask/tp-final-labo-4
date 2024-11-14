@@ -31,6 +31,9 @@ export class ListaAdquiridosComponent implements OnInit{
   Armorservice = inject(ArmorService);
   router = inject(Router);
 
+  deleteAcquired(item: AcquiredItem){
+    this.as.deleteAcquired(item);
+  }
 
   orderArmor(){
     for (let element of this.data) {

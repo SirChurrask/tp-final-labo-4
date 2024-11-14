@@ -52,6 +52,21 @@ export class PendingService {
      })
   }
 
+  deletePending(item: WantedItem) : void{
+    if(this.pending.value.some(x => x.id == item.id && item.type == x.type)){
+      this.http.patch<User>(`${this.url}/${this.db.getUserId()}`,{
+        pending: this.pending.value.filter(x => (x.id != item.id || x.type != item.type))
+      }).subscribe({
+        next: (data) => {
+          this.changePending(data.pending);
+        },
+        error: (err: Error) => {console.log(err)}
+      })
+    } else{
+      console.log('item a borrar no encontrado');
+    }
+  }
+
   changePending(data:WantedItem[]){
     this.pending.next(data)
   }

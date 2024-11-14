@@ -5,6 +5,7 @@
   @for(material of armor.crafting.materials; track $index){
       <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
     }
+  <button (click)="deleteAcquired()">Quitar de la lista</button>
 </legend>
 }
 
@@ -22,6 +23,7 @@
       <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
     }
   }
+  <button (click)="deleteAcquired()">Quitar de la lista</button>
 </legend>
 }
 

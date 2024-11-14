@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Armor } from '../../../armor/interface/armor';
-import { Weapon } from '../../../weapon/interface/weapon';
+import { materiales, Weapon } from '../../../weapon/interface/weapon';
 import { WeaponComponent } from '../../../weapon/component/weapon/weapon.component';
 import { ArmorSetsComponent } from '../../../armor/armor_sets/armor-sets/armor-sets.component';
 import { UserService } from '../../services/user.service';
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { ListaPendientesCardComponent } from '../lista-pendientes-card/lista-pendientes-card.component';
 import { CommonModule } from '@angular/common';
 import { Observable, Subscription } from 'rxjs';
+import { Material } from '../../../shared/interface/material';
 
 @Component({
   selector: 'app-lista-pendientes',
@@ -34,6 +35,19 @@ export class ListaPendientesComponent implements OnInit {
   Armorservice = inject(ArmorService);
   router = inject(Router);
 
+  getMaterialesItem(id: string, type: string): Material[] {
+    var rst : Material[] = []
+    for (let element of this.data){
+      if (type == element.type && id == element.id){
+        rst = element.materiales;
+      }
+    }
+    return rst;
+  }
+
+  deletePending(item: WantedItem){
+    this.ps.deletePending(item);
+  }
 
   orderArmor(){
     for (let element of this.data) {
