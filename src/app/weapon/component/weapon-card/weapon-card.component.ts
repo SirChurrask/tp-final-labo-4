@@ -41,11 +41,7 @@ export class WeaponCardComponent{
     slots: [{
       rank: 0
     }],
-    elements: [{
-      type: '',
-      damage: 0,
-      hidden: false
-    }],
+    elements: [],
     crafting: {
     craftable: false,
     previous: null,

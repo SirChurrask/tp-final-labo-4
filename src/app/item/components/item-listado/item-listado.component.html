@@ -1,0 +1,9 @@
+<div id="itemList">
+  <h2>Items</h2>
+  <ul>
+    @for (item of AllItems; track $index){
+      <app-item-card class="itemCard" [item]="item"></app-item-card>
+    }
+  </ul>
+</div>
+

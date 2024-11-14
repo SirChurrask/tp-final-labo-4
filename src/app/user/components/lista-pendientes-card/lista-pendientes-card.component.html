@@ -16,8 +16,9 @@
     }
   <button (click)="deletePending()">Quitar de la lista</button>
 </legend>
-<legend *ngIf="!armorCheck && weaponCheck">
-  <h3>{{weapon.name}}</h3>
+<legend *ngIf="weapon">
+  <p>{{weapon.name}}</p>
+
   <p>{{weapon.type}}</p>
   @if(weapon.crafting.craftable){
     @for(material of weapon.crafting.craftingMaterials; track $index){

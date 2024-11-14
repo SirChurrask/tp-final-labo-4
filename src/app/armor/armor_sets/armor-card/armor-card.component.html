@@ -1,4 +1,4 @@
-<h3>{{armor.name}}</h3>
+<!-- <h3>{{armor.name}}</h3>
 <p>Rareza: {{armor.rarity}}</p>
 <p (click)="routeDetalles(armor.armorSet.id)" style="color: blue;">Detalles del set</p>
 @for (skill of armor.skills; track $index){
@@ -8,4 +8,38 @@
 <div *ngIf="logged">
   <input type="button" value="Acquired" (click)="addAcquired()">
   <input type="button" value="Pending" (click)="addPending()">
-</div>
+</div> -->
+
+<div class="armorContainer">
+  <div>
+   
+  </div>
+  <div class="boxContent">
+   <div class="boxTitle" >
+     <h3 *ngIf="armor.name">{{armor.name}}</h3>
+   </div>
+   <div style="display: flex; flex-direction: row;">
+    <img *ngIf="armor.assets && armor.assets.imageMale" class="armorImage" src={{armor.assets.imageMale}}/>
+    <img *ngIf="armor.assets && armor.assets.imageMale" class="armorImage" src={{armor.assets.imageFemale}}/>
+   </div>
+   <p>Defense: {{armor.defense.base}}</p>
+   <p *ngIf="armor.resistances">Resistances:</p>
+   <div  *ngIf="armor.resistances" class="boxResistances">
+     <p style="background-color: purple;">{{armor.resistances.dragon}}</p>
+     <p style="background-color: orangered;">{{armor.resistances.fire}}</p>
+     <p style="background-color: rgb(40, 199, 199);">{{armor.resistances.ice}}</p>
+     <p style="background-color: yellow;">{{armor.resistances.thunder}}</p>
+     <p style="background-color: blue;">{{armor.resistances.water}}</p>
+   </div>
+   @for (skill of armor.skills; track $index){
+    <p>{{skill.skillName}}</p>
+    <!-- <p>{{skill.description}}</p> -->
+  }
+  <p class="seeDetails" (click)="routeDetalles(armor.armorSet.id)">See details</p>
+  <div class="divPending" *ngIf="logged">
+     <input type="button" value="+ Acquired" (click)="addAcquired()">
+     <input type="button" value="+ Pending" (click)="addPending()">
+   </div>
+  </div>
+   
+ </div>

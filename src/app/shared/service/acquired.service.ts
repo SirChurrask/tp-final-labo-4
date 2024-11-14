@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AcquiredItem } from '../interface/acquired-item';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../../user/interfaces/user';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ import { User } from '../../user/interfaces/user';
 export class AcquiredService {
   db = inject(UserService);
   http = inject(HttpClient);
+  private _snackBar = inject(MatSnackBar);
+
   private url = 'http://localhost:3000/user';
   private acquired =  new BehaviorSubject<AcquiredItem[]>([]);
   currentdata = this.acquired.asObservable();
@@ -22,11 +25,21 @@ export class AcquiredService {
       }).subscribe({
         next: (data) => {
           this.changeAcquired(data.acquired);
+          this._snackBar.open("Item added to acquired", 'Undo',{
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
           console.log(data);
         },
         error: (err : Error) => {console.log(err)}
      })
     }else{
+      this._snackBar.open("item already on acquired items", 'Undo',{
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      });
       console.log("item already on acquired items")
     }
   }

@@ -1,19 +1,48 @@
-<h3>{{weapon.name}}</h3>
-@if(showImage){
-  <img class="images" src={{weapon.assets.image}}/>
-}
-@if(weapon.crafting.craftable){
-  @for(material of weapon.crafting.craftingMaterials; track $index){
-    <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+<div class="weaponContainer">
+ <div>
+  
+ </div>
+ <div class="boxContent">
+  <div class="boxTitle" >
+    <img  *ngIf="weapon.assets && weapon.assets.icon" class="iconImage" src={{weapon.assets.icon}}>
+    <h3 *ngIf="weapon.name">{{weapon.name}}</h3>
+  </div>
+  <img *ngIf="weapon.assets && weapon.assets.image" class="weaponImage" src={{weapon.assets.image}}/>
+  <p>Damage: {{weapon.attack.raw}}</p>
+  <!-- <p>ID: {{weapon.id}}</p> -->
+  <p *ngIf="weapon.durability">Durability:</p>
+  <div  *ngIf="weapon.durability" class="boxDurability">
+    <p style="background-color: purple;">{{weapon.durability[0].purple}}</p>
+    <p style="background-color: white;">{{weapon.durability[0].white}}</p>
+    <p style="background-color: blue;">{{weapon.durability[0].blue}}</p>
+    <p style="background-color: green;">{{weapon.durability[0].green}}</p>
+    <p style="background-color: yellow;">{{weapon.durability[0].yellow}}</p>
+    <p style="background-color: orangered;">{{weapon.durability[0].orange}}</p>
+    <p style="background-color: red;">{{weapon.durability[0].red}}</p>
+  </div> 
+  <div  *ngIf="weapon.elements">
+    @for (item of weapon.elements; track $index) {
+      <p >{{item.type}} {{item.damage}}</p>
+    }
+  </div>
+
+  <!-- @if(weapon.crafting.craftable){
+    @for(material of weapon.crafting.craftingMaterials; track $index){
+      <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+    }
   }
-}
-@if(!weapon.crafting.craftable){
-  @for(material of weapon.crafting.upgradeMaterials; track $index){
-    <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-  }
-}
-<div *ngIf="logged">
-  <input type="button" value="Acquired" (click)="addAcquired()">
-  <input type="button" value="Pending" (click)="addPending()">
+
+  @if(!weapon.crafting.craftable){
+    @for(material of weapon.crafting.upgradeMaterials; track $index){
+      <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+    }
+  } -->
+
+  <div class="divPending" *ngIf="logged">
+    <input type="button" value="+ Acquired" (click)="addAcquired()">
+    <input type="button" value="+ Pending" (click)="addPending()">
+  </div>
+ </div>
+  
 </div>
 

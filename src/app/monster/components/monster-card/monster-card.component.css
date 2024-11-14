@@ -1,0 +1,40 @@
+.monsterContainer{
+    justify-content: center;
+    width: 75%;
+    margin: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.monsterType{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.monsterType > p{
+    display: table-cell;
+    vertical-align: middle;
+    color: gray;
+    padding-top: 1rem;
+    padding-left: 3rem;
+}
+
+p{
+    margin: 0%;
+}
+
+h3{
+    margin-bottom: 1rem;
+}
+
+.seeDetails{
+    padding-top: 0.5rem;
+    color: #99efca;
+}
+
+.seeDetails:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}

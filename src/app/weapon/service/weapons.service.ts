@@ -18,6 +18,10 @@ export class WeaponsService {
     this.weapons.next(data)
   }
 
+  getWeaponsValue(){
+    return this.weapons.value;
+  }
+
   getWeapons(){
     if(!this.weapons.value.length){
       let response = this.http.get<Weapon[]>(this.urlbase)
