@@ -11,7 +11,52 @@
       "id": "7881",
       "username": "SirChurrask",
       "password": "carne",
-      "pending": [],
+      "pending": [
+        {
+          "id": 90,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 274,
+              "acquired": false
+            },
+            {
+              "id": 275,
+              "acquired": false
+            },
+            {
+              "id": 276,
+              "acquired": false
+            },
+            {
+              "id": 138,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 89,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 275,
+              "acquired": false
+            },
+            {
+              "id": 274,
+              "acquired": false
+            },
+            {
+              "id": 276,
+              "acquired": false
+            },
+            {
+              "id": 164,
+              "acquired": false
+            }
+          ]
+        }
+      ],
       "acquired": [
         {
           "id": 1076,
