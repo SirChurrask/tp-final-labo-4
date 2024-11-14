@@ -71,7 +71,7 @@ export class PendingService {
      return rta;
   }
 
-  deletePending(item: WantedItem) : void{
+  deletePending(item: WantedItem) : WantedItem{
     if(this.pending.value.some(x => x.id == item.id && item.type == x.type)){
       this.http.patch<User>(`${this.url}/${this.db.getUserId()}`,{
         pending: this.pending.value.filter(x => (x.id != item.id || x.type != item.type))
@@ -84,6 +84,7 @@ export class PendingService {
     } else{
       console.log('item a borrar no encontrado');
     }
+    return item;
   }
 
   changePending(data:WantedItem[]){

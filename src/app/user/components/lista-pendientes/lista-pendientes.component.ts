@@ -102,6 +102,10 @@ export class ListaPendientesComponent implements OnInit {
     }
   }
 
+  addToAcquired(item: WantedItem){
+    this.as.putAcquired(this.ps.deletePending(item))
+  }
+
   ngOnInit(){
 
     this.db.currentData.subscribe(

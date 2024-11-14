@@ -13,6 +13,7 @@
     }
     </div>
   </div>
+  <input *ngIf="falseCheck()" (click)="addAcquired()" type="button" value="+ Acquired"/>
   <button (click)="deletePending()">Remove</button>
 </legend>
 
@@ -49,7 +50,8 @@
     }
     </div>
   </div>
-  <button (click)="deletePending()">Remove</button>
+    <input *ngIf="falseCheck()" (click)="addAcquired()" type="button" value="+ Acquired"/>
+    <button (click)="deletePending()">Remove</button>
   
 </legend>
 

@@ -54,3 +54,21 @@ legend > button:hover{
     cursor: pointer;
     transform: scale(1.1);
 }
+
+legend > input{
+    width: 50%;
+    padding: 0%;
+    margin: 0%;
+    margin-left: 25%;
+    margin-top: 0.5rem;
+    border-radius: 1.5rem;
+    border-color: greenyellow;
+    color: greenyellow;
+    background-color: rgb(7, 58, 15);
+    
+}
+
+legend > input:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}

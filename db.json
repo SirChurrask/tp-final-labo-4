@@ -32,16 +32,14 @@
         {
           "id": 48,
           "type": "armor"
-        }
-      ],
-      "pending": [
+        },
         {
           "id": 29,
           "type": "armor",
           "materiales": [
             {
               "id": 214,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 216,
@@ -49,7 +47,7 @@
             },
             {
               "id": 213,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 147,
@@ -67,18 +65,20 @@
             },
             {
               "id": 215,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 213,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 154,
               "acquired": true
             }
           ]
-        },
+        }
+      ],
+      "pending": [
         {
           "id": 32,
           "type": "armor",

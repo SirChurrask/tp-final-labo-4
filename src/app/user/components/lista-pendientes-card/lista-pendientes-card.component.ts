@@ -123,6 +123,7 @@ export class ListaPendientesCardComponent {
   @Input() materialesNecesarios: Array<Material> = [];
   @Output() deleteWantedEvent = new EventEmitter();
   @Output() updateMaterial = new EventEmitter();
+  @Output() addToAcquired = new EventEmitter();
   @Input() userPending: WantedItem = {
     type: '',
     materiales: [],
@@ -156,7 +157,13 @@ export class ListaPendientesCardComponent {
     }
   }
 
+  falseCheck(){
+    return !this.userPending.materiales.some(x => x.acquired == false)
+  }
 
+  addAcquired(){
+    this.addToAcquired.emit(this.userPending)
+  }
 
   deletePending(){
     if(this.armorCheck && !this.weaponCheck){
