@@ -61,10 +61,12 @@
             }
           }
         }
-        @if (ailgment.recovery.actions.length && !ailgment.recovery.items.length){
-          <p style="padding-left: 4rem;">You can cure it by:</p>
-          @for (action of ailgment.recovery.actions; track $index){
-            <p style="padding-left: 5rem;">{{action}}</p>
+        @if (!ailgment.recovery.items.length){
+          @if (ailgment.recovery.actions.length){
+            <p style="padding-left: 4rem;">You can cure it by:</p>
+            @for (action of ailgment.recovery.actions; track $index){
+              <p style="padding-left: 5rem;">{{action}}</p>
+            }
           }
         }
       }
