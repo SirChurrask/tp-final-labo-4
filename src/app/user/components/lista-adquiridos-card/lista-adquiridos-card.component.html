@@ -1,18 +1,22 @@
 @if (armorCheck && !weaponCheck){
 <legend>
-  <p>{{armor.name}}</p>
-  <p>{{armor.type}}</p>
-  @for(material of armor.crafting.materials; track $index){
+  <!-- <p>{{armor.name}}</p>
+  <img src={{armor.assets.imageMale}}/>
+  <p>{{armor.type}}</p> -->
+  <app-armor-card [armor]="armor"></app-armor-card>
+  <!-- @for(material of armor.crafting.materials; track $index){
       <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-    }
+    } -->
 </legend>
 }
 
 @if(!armorCheck && weaponCheck){
 <legend>
-  <p>{{weapon.name}}</p>
-  <p>{{weapon.type}}</p>
-  @if(weapon.crafting.craftable){
+  <app-weapon-card [weapon]="weapon"></app-weapon-card>
+  <!-- <p>{{weapon.name}}</p>
+  <img src={{weapon.assets.image}}/>
+  <p>{{weapon.type}}</p> -->
+  <!-- @if(weapon.crafting.craftable){
     @for(material of weapon.crafting.craftingMaterials; track $index){
       <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
     }
@@ -21,7 +25,7 @@
     @for(material of weapon.crafting.upgradeMaterials; track $index){
       <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
     }
-  }
+  } -->
 </legend>
 }
 

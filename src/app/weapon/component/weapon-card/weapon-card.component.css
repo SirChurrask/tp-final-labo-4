@@ -1,11 +1,9 @@
 .weaponContainer{
     justify-content: center;
-    width: 75%;
+    width: auto;
     margin: none;
     display: flex;
     flex-direction: row;
-
-
 }
 
 .boxDurability{

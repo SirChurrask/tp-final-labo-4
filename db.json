@@ -20,6 +20,42 @@
         {
           "id": 5,
           "type": "armor"
+        },
+        {
+          "id": 862,
+          "type": "weapon"
+        },
+        {
+          "id": 864,
+          "type": "weapon"
+        },
+        {
+          "id": 833,
+          "type": "weapon"
+        },
+        {
+          "id": 8,
+          "type": "armor"
+        },
+        {
+          "id": 11,
+          "type": "armor"
+        },
+        {
+          "id": 12,
+          "type": "armor"
+        },
+        {
+          "id": 14,
+          "type": "armor"
+        },
+        {
+          "id": 844,
+          "type": "weapon"
+        },
+        {
+          "id": 845,
+          "type": "weapon"
         }
       ],
       "pending": [

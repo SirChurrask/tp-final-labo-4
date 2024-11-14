@@ -2,11 +2,13 @@ import { Component, input, Input } from '@angular/core';
 import { Weapon } from '../../../weapon/interface/weapon';
 import { Armor } from '../../../armor/interface/armor';
 import { CommonModule } from '@angular/common';
+import { ArmorCardComponent } from "../../../armor/armor_sets/armor-card/armor-card.component";
+import { WeaponCardComponent } from "../../../weapon/component/weapon-card/weapon-card.component";
 
 @Component({
   selector: 'app-lista-adquiridos-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ArmorCardComponent, WeaponCardComponent],
   templateUrl: './lista-adquiridos-card.component.html',
   styleUrl: './lista-adquiridos-card.component.css'
 })
@@ -107,6 +109,7 @@ export class ListaAdquiridosCardComponent {
       ]
     }
   }
+
   @Input() armorCheck: boolean = false;
   @Input() weaponCheck: boolean = false;
 }
