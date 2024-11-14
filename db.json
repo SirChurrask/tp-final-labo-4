@@ -1,3 +1,85 @@
 {
-  "user": []
+  "user": [
+    {
+      "id": "0c6a",
+      "username": "DuroTron",
+      "password": "$2a$10$X4wmY6O9/lwTIoBOnlk3pueeWMjWaO1hSAhX9im6I7Z13zHvEQAtW",
+      "acquired": [
+        {
+          "id": 2,
+          "type": "armor"
+        },
+        {
+          "id": 862,
+          "type": "weapon"
+        },
+        {
+          "id": 844,
+          "type": "weapon"
+        },
+        {
+          "id": 845,
+          "type": "weapon"
+        },
+        {
+          "id": 87,
+          "type": "weapon"
+        },
+        {
+          "id": 127,
+          "type": "weapon"
+        },
+        {
+          "id": 12,
+          "type": "armor"
+        },
+        {
+          "id": 48,
+          "type": "armor"
+        }
+      ],
+      "pending": [
+        {
+          "id": 2,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 116,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 116,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 116,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 116,
+              "acquired": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

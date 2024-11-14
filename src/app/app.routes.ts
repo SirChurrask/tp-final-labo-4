@@ -12,6 +12,7 @@ import { LoginFormComponent } from './user/components/login-form/login-form.comp
 import { RegisterFormComponent } from './user/components/register-form/register-form.component';
 import { ListaAdquiridosComponent } from './user/components/lista-adquiridos/lista-adquiridos.component';
 import { ItemListadoComponent } from './item/components/item-listado/item-listado.component';
+import { MonsterPageComponent } from './monster/components/monster-page/monster-page.component';
 
 
 export const routes: Routes = [
@@ -20,6 +21,9 @@ export const routes: Routes = [
   },
   {
     path: 'Monsters', component: MonstListadoComponent
+  },
+  {
+    path: 'Monsters/:id', component: MonsterPageComponent
   },
   {
     path: 'Armors', component: ArmorSetsComponent

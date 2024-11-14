@@ -79,6 +79,7 @@ export class ArmorSetsComponent implements OnInit{
       value => {
         this.armorList = value;
         this.armadurasFiltradas = value;
+        this.activeFilter();
       }
     )
     this.db.currentData.subscribe(

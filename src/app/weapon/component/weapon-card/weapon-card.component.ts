@@ -1,11 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Weapon, materiales } from '../../interface/weapon';
 import { CommonModule } from '@angular/common';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-weapon-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,MatTooltipModule,MatButtonModule],
   templateUrl: './weapon-card.component.html',
   styleUrl: './weapon-card.component.css'
 })
