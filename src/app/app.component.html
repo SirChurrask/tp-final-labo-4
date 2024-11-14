@@ -1,32 +1,23 @@
 <header>
   <div id="arriba">
-    <h2 class="arriba2">{{title}}</h2>
+    <h2 style="cursor: pointer;" routerLink="/" class="arriba2">{{title}}</h2>
+    <nav id="navCategorias">
+      <a routerLink="/Items">
+        Items
+      </a>
+      <a routerLink="/Monsters">
+        Monsters
+      </a>
+      <a routerLink="/Armors">
+        Armors
+      </a>
+      <a routerLink="/Weapons">
+        Weapons
+      </a>
+    </nav>
     <app-nav-user class="arriba2"></app-nav-user>
   </div>
-  
 
-  <nav>
-    <a routerLink="/Items">
-      Items
-    </a>
-    <a routerLink="/Monsters">
-      Monsters
-    </a>
-    <a routerLink="/Armors">
-      Armors
-    </a>
-    <a routerLink="/Weapons">
-      Weapons
-    </a>
-    <a routerLink="/Pendientes">
-      Pending
-    </a>
-    <a routerLink="/Adquiridos">
-      Adquiridos
-    </a>
-  </nav>
-
-  
 </header>
 
 <div class="pageBC">

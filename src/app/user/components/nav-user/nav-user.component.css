@@ -1,0 +1,13 @@
+input{
+    min-width: 5%;
+    min-height: 2rem;
+    background-color: gray;
+    border-radius: 0.3rem;
+    color: white;
+
+}
+
+input:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}

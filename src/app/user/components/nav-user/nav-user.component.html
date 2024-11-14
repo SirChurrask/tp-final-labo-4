@@ -5,5 +5,7 @@
 </div>
 
 <ng-template #logout>
+    <input type="button" value="WishList" routerLink='/pending' routerLinkActive="router-link-active"  name="wishlist"/>
+    <input type="button" value="Acquired" routerLink='/acquired' routerLinkActive="router-link-active"  name="acquired"/>
     <input type="button" value="Log Out" (click)="logoutFunc()" name="logOut"/>
 </ng-template>

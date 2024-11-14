@@ -1,9 +1,10 @@
 header{
+    position: sticky;
     background-color: rgb(37, 41, 41);
     width: 100%;
     color: rgba(202, 223, 223, 0.637);
     /*color: #414a66;*/
-
+    top: 0;
     border-width: 0rem;
     border-bottom: 0.25rem;
     border-style:solid;
@@ -21,26 +22,6 @@ header{
     padding-top: 1%;
 }
 
-nav{
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-}
-
-nav > a{
-    color: aliceblue;
-    background-color: rgba(53, 48, 47, 0.5);
-    text-decoration: none;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    width: 6rem;
-    text-align: center;
-    border-color: white;
-    border-width: 0.15rem;
-    border-style:solid;
-    border-radius: 1.5rem;
-}
-
 #arriba{
     display: flex;
     justify-content: space-between;
@@ -49,4 +30,34 @@ nav > a{
 
 .pageBC{
     background-color: rgba(128, 121, 121, 0.6);
+}
+
+#navCategorias{
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+#navCategorias > a{
+    color: aliceblue;
+    /* background-color: rgba(53, 48, 47, 0.5); */
+    text-decoration: none;
+    padding: 1rem;
+    width: 15rem;
+    text-align: center;
+    vertical-align:middle;
+    border-color: white;
+    border-width: 0.10rem;
+    border-style:solid;
+    border-top: 0;
+    border-bottom: 0;
+    /* border-radius: 1.5rem; */
+}
+
+#navCategorias > a :hover{
+    cursor: pointer;
+    border-bottom: 0.15rem;
+    transform: scale(1.05);
+    background-color: red;
 }

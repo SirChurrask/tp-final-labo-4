@@ -23,6 +23,10 @@ export class ArmorService {
     return this.http.get<Armor[]>(this.urlBase);
   }*/
 
+  getArmorValue(){
+    return this.armors.value;
+  }
+
   getArmors(){
     if(!this.armors.value.length){
       let response = this.http.get<Armor[]>(this.urlBase)

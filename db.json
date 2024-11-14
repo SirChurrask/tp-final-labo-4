@@ -6,59 +6,25 @@
       "password": "$2a$10$X4wmY6O9/lwTIoBOnlk3pueeWMjWaO1hSAhX9im6I7Z13zHvEQAtW",
       "acquired": [
         {
-          "id": 1,
-          "type": "weapon"
+          "id": 2,
+          "type": "armor"
         },
         {
-          "id": 2,
-          "type": "weapon"
+          "id": 1,
+          "type": "armor"
         },
         {
           "id": 3,
-          "type": "weapon"
+          "type": "armor"
+        },
+        {
+          "id": 5,
+          "type": "armor"
         }
       ],
       "pending": [
         {
-          "id": 1075,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 116,
-              "acquired": false
-            }
-          ]
-        },
-        {
-          "id": 1076,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 116,
-              "acquired": false
-            }
-          ]
-        },
-        {
-          "id": 1077,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 121,
-              "acquired": false
-            },
-            {
-              "id": 117,
-              "acquired": false
-            },
-            {
-              "id": 116,
-              "acquired": false
-            }
-          ]
-        },
-        {
-          "id": 4,
+          "id": 2,
           "type": "armor",
           "materiales": [
             {
@@ -68,7 +34,7 @@
           ]
         },
         {
-          "id": 9,
+          "id": 1,
           "type": "armor",
           "materiales": [
             {
@@ -78,15 +44,21 @@
           ]
         },
         {
-          "id": 14,
+          "id": 3,
           "type": "armor",
           "materiales": [
             {
-              "id": 201,
+              "id": 116,
               "acquired": false
-            },
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "type": "armor",
+          "materiales": [
             {
-              "id": 147,
+              "id": 116,
               "acquired": false
             }
           ]
