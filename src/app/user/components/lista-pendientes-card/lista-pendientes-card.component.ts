@@ -9,6 +9,7 @@ import { WeaponCardComponent } from "../../../weapon/component/weapon-card/weapo
 import { ArmorCardComponent } from "../../../armor/armor_sets/armor-card/armor-card.component";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { WantedItem } from '../../../shared/interface/wanted-item';
 
 @Component({
   selector: 'app-lista-pendientes-card',
@@ -121,23 +122,31 @@ export class ListaPendientesCardComponent {
   @Input() weaponCheck: boolean = false;
   @Input() materialesNecesarios: Array<Material> = [];
   @Output() deleteWantedEvent = new EventEmitter();
+  @Output() updateMaterial = new EventEmitter();
+  @Output() addToAcquired = new EventEmitter();
+  @Input() userPending: WantedItem = {
+    type: '',
+    materiales: [],
+    id: ''
+  };
 
-  mostrar(){
-    console.log(this.materialesNecesarios);
+  updateMaterialUser(){
+    console.log(this.userPending);
+    this.updateMaterial.emit(this.userPending);
   }
 
   adquirirMaterial(idMaterial: number){
     for(let item of this.materialesNecesarios){
       if (item.id == idMaterial){
-        if (item.adquirido){
-          item.adquirido = false;
+        if (item.acquired){
+          item.acquired = false;
           this._snackBar.open('material removed!', 'Undo',{
             duration: 3000,
             horizontalPosition: 'center',
             verticalPosition: 'top',
           });
         }else {
-          item.adquirido = true;
+          item.acquired = true;
           this._snackBar.open('material adquired!', 'Undo',{
             duration: 3000,
             horizontalPosition: 'center',
@@ -146,6 +155,14 @@ export class ListaPendientesCardComponent {
         }
       }
     }
+  }
+
+  falseCheck(){
+    return !this.userPending.materiales.some(x => x.acquired == false)
+  }
+
+  addAcquired(){
+    this.addToAcquired.emit(this.userPending)
   }
 
   deletePending(){
