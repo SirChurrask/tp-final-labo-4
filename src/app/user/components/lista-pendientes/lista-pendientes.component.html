@@ -1,21 +1,27 @@
-<div>
-  @if (!pendientesArmor.length && !pendientesWeapon.length){
-    <p>Su lista de pendientes está vacía :D</p>
-  }
-</div>
-<div>
-  @if (pendientesArmor.length){
-    <h3>Armor</h3>
-    @for (armor of pendientesArmor; track $index){
-      <app-lista-pendientes-card (deleteWantedEvent)="deletePending($event)" [armor]="armor" [armorCheck]="true" [weaponCheck]="false" [materialesNecesarios]="getMaterialesItem(armor.id,'armor')"></app-lista-pendientes-card>
+<div id="wishlistList">
+  <div>
+    @if (!pendientesArmor.length && !pendientesWeapon.length){
+      <p>Su lista de pendientes está vacía :D</p>
     }
-  }
-</div>
-<div>
-  @if (pendientesWeapon.length){
-    <h3>Weapon</h3>
-    @for (weapon of pendientesWeapon; track $index){
-      <app-lista-pendientes-card (deleteWantedEvent)="deletePending($event)" [weapon]="weapon" [armorCheck]="false" [weaponCheck]="true" [materialesNecesarios]="getMaterialesItem(weapon.id,'weapon')"></app-lista-pendientes-card>
+  </div>
+  <div>
+    @if (pendientesArmor.length){
+      <h3>Armor</h3>
+      <ul>
+        @for (armor of pendientesArmor; track $index){
+          <app-lista-pendientes-card class="wishlistCard" (deleteWantedEvent)="deletePending($event)" [armor]="armor" [armorCheck]="true" [weaponCheck]="false" [materialesNecesarios]="getMaterialesItem(armor.id,'armor')"></app-lista-pendientes-card>
+        }
+    </ul>
     }
-  }
+  </div>
+  <div>
+    @if (pendientesWeapon.length){
+      <h3>Weapon</h3>
+      <ul>
+        @for (weapon of pendientesWeapon; track $index){
+          <app-lista-pendientes-card class="wishlistCard" (deleteWantedEvent)="deletePending($event)" [weapon]="weapon" [armorCheck]="false" [weaponCheck]="true" [materialesNecesarios]="getMaterialesItem(weapon.id,'weapon')"></app-lista-pendientes-card>
+        }
+      </ul>
+    }
+  </div>
 </div>

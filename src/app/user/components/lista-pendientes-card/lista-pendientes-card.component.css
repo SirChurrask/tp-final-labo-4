@@ -1,7 +1,7 @@
 .weaponContainer{
 
     text-align: start;
-    width: 75%;
+    width: auto;
     margin: none;
     display: flex;
     flex-direction: row;
@@ -25,4 +25,30 @@
 .weaponImage{
     max-width: 10rem;
     height: auto;
+}
+
+legend{
+    width: 50%;
+}
+
+.material{
+    border: 0.2rem solid white;
+}
+
+legend > button{
+    width: 50%;
+    padding: 0%;
+    margin: 0%;
+    margin-left: 25%;
+    margin-top: 0.5rem;
+    border-radius: 1.5rem;
+    border-color: red;
+    color: red;
+    background-color: rgb(70, 25, 25);
+    
+}
+
+legend > button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }

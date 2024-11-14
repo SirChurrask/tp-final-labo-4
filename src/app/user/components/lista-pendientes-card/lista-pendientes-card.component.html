@@ -1,55 +1,68 @@
 <legend *ngIf="armorCheck && !weaponCheck">
-  <h3>{{armor.name}}</h3>
-  <p>{{armor.type}}</p>
+  <app-armor-card [armor]="armor" ></app-armor-card>
   @for(material of armor.crafting.materials; track $index){
-      <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
+    <div class="material">
+      <p mat-raised-button
+      matTooltip={{material.item.description}}
+      matTooltipClass="example-tooltip-uppercase"
+      aria-label="Button that shows a red tooltip">{{material.item.name}} x{{material.quantity}}</p>
+      
       @for (item of materialesNecesarios; track $index) {
         @if (item.id == material.item.id && item.adquirido) {
           <p>Material Adquirido!</p>
-          <button (click)="adquirirMaterial(item.id)">Borrar</button>
+          <button (click)="adquirirMaterial(item.id)">Remove</button>
         }
         @if (item.id == material.item.id && !item.adquirido) {
           <p>Material Faltante</p>
-          <button (click)="adquirirMaterial(item.id)">Adquirir</button>
+          <button (click)="adquirirMaterial(item.id)">Acquire</button>
         }
       }
+    </div>
     }
   <button (click)="deletePending()">Quitar de la lista</button>
 </legend>
-<legend *ngIf="weapon">
-  <p>{{weapon.name}}</p>
-
-  <p>{{weapon.type}}</p>
+<legend *ngIf="!armorCheck && weaponCheck">
+  <app-weapon-card [weapon]="weapon" ></app-weapon-card>
   @if(weapon.crafting.craftable){
     @for(material of weapon.crafting.craftingMaterials; track $index){
-      <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-      @for (item of materialesNecesarios; track $index) {
-        @if (item.id == material.item.id && item.adquirido) {
-          <p>Material Adquirido!</p>
-          <button (click)="adquirirMaterial(item.id)">Borrar</button>
+      <div class="material">
+        <p mat-raised-button
+        matTooltip={{material.item.description}}
+        matTooltipClass="example-tooltip-uppercase"
+        aria-label="Button that shows a red tooltip">{{material.item.name}} x{{material.quantity}}</p>
+        @for (item of materialesNecesarios; track $index) {
+          @if (item.id == material.item.id && item.adquirido) {
+            <p>Material Adquirido!</p>
+            <button (click)="adquirirMaterial(item.id)">Remove</button>
+          }
+          @if (item.id == material.item.id && !item.adquirido) {
+            <p>Material Faltante</p>
+            <button (click)="adquirirMaterial(item.id)">Acquire</button>
+          }
         }
-        @if (item.id == material.item.id && !item.adquirido) {
-          <p>Material Faltante</p>
-          <button (click)="adquirirMaterial(item.id)">Adquirir</button>
-        }
-      }
+      </div>
     }
   }
   @if(!weapon.crafting.craftable){
     @for(material of weapon.crafting.upgradeMaterials; track $index){
-      <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-      @for (item of materialesNecesarios; track $index) {
-        @if (item.id == material.item.id && item.adquirido) {
-          <p>Material Adquirido!</p>
-          <button (click)="adquirirMaterial(item.id)">Borrar</button>
+      <div class="material">
+        <p mat-raised-button
+        matTooltip={{material.item.description}}
+        matTooltipClass="example-tooltip-uppercase"
+        aria-label="Button that shows a red tooltip">{{material.item.name}} x{{material.quantity}}</p>
+        @for (item of materialesNecesarios; track $index) {
+          @if (item.id == material.item.id && item.adquirido) {
+            <p>Material Adquirido!</p>
+            <button (click)="adquirirMaterial(item.id)">Remove</button>
+          }
+          @if (item.id == material.item.id && !item.adquirido) {
+            <p>Material Faltante</p>
+            <button (click)="adquirirMaterial(item.id)">Acquire</button>
+          }
         }
-        @if (item.id == material.item.id && !item.adquirido) {
-          <p>Material Faltante</p>
-          <button (click)="adquirirMaterial(item.id)">Borrar</button>
-        }
-      }
+      </div>
     }
   }
-  <button (click)="deletePending()">Quitar de la lista</button>
+  <button (click)="deletePending()">Remove</button>
 </legend>
 

@@ -1,17 +1,25 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Weapon } from '../../../weapon/interface/weapon';
 import { Armor } from '../../../armor/interface/armor';
 import { CommonModule } from '@angular/common';
 import { Material } from '../../../shared/interface/material';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
+import { WeaponCardComponent } from "../../../weapon/component/weapon-card/weapon-card.component";
+import { ArmorCardComponent } from "../../../armor/armor_sets/armor-card/armor-card.component";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-lista-pendientes-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatTooltipModule, MatButtonModule, WeaponCardComponent, ArmorCardComponent],
   templateUrl: './lista-pendientes-card.component.html',
   styleUrl: './lista-pendientes-card.component.css'
 })
 export class ListaPendientesCardComponent {
+
+  private _snackBar = inject(MatSnackBar);
+
   @Input() weapon : Weapon = {
     id :'',
     type : '',
@@ -118,9 +126,18 @@ export class ListaPendientesCardComponent {
       if (item.id == idMaterial){
         if (item.adquirido){
           item.adquirido = false;
+          this._snackBar.open('material removed!', 'Undo',{
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
         }else {
           item.adquirido = true;
-          alert('material adquirido!');
+          this._snackBar.open('material adquired!', 'Undo',{
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
         }
       }
     }
