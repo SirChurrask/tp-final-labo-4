@@ -45,6 +45,10 @@ export class ListaPendientesComponent implements OnInit {
     return rst;
   }
 
+  deletePending(item: WantedItem){
+    this.ps.deletePending(item);
+  }
+
   orderArmor(){
     for (let element of this.data) {
       if (element.type == 'armor'){

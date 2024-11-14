@@ -14,6 +14,7 @@
         }
       }
     }
+  <button (click)="deletePending()">Quitar de la lista</button>
 </legend>
 <legend *ngIf="!armorCheck && weaponCheck">
   <h3>{{weapon.name}}</h3>
@@ -48,5 +49,6 @@
       }
     }
   }
+  <button (click)="deletePending()">Quitar de la lista</button>
 </legend>
 

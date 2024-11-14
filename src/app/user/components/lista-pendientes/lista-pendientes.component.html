@@ -7,7 +7,7 @@
   @if (pendientesArmor.length){
     <h3>Armor</h3>
     @for (armor of pendientesArmor; track $index){
-      <app-lista-pendientes-card [armor]="armor" [armorCheck]="true" [weaponCheck]="false" [materialesNecesarios]="getMaterialesItem(armor.id,'armor')"></app-lista-pendientes-card>
+      <app-lista-pendientes-card (deleteWantedEvent)="deletePending($event)" [armor]="armor" [armorCheck]="true" [weaponCheck]="false" [materialesNecesarios]="getMaterialesItem(armor.id,'armor')"></app-lista-pendientes-card>
     }
   }
 </div>
@@ -15,7 +15,7 @@
   @if (pendientesWeapon.length){
     <h3>Weapon</h3>
     @for (weapon of pendientesWeapon; track $index){
-      <app-lista-pendientes-card [weapon]="weapon" [armorCheck]="false" [weaponCheck]="true" [materialesNecesarios]="getMaterialesItem(weapon.id,'weapon')"></app-lista-pendientes-card>
+      <app-lista-pendientes-card (deleteWantedEvent)="deletePending($event)" [weapon]="weapon" [armorCheck]="false" [weaponCheck]="true" [materialesNecesarios]="getMaterialesItem(weapon.id,'weapon')"></app-lista-pendientes-card>
     }
   }
 </div>
