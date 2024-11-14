@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Armor } from '../../interface/armor';
 import { Router } from '@angular/router';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-armor-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [MatButtonModule, MatTooltipModule,CommonModule],
   templateUrl: './armor-card.component.html',
   styleUrl: './armor-card.component.css'
 })

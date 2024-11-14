@@ -20,7 +20,7 @@ html{
 }
 
 .pageBC{
-    
+    width: auto;
     background-color: rgba(128, 121, 121, 0.8);
     margin-left: 3rem;
     margin-right: 3rem;

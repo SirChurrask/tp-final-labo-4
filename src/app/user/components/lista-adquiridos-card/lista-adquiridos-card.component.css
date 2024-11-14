@@ -1,0 +1,23 @@
+legend{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+legend > button{
+    width: 50%;
+    padding: 0%;
+    margin: 0%;
+    margin-left: 25%;
+    margin-top: 0.5rem;
+    border-radius: 1.5rem;
+    border-color: red;
+    color: red;
+    background-color: rgb(70, 25, 25);
+    
+}
+
+legend > button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}

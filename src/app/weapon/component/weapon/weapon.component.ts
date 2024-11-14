@@ -99,6 +99,7 @@ export class WeaponComponent implements OnInit{
     this.WeapnService.currentData.subscribe(
       value => {
         this.filterweapons = value;
+        this.activeFilter();
         this.cargando = false;
       }
     )
