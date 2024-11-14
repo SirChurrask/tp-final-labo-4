@@ -40,6 +40,21 @@ export class AcquiredService {
     })
  }
 
+ deleteAcquired(item: AcquiredItem) : void{
+  if(this.acquired.value.some(x => x.id == item.id && item.type == x.type)){
+    this.http.patch<User>(`${this.url}/${this.db.getUserId()}`,{
+      acquired: this.acquired.value.filter(x => (x.id != item.id || x.type != item.type))
+    }).subscribe({
+      next: (data) => {
+        this.changeAcquired(data.acquired);
+      },
+      error: (err: Error) => {console.log(err)}
+    })
+  } else{
+    console.log('item a borrar no encontrado');
+  }
+}
+
   changeAcquired(data:AcquiredItem[]){
     this.acquired.next(data)
   }
