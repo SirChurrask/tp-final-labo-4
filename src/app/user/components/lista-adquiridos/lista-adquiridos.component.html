@@ -42,6 +42,7 @@
     <p>Su lista de adquiridos está vacía</p>
   }
 </div>
+
 <div id="acquiredList">
   
   <ul>
@@ -57,6 +58,7 @@
       @for (weapon of adquiridosWeaponf; track $index){
         <app-lista-adquiridos-card class="acquiredCard" (deleteAcquiredEvent)="remove($event)" [weapon]="weapon" [armorCheck]="false" [weaponCheck]="true"></app-lista-adquiridos-card>
       }
+
     }
   </ul>
 </div>

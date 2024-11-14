@@ -91,7 +91,6 @@ export class ListaAdquiridosComponent implements OnInit{
     
   }
 
-
   orderArmor(){
     this.adquiridosArmor = [];
     for (let element of this.data) {

@@ -7,7 +7,6 @@
   <button (click)="deleteAcquired()">Remove</button>
   <!-- @for(material of armor.crafting.materials; track $index){
       <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-    } -->
 </legend>
 }
 
@@ -27,7 +26,9 @@
     @for(material of weapon.crafting.upgradeMaterials; track $index){
       <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
     }
-  } -->
+
+  }
+
 </legend>
 }
 

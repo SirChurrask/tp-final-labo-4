@@ -54,21 +54,22 @@ export class AcquiredService {
  }
 
  deleteAcquired(item: AcquiredItem) :  Observable<User>{
-  // if(this.acquired.value.some(x => x.id == item.id && item.type == x.type)){
+
     let rta = this.http.patch<User>(`${this.url}/${this.db.getUserId()}`,{
       acquired: this.acquired.value.filter(x => (x.id != item.id || x.type != item.type))
     })
     
     rta.subscribe({
+
       next: (data) => {
         this.changeAcquired(data.acquired);
       },
       error: (err: Error) => {console.log(err)}
     })
+
     return rta;
-  // } else{
-  //   console.log('item a borrar no encontrado');
-  // }
+
+
 }
 
   changeAcquired(data:AcquiredItem[]){

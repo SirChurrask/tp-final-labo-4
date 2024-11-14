@@ -1,7 +1,7 @@
-import { materiales } from "../../weapon/interface/weapon";
+import { Material } from "./material";
 
 export interface WantedItem {
   type: string;
-  materiales: materiales;
+  materiales: Material[];
   id: string;
 }
