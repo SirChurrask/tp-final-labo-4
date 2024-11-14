@@ -45,4 +45,28 @@
           <img style="width: 30rem; height:fit-content; margin-left: 2rem;" class="image" src="https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-{{monster.name.toLowerCase().replaceAll(' ','_')}}_render_001.png" />
         }
     </div>
+    <div style="border: 0.1rem black solid; margin-top: 1rem; background-color: rgb(222, 189, 139);"  *ngIf="monster.ailments">
+      <label style="padding-left: 1rem; margin-top: 1rem;"> Advice: </label>
+      @for (ailgment of monster.ailments; track $index){
+        <p style="padding-left: 3rem;">Watch out! This monster inflicts {{ailgment.name}}.</p>
+        @if (ailgment.recovery.items.length) {
+          <p style="padding-left: 4rem;">Try using the following items to cure it!</p>
+          @for (item of ailgment.recovery.items; track $index){
+            <p style="padding-left: 5rem;">{{item.name}}</p>
+          }
+          @if (ailgment.recovery.actions.length){
+            <p style="padding-left: 4rem;">You can also cure it by:</p>
+            @for (action of ailgment.recovery.actions; track $index){
+              <p style="padding-left: 5rem;">{{action}}</p>
+            }
+          }
+        }
+        @if (ailgment.recovery.actions.length && !ailgment.recovery.items.length){
+          <p style="padding-left: 4rem;">You can cure it by:</p>
+          @for (action of ailgment.recovery.actions; track $index){
+            <p style="padding-left: 5rem;">{{action}}</p>
+          }
+        }
+      }
+    </div>
 </div>
