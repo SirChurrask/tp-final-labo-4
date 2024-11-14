@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 import { Weapon } from '../../../weapon/interface/weapon';
 import { Armor } from '../../../armor/interface/armor';
 import { CommonModule } from '@angular/common';
@@ -112,4 +112,20 @@ export class ListaAdquiridosCardComponent {
 
   @Input() armorCheck: boolean = false;
   @Input() weaponCheck: boolean = false;
+
+  @Output() deleteAcquiredEvent = new EventEmitter();
+
+  deleteAcquired(){
+    if (this.armorCheck && !this.weaponCheck){
+      this.deleteAcquiredEvent.emit({
+        id: this.armor.id,
+        type: 'armor'
+      })
+    } else if (!this.armorCheck && this.weaponCheck){
+      this.deleteAcquiredEvent.emit({
+        id: this.weapon.id,
+        type: 'weapon'
+      })
+    }
+  }
 }

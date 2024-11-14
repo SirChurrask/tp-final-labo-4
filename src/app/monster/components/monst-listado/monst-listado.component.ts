@@ -56,9 +56,11 @@ export class MonstListadoComponent implements OnInit{
     this.MonsterServ.currentData.subscribe(
       value => {
         this.AllBois = value;
+        this.activeFilter()
       }
     );
     this.MonsterServ.getMonsters();
+    
   }
 
 

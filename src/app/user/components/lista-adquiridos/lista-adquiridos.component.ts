@@ -10,6 +10,7 @@ import { ArmorService } from '../../../armor/service/armor.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ListaAdquiridosCardComponent } from '../lista-adquiridos-card/lista-adquiridos-card.component';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-lista-adquiridos',
@@ -81,7 +82,8 @@ export class ListaAdquiridosComponent implements OnInit{
       this.adquiridosWeaponf = this.adquiridosWeapon.filter(x => this.filterType.includes(x.type));
       this.adquiridosArmorf = this.adquiridosArmor.filter(x => this.filterType.includes(x.type));
     }else{
-      this.adquiridosWeaponf = this.adquiridosWeapon
+      this.adquiridosWeaponf = this.adquiridosWeapon;
+      this.adquiridosArmorf = this.adquiridosArmor;
     }
     if(this.filterElement.length){
      this.adquiridosWeaponf = this.adquiridosWeaponf.filter(x => x.elements.map( element => element.type).some( ele => this.filterElement.includes(ele)));
@@ -97,7 +99,7 @@ export class ListaAdquiridosComponent implements OnInit{
         this.adquiridosArmor.push(this.Armorservice.getArmorById(element.id));
       }
     }
-    this.adquiridosArmorf = this.adquiridosArmor;
+    this.activeFilter()
   }
 
   orderWeapon(){
@@ -107,7 +109,7 @@ export class ListaAdquiridosComponent implements OnInit{
         this.adquiridosWeapon.push(this.weaponservice.getWeaponbyId(element.id));
       }
     }
-    this.adquiridosWeaponf = this.adquiridosWeapon;
+    this.activeFilter()
   }
 
   orderByType(){
@@ -137,6 +139,16 @@ export class ListaAdquiridosComponent implements OnInit{
         error: (err: Error) => {console.log(err)}
       })
     }
+  }
+
+  remove(item : AcquiredItem){
+    this.as.deleteAcquired(item).subscribe({
+      next: () => {
+        this.orderByType()
+      },
+      error: (err: Error) => {console.log(err)}
+     })
+    
   }
 
   ngOnInit(){

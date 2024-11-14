@@ -48,14 +48,14 @@
   @if (adquiridosArmorf.length){
    
       @for (armor of adquiridosArmorf; track $index){
-        <app-lista-adquiridos-card class="acquiredCard" [armor]="armor" [armorCheck]="true" [weaponCheck]="false"></app-lista-adquiridos-card>
+        <app-lista-adquiridos-card class="acquiredCard" (deleteAcquiredEvent)="remove($event)" [armor]="armor" [armorCheck]="true" [weaponCheck]="false"></app-lista-adquiridos-card>
       }
     }
   </ul>
   <ul>
     @if (adquiridosWeaponf.length){
       @for (weapon of adquiridosWeaponf; track $index){
-        <app-lista-adquiridos-card class="acquiredCard" [weapon]="weapon" [armorCheck]="false" [weaponCheck]="true"></app-lista-adquiridos-card>
+        <app-lista-adquiridos-card class="acquiredCard" (deleteAcquiredEvent)="remove($event)" [weapon]="weapon" [armorCheck]="false" [weaponCheck]="true"></app-lista-adquiridos-card>
       }
     }
   </ul>

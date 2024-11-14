@@ -3,13 +3,18 @@ import { Monster } from '../../interface/monster';
 import { MonsterService } from '../../service/monster.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ViewEncapsulation} from '@angular/core';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-monster-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [MatButtonModule, MatTooltipModule,CommonModule],
   templateUrl: './monster-page.component.html',
   styleUrl: './monster-page.component.css'
+  // encapsulation: ViewEncapsulation.None,
+  
 })
 export class MonsterPageComponent implements OnInit{
 

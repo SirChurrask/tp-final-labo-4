@@ -10,44 +10,8 @@
           "type": "armor"
         },
         {
-          "id": 1,
-          "type": "armor"
-        },
-        {
-          "id": 3,
-          "type": "armor"
-        },
-        {
-          "id": 5,
-          "type": "armor"
-        },
-        {
           "id": 862,
           "type": "weapon"
-        },
-        {
-          "id": 864,
-          "type": "weapon"
-        },
-        {
-          "id": 833,
-          "type": "weapon"
-        },
-        {
-          "id": 8,
-          "type": "armor"
-        },
-        {
-          "id": 11,
-          "type": "armor"
-        },
-        {
-          "id": 12,
-          "type": "armor"
-        },
-        {
-          "id": 14,
-          "type": "armor"
         },
         {
           "id": 844,
@@ -64,6 +28,14 @@
         {
           "id": 127,
           "type": "weapon"
+        },
+        {
+          "id": 12,
+          "type": "armor"
+        },
+        {
+          "id": 48,
+          "type": "armor"
         }
       ],
       "pending": [
