@@ -84,28 +84,6 @@
           ]
         },
         {
-          "id": 32,
-          "type": "armor",
-          "materiales": [
-            {
-              "id": 213,
-              "acquired": false
-            },
-            {
-              "id": 214,
-              "acquired": false
-            },
-            {
-              "id": 215,
-              "acquired": false
-            },
-            {
-              "id": 200,
-              "acquired": false
-            }
-          ]
-        },
-        {
           "id": 354,
           "type": "weapon",
           "materiales": [
