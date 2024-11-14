@@ -1,0 +1,42 @@
+<div *ngIf="id && id > 0" style="justify-content: center;display: flex;flex-direction: column; background-color:rgba(85, 84, 84, 0.705); padding: 5rem; padding-top: 0;" id="monsterPage">
+    <div style="display: flex; flex-direction: row; justify-content: center;vertical-align: middle; padding-left: 5rem;">
+        <h1>{{monster.name}}</h1> 
+        <p style="padding-top: 1rem;padding-left: 2rem;">{{monster.type}} monster</p>
+    </div>
+    
+    <p>{{monster.description}}</p>
+    <div style="display: flex;flex-direction: row;">
+        <div >
+            <div style="border: 0.1rem black solid;padding: 1rem;">
+                <label>Species:</label>
+                <p style="padding-left: 5rem;">{{monster.species}}</p>
+            </div>
+            <div style="border: 0.1rem black solid;padding: 1rem; border-top: 0;">
+                <label>Locations:</label>
+                <p style="padding-left: 5rem;" *ngFor="let item of monster.locations">{{item.name}}</p>
+            </div>
+            <div style="border: 0.1rem black solid;padding: 1rem; border-top: 0;" *ngIf="monster.elements.length">
+                <label>Elements</label>
+                <p *ngFor="let item of monster.elements">{{item}}</p>
+            </div>
+            <div  style="border: 0.1rem black solid;padding: 1rem; border-top: 0;" *ngIf="monster.ailments.length">
+                <label>Ailments</label>
+                <p style="padding-left: 5rem;" *ngFor="let item of monster.ailments">{{item.name}}</p>
+            </div>
+            <div  style="border: 0.1rem black solid;padding: 1rem; border-top: 0;" *ngIf="monster.resistances.length">
+                <label>Resistances</label>
+                <p style="padding-left: 5rem;"  *ngFor="let item of monster.resistances">{{item.element}} {{item.condition}}</p>
+            </div>
+        </div>
+        <div style="padding-left: 3rem;">
+            <div style="border: 0.1rem black solid;padding: 1rem;" *ngIf="monster.weaknesses.length">
+                <label>Weaknesses</label>
+                <p style="padding-left: 5rem;"  *ngFor="let item of monster.weaknesses">{{item.element}} {{item.condition}} ✰{{item.stars}}</p>
+            </div>
+            <div style="border: 0.1rem black solid;padding: 1rem; border-top: 0;"*ngIf="monster.rewards.length">
+                <label>Rewards</label>
+                <p style="padding-left: 5rem;" *ngFor="let item of monster.rewards">{{item.item.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>
