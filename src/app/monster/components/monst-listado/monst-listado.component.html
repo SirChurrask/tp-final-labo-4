@@ -1,0 +1,12 @@
+<div id="monsterList">
+  <h2>Monsters</h2>
+  <div class="divFiltro">
+    <button class="filterButton" name="large" (click)="toggleFilterType('large')">Large</button>
+    <button class="filterButton" name="small" (click)="toggleFilterType('small')">Small</button>
+  </div>
+  <ul>
+    @for (monster of AllBois; track $index) {
+      <app-monster-card class="monsterCard" [monster]="monster"></app-monster-card>
+    }
+  </ul>
+</div>

@@ -1,0 +1,70 @@
+.weaponContainer{
+    justify-content: center;
+    width: 75%;
+    margin: none;
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+.boxDurability{
+    display: flex;
+    flex-direction: row;
+}
+
+.boxDurability > p{
+    margin-top: 0.5rem;
+    margin-right: 0.1rem;
+    width: 2rem;
+    text-align: center;
+    
+}
+
+.divPending > input{
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    background-color: rgb(50 50 50);
+    min-height: 2rem;
+    border-radius: 0.75rem;
+    color: white;
+    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+    1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+
+.divPending > input:hover{
+    transform: scale(1.1);
+}
+
+p{
+    margin: 0%;
+}
+
+.boxContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boxTitle{
+    display: flex; 
+    flex-direction: row; 
+    margin: 0%; 
+    vertical-align: middle;
+}
+
+.iconImage{
+    margin-top: 1rem;
+    float: left;
+    max-width: 2rem;
+    height: 2rem;
+}
+
+.weaponImage{
+    max-width: 10rem;
+    height: auto;
+}
+
+h3{
+    margin-bottom: 1rem;
+}

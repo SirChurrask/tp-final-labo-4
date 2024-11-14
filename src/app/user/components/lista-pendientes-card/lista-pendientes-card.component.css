@@ -1,0 +1,28 @@
+.weaponContainer{
+
+    text-align: start;
+    width: 75%;
+    margin: none;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.boxTitle{
+    display: flex; 
+    flex-direction: row; 
+    margin: 0%; 
+    vertical-align: middle;
+}
+
+.iconImage{
+    margin-top: 1rem;
+    float: left;
+    max-width: 2rem;
+    height: 2rem;
+}
+
+.weaponImage{
+    max-width: 10rem;
+    height: auto;
+}

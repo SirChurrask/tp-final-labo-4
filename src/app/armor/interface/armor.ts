@@ -39,12 +39,11 @@ export interface Armor {
       imageFemale: string | null
     },
     crafting: {
-      materials: [
-        {
-          quantity: number,
-          item: Item
-        }
-      ]
+      materials: Material[]
     }
-
 }
+
+export interface Material{
+  quantity: number,
+  item: Item
+} 

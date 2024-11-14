@@ -1,36 +1,19 @@
-<fieldset>
-  <legend>Filtro</legend>
-  <button (click)="toggleFilter(1)">Cabeza</button>
-  <button (click)="toggleFilter(2)">Pecho</button>
-  <button (click)="toggleFilter(3)">Guantes</button>
-  <button (click)="toggleFilter(4)">Cintura</button>
-  <button (click)="toggleFilter(5)">Piernas</button>
-</fieldset>
-<div>
-  @if(armorList.length && !filtroActivo){
-<ul>
-  @for (armor of armorList; track $index){
-    <app-armor-card (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [armor]="armor"></app-armor-card>
-  }
-</ul>
-  }
-</div>
-<div>
-    @if(armadurasFiltradas.length && filtroActivo){
-  <ul>
-    @for (armor of armadurasFiltradas; track $index){
-      <app-armor-card (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [armor]="armor"></app-armor-card>
-    }
-  </ul>
-  }
-</div>
-<div>
-   @if(!armadurasFiltradas.length && filtroActivo){
-    <p>Filtrando...</p>
-   }
-</div>
-<div>
-  @if(!armorList.length){
-    <p>Cargando...</p>
-  }
+<div id="armorList">
+  <h2>Armors</h2>
+
+  <div class="divFiltro">
+    <button class="filterButton" name='head' (click)="toggleFilterType('head')">Head</button>
+    <button class="filterButton" name='chest' (click)="toggleFilterType('chest')">Chest</button>
+    <button class="filterButton" name='gloves' (click)="toggleFilterType('gloves')">Gloves</button>
+    <button class="filterButton" name='waist' (click)="toggleFilterType('waist')">Waist</button>
+    <button class="filterButton" name='legs' (click)="toggleFilterType('legs')">Legs</button>
+  </div>
+
+  <div>
+
+    <ul>
+      @for (armor of armadurasFiltradas; track $index){
+        <app-armor-card class="armorCard" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [armor]="armor"></app-armor-card>
+      }
+    </ul>
 </div>

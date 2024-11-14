@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
-import { ItemListadoComponent } from './item/item-listado/item-listado.component';
-import { MonstListadoComponent } from './monster/monst-listado/monst-listado.component';
+import { MonstListadoComponent } from './monster/components/monst-listado/monst-listado.component';
 import { ArmorSetsComponent } from './armor/armor_sets/armor-sets/armor-sets.component';
 import { WeaponPipe } from './weapon/page/weapon.pipe';
 import { WeaponComponent } from './weapon/component/weapon/weapon.component';
@@ -12,6 +11,7 @@ import { ArmorSetDetallesComponent } from './armor/armor_sets/armor-set-detalles
 import { LoginFormComponent } from './user/components/login-form/login-form.component';
 import { RegisterFormComponent } from './user/components/register-form/register-form.component';
 import { ListaAdquiridosComponent } from './user/components/lista-adquiridos/lista-adquiridos.component';
+import { ItemListadoComponent } from './item/components/item-listado/item-listado.component';
 
 
 export const routes: Routes = [
@@ -28,10 +28,10 @@ export const routes: Routes = [
     path: 'Weapons', component: WeaponComponent
   },
   {
-    path: 'Pendientes', component: ListaPendientesComponent
+    path: 'pending', component: ListaPendientesComponent
   },
   {
-    path: 'Adquiridos', component: ListaAdquiridosComponent
+    path: 'acquired', component: ListaAdquiridosComponent
   },
   {
     path: 'Armors/:id', component: ArmorSetDetallesComponent

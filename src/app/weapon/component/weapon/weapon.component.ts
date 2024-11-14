@@ -8,11 +8,12 @@ import { WantedItem } from '../../../shared/interface/wanted-item';
 import { PendingService } from '../../../shared/service/pending.service';
 import { AcquiredService } from '../../../shared/service/acquired.service';
 import { AcquiredItem } from '../../../shared/interface/acquired-item';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-weapon',
   standalone: true,
-  imports: [WeaponCardComponent],
+  imports: [WeaponCardComponent,CommonModule],
   templateUrl: './weapon.component.html',
   styleUrl: './weapon.component.css'
 })
@@ -24,220 +25,65 @@ export class WeaponComponent implements OnInit{
 
   logged : boolean = false;
 
-  allweapons: Array<Weapon> = [];
-
   showImage: boolean = false;
-
-  mostrarimagen(){
-    if(!this.showImage){
-      this.showImage = true;
-    }
-    else{
-      this.showImage = false;
-    }
-  }
-
-  //filtro
 
   filterweapons: Array<Weapon> = [];
 
-  filterActive: boolean = false;
+  filterType: string[] = [];
 
-  filterSnS: boolean = false; //1
-  filterGS: boolean = false; //2
-  filterDB: boolean = false; //3
-  filterLS: boolean = false; //4
-  filterH: boolean = false; //5
-  filterHH: boolean = false; //6
-  filterL: boolean = false; //7
-  filterGL: boolean = false; //8
-  filterSA: boolean = false; //9
-  filterCB: boolean = false; //10
-  filterIG: boolean = false; //11
-  filterB: boolean = false; //12
-  filterLB: boolean = false; //13
-  filterHB: boolean = false; //14
+  filterElement: string[] = [];
 
-  activeFilter(){
-    if (!this.filterSnS && !this.filterGS && !this.filterDB && !this.filterLS && !this.filterH && !this.filterHH && !this.filterL && !this.filterGL && !this.filterSA && !this.filterCB && !this.filterIG && !this.filterB && !this.filterLB && !this.filterHB){
-      this.filterweapons = [];
-      this.filterActive = false;
-    }
-    else{
-      this.filterActive = true;
-    }
-  }
+  cargando: boolean = true;
 
-  addFilteredWeapons(weapontype: string){
-    var i: number = 0;
-    while(i < this.allweapons.length){
-      if(this.allweapons[i].type === weapontype){
-        this.filterweapons.push(this.allweapons[i]);
-      }
-      i++;
-    }
-  }
-
-  removeFilteredWeapons(weapontype: string){
-    this.filterweapons =  this.filterweapons.filter (a => !(a.type === weapontype));
-    //reemplazar todo lo de abajo con esto
-  }
-
-  toggleFilter(weapon: number){
-    switch (weapon){
-      case 1:
-        if (this.filterSnS){
-          this.removeFilteredWeapons("sword-and-shield");
-          this.filterSnS = false;
-        }
-        else{
-          this.addFilteredWeapons("sword-and-shield");
-          this.filterSnS = true;
-        }
-        break;
-      case 2:
-        if (this.filterGL){
-          this.removeFilteredWeapons("great-sword");
-          this.filterGL = false;
-        }
-        else{
-          this.addFilteredWeapons("great-sword");
-          this.filterGL = true;
-        }
-        break;
-      case 3:
-        if (this.filterDB){
-          this.removeFilteredWeapons("dual-blades");
-          this.filterDB = false;
-        }
-        else{
-          this.addFilteredWeapons("dual-blades");
-          this.filterDB = true;
-        }
-        break;
-      case 4:
-        if (this.filterLS){
-          this.removeFilteredWeapons("long-sword");
-          this.filterLS = false;
-        }
-        else{
-          this.addFilteredWeapons("long-sword");
-          this.filterLS = true;
-        }
-        break;
-      case 5:
-        if (this.filterH){
-          this.removeFilteredWeapons("hammer");
-          this.filterH = false;
-        }
-        else{
-          this.addFilteredWeapons("hammer");
-          this.filterH = true;
-        }
-        break;
-      case 6:
-        if (this.filterHH){
-          this.removeFilteredWeapons("hunting-horn");
-          this.filterHH = false;
-        }
-        else{
-          this.addFilteredWeapons("hunting-horn")
-          this.filterHH = true;
-        }
-        break;
-      case 7:
-        if (this.filterL){
-          this.removeFilteredWeapons("lance");
-          this.filterL = false;
-        }
-        else{
-          this.addFilteredWeapons("lance");
-          this.filterL = true;
-        }
-        break;
-      case 8:
-        if (this.filterGL){
-          this.removeFilteredWeapons("gunlance");
-          this.filterGL = false;
-        }
-        else{
-          this.addFilteredWeapons("gunlance");
-          this.filterGL = true;
-        }
-        break;
-      case 9:
-        if (this.filterSA){
-          this.removeFilteredWeapons("switch-axe");
-          this.filterSA = false;
-        }
-        else{
-          this.addFilteredWeapons("switch-axe");
-          this.filterSA = true;
-        }
-        break;
-      case 10:
-        if (this.filterCB){
-          this.removeFilteredWeapons("charge-blade");
-          this.filterCB = false;
-        }
-        else{
-          this.addFilteredWeapons("charge-blade");
-          this.filterCB = true;
-        }
-        break;
-      case 11:
-        if (this.filterIG){
-          this.removeFilteredWeapons("insect-glaive");
-          this.filterIG = false;
-        }
-        else{
-          this.addFilteredWeapons("insect-glaive");
-          this.filterIG = true;
-        }
-        break;
-      case 12:
-        if (this.filterB){
-          this.removeFilteredWeapons("bow");
-          this.filterB = false;
-        }
-        else{
-          this.addFilteredWeapons("bow");
-          this.filterB = true;
-        }
-        break;
-      case 13:
-        if (this.filterLB){
-          this.removeFilteredWeapons("light-bowgun");
-          this.filterLB = false;
-        }
-        else{
-          this.addFilteredWeapons("light-bowgun");
-          this.filterLB = true;
-        }
-        break;
-      case 14:
-        if (this.filterHB){
-          this.removeFilteredWeapons("heavy-bowgun");
-          this.filterHB = false;
-        }
-        else{
-          this.addFilteredWeapons("heavy-bowgun");
-          this.filterHB = true;
-        }
-        break;
+  toggleFilterType(type: string){
+    this.cargando = true;
+    if(this.filterType.includes(type)){
+      this.filterType = this.filterType.filter( x => x != type);
+    }else{
+      this.filterType.push(type);
     }
     this.activeFilter();
+    this.changeButtonBC();
+    this.cargando = false;
   }
 
-  /*
-  rarity: number | null = null;
-
-  filterPerRarity(){
-    if (this.rarity){
-      this.filterweapons = this.filterweapons.filter( a => a.rarity === this.rarity);
+  changeButtonBC(){
+    let buttons : any = document.getElementsByClassName("filterButton");
+    for(let i = 0;i < buttons.length;i++){
+      let aux = buttons[i];
+      if(this.filterElement.includes(aux.name) || this.filterType.includes(aux.name))
+        aux.style.background = '#414a66';
+      else{
+        aux.style.background = '#323232';
+      }
     }
   }
-  */
+
+  toggleFilterElement(element: string){
+    this.cargando = true;
+    if(this.filterElement.includes(element)){
+      this.filterElement = this.filterElement.filter( x => x != element);
+    }else{
+      this.filterElement.push(element);
+    }
+    this.activeFilter();
+    this.changeButtonBC();
+    this.cargando = false;
+  }
+
+  activeFilter(){
+
+    if(this.filterType.length){
+      this.filterweapons = this.WeapnService.getWeaponsValue().filter(x => this.filterType.includes(x.type));
+    }else{
+      this.filterweapons = this.WeapnService.getWeaponsValue();
+    }
+    if(this.filterElement.length){
+     this.filterweapons = this.filterweapons.filter(x => x.elements.map( element => element.type).some( ele => this.filterElement.includes(ele)));
+    };
+    
+  }
+  
 
   addPending(item : WantedItem){
     this.ps.putPending(item);
@@ -249,8 +95,12 @@ export class WeaponComponent implements OnInit{
 
 
   ngOnInit(){
+    
     this.WeapnService.currentData.subscribe(
-      value => {this.allweapons = value}
+      value => {
+        this.filterweapons = value;
+        this.cargando = false;
+      }
     )
     this.db.currentData.subscribe(
       value => { this.logged = value}
@@ -258,5 +108,6 @@ export class WeaponComponent implements OnInit{
     this.ps.getPending();
     this.as.getAcquired();
     this.WeapnService.getWeapons();
+    this.filterweapons = this.WeapnService.getWeaponsValue();
   }
 }
