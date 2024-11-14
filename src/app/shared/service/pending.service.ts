@@ -43,13 +43,32 @@ export class PendingService {
     }
   }
 
-  getPending() : void{
-     this.http.get<User>(`${this.url}/${this.db.getUserId()}`).subscribe({
+  updatePending(item: WantedItem[]) : Observable<User>{
+      let rta = this.http.patch<User>(`${this.url}/${this.db.getUserId()}`,{
+        pending:item
+      })
+
+      rta.subscribe({
         next: (data) => {
           this.changePending(data.pending);
         },
         error: (err : Error) => {console.log(err)}
      })
+
+      return rta;
+  }
+
+  getPending() : Observable<User>{
+     let rta = this.http.get<User>(`${this.url}/${this.db.getUserId()}`);
+     
+     rta.subscribe({
+        next: (data) => {
+          this.changePending(data.pending);
+        },
+        error: (err : Error) => {console.log(err)}
+     })
+
+     return rta;
   }
 
   deletePending(item: WantedItem) : void{

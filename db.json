@@ -32,10 +32,6 @@
         {
           "id": 48,
           "type": "armor"
-        },
-        {
-          "id": 51,
-          "type": "armor"
         }
       ],
       "pending": [
@@ -49,7 +45,7 @@
             },
             {
               "id": 216,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 213,
@@ -57,7 +53,7 @@
             },
             {
               "id": 147,
-              "acquired": false
+              "acquired": true
             }
           ]
         },
@@ -67,7 +63,7 @@
           "materiales": [
             {
               "id": 214,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 215,
@@ -79,7 +75,7 @@
             },
             {
               "id": 154,
-              "acquired": false
+              "acquired": true
             }
           ]
         },
@@ -89,7 +85,7 @@
           "materiales": [
             {
               "id": 213,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 214,
@@ -97,7 +93,7 @@
             },
             {
               "id": 215,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 200,
@@ -111,19 +107,19 @@
           "materiales": [
             {
               "id": 440,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 408,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 409,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 411,
-              "acquired": false
+              "acquired": true
             }
           ]
         },

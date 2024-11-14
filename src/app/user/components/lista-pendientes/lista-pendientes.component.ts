@@ -34,6 +34,7 @@ export class ListaPendientesComponent implements OnInit {
   weaponservice = inject(WeaponsService);
   Armorservice = inject(ArmorService);
   router = inject(Router);
+  userPending: WantedItem[] = [];
 
   getMaterialesItem(id: string, type: string): Material[] {
     var rst : Material[] = []
@@ -43,6 +44,12 @@ export class ListaPendientesComponent implements OnInit {
       }
     }
     return rst;
+  }
+
+  updateMaterial(item: WantedItem){
+    // let i = this.userPending.indexOf(this.userPending.filter(x => x.id == item.id)[0]);
+    // this.userPending[i] = item;
+    this.ps.updatePending(this.userPending);
   }
 
   deletePending(item: WantedItem){
@@ -105,7 +112,12 @@ export class ListaPendientesComponent implements OnInit {
         }
       }
     )
-    this.ps.getPending();
+    this.ps.getPending().subscribe({
+      next: (data) => {
+        this.userPending = data.pending
+      },
+      error: (err: Error) => console.log(err)
+    });
     this.as.getAcquired();
 
     this.ps.currentData.subscribe(
@@ -116,5 +128,6 @@ export class ListaPendientesComponent implements OnInit {
         }
       }
     )
+
   }
 }

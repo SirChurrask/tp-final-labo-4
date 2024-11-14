@@ -1,7 +1,7 @@
 <div id="wishlistList">
   <div>
     @if (!pendientesArmor.length && !pendientesWeapon.length){
-      <p>Su lista de pendientes está vacía :D</p>
+      <p>Wishlist empty:D</p>
     }
   </div>
   <div>
@@ -9,7 +9,7 @@
       <h3>Armor</h3>
       <ul>
         @for (armor of pendientesArmor; track $index){
-          <app-lista-pendientes-card class="wishlistCard" (deleteWantedEvent)="deletePending($event)" [armor]="armor" [armorCheck]="true" [weaponCheck]="false" [materialesNecesarios]="getMaterialesItem(armor.id,'armor')"></app-lista-pendientes-card>
+          <app-lista-pendientes-card (updateMaterial)="updateMaterial($event)" class="wishlistCard" [userPending]="userPending[$index]"  (deleteWantedEvent)="deletePending($event)" [armor]="armor" [armorCheck]="true" [weaponCheck]="false" [materialesNecesarios]="getMaterialesItem(armor.id,'armor')"></app-lista-pendientes-card>
         }
     </ul>
     }
@@ -19,7 +19,7 @@
       <h3>Weapon</h3>
       <ul>
         @for (weapon of pendientesWeapon; track $index){
-          <app-lista-pendientes-card class="wishlistCard" (deleteWantedEvent)="deletePending($event)" [weapon]="weapon" [armorCheck]="false" [weaponCheck]="true" [materialesNecesarios]="getMaterialesItem(weapon.id,'weapon')"></app-lista-pendientes-card>
+          <app-lista-pendientes-card (updateMaterial)="updateMaterial($event)"  class="wishlistCard" [userPending]="userPending[$index]" (deleteWantedEvent)="deletePending($event)" [weapon]="weapon" [armorCheck]="false" [weaponCheck]="true" [materialesNecesarios]="getMaterialesItem(weapon.id,'weapon')"></app-lista-pendientes-card>
         }
       </ul>
     }

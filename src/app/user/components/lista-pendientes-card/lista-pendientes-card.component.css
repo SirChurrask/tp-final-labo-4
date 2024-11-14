@@ -28,10 +28,12 @@
 }
 
 legend{
-    width: 50%;
+    width: auto;
 }
 
 .material{
+    display: flex;
+    flex-direction: row;
     border: 0.2rem solid white;
 }
 
