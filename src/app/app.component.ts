@@ -10,5 +10,5 @@ import { NavUserComponent } from './user/components/nav-user/nav-user.component'
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'mh_item_test';
+  title = 'MonsterHunterHandler';
 }
