@@ -13,6 +13,7 @@ import { RegisterFormComponent } from './user/components/register-form/register-
 import { ListaAdquiridosComponent } from './user/components/lista-adquiridos/lista-adquiridos.component';
 import { ItemListadoComponent } from './item/components/item-listado/item-listado.component';
 import { MonsterPageComponent } from './monster/components/monster-page/monster-page.component';
+import { HomeComponent } from './home/component/home/home.component';
 
 
 export const routes: Routes = [
@@ -45,6 +46,9 @@ export const routes: Routes = [
   },
   {
     path: 'register', component: RegisterFormComponent
+  },
+  {
+    path: '', component: HomeComponent
   }
 
 ];

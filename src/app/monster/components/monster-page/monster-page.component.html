@@ -1,9 +1,9 @@
 <div *ngIf="monster.name.length" style="justify-content: center;display: flex;flex-direction: column; background-color:rgba(85, 84, 84, 0.705); padding: 5rem; padding-top: 0;" id="monsterPage">
     <div style="display: flex; flex-direction: row; justify-content: center;vertical-align: middle; padding-left: 5rem;">
-        <h1>{{monster.name}}</h1> 
+        <h1>{{monster.name}}</h1>
         <p style="padding-top: 1rem;padding-left: 2rem;">{{monster.type}} monster</p>
     </div>
-    
+
     <p>{{monster.description}}</p>
     <div style="display: flex;flex-direction: row;">
         <div >
@@ -41,5 +41,34 @@
                 <p style="padding-left: 5rem;" *ngFor="let item of monster.rewards">{{item.item.name}}</p>
             </div>
         </div>
+        @if(monster.type == 'large'){
+          <img style="width: 30rem; height:fit-content; margin-left: 2rem;" class="image" src="https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-{{monster.name.toLowerCase().replaceAll(' ','_')}}_render_001.png" />
+        }
+    </div>
+    <div style="border: 0.1rem black solid; margin-top: 1rem; background-color: rgb(222, 189, 139);"  *ngIf="monster.ailments">
+      <label style="padding-left: 1rem; margin-top: 1rem;"> Advice: </label>
+      @for (ailgment of monster.ailments; track $index){
+        <p style="padding-left: 3rem;">Watch out! This monster inflicts {{ailgment.name}}.</p>
+        @if (ailgment.recovery.items.length) {
+          <p style="padding-left: 4rem;">Try using the following items to cure it!</p>
+          @for (item of ailgment.recovery.items; track $index){
+            <p style="padding-left: 5rem;">{{item.name}}</p>
+          }
+          @if (ailgment.recovery.actions.length){
+            <p style="padding-left: 4rem;">You can also cure it by:</p>
+            @for (action of ailgment.recovery.actions; track $index){
+              <p style="padding-left: 5rem;">{{action}}</p>
+            }
+          }
+        }
+        @if (!ailgment.recovery.items.length){
+          @if (ailgment.recovery.actions.length){
+            <p style="padding-left: 4rem;">You can cure it by:</p>
+            @for (action of ailgment.recovery.actions; track $index){
+              <p style="padding-left: 5rem;">{{action}}</p>
+            }
+          }
+        }
+      }
     </div>
 </div>

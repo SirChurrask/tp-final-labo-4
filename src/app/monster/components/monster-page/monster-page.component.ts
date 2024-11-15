@@ -14,7 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
   templateUrl: './monster-page.component.html',
   styleUrl: './monster-page.component.css'
   // encapsulation: ViewEncapsulation.None,
-  
+
 })
 export class MonsterPageComponent implements OnInit{
 
@@ -48,6 +48,5 @@ export class MonsterPageComponent implements OnInit{
         error: (err: Error) => {console.log(err)}
       })
     })
-    
   }
 }
