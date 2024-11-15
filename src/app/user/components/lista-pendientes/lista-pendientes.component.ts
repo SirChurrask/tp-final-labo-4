@@ -47,11 +47,19 @@ export class ListaPendientesComponent implements OnInit {
   }
 
   updateMaterial(item: WantedItem){
-    this.ps.updatePending(this.userPending);
+    this.ps.updatePending(this.userPending).subscribe({
+      next: ()=> {},
+      error: (err: Error) => {console.log(err)}
+    })
   }
 
   deletePending(item: WantedItem){
     this.ps.deletePending(item);
+    
+  }
+
+  findIndexItem(id:string,type:string){
+    return this.userPending.map(x=> {return x.type+x.id}).indexOf(type+id);
   }
 
   orderArmor(){
@@ -101,7 +109,9 @@ export class ListaPendientesComponent implements OnInit {
   }
 
   addToAcquired(item: WantedItem){
-    this.as.putAcquired(this.ps.deletePending(item))
+
+    this.ps.deletePending(item);
+    this.as.putAcquired(item);
   }
 
   ngOnInit(){
@@ -126,6 +136,7 @@ export class ListaPendientesComponent implements OnInit {
       value => {
         if(value != undefined){
           this.data = value;
+          this.userPending = value;
           this.orderByType();
         }
       }

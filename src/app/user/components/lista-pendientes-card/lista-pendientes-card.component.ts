@@ -131,7 +131,7 @@ export class ListaPendientesCardComponent {
   };
 
   updateMaterialUser(){
-    console.log(this.userPending);
+
     this.updateMaterial.emit(this.userPending);
   }
 
