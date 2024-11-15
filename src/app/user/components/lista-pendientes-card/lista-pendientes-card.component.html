@@ -1,55 +1,59 @@
-<legend *ngIf="armorCheck && !weaponCheck">
-  <h3>{{armor.name}}</h3>
-  <p>{{armor.type}}</p>
-  @for(material of armor.crafting.materials; track $index){
-      <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-      @for (item of materialesNecesarios; track $index) {
-        @if (item.id == material.item.id && item.adquirido) {
-          <p>Material Adquirido!</p>
-          <button (click)="adquirirMaterial(item.id)">Borrar</button>
-        }
-        @if (item.id == material.item.id && !item.adquirido) {
-          <p>Material Faltante</p>
-          <button (click)="adquirirMaterial(item.id)">Adquirir</button>
-        }
-      }
-    }
-  <button (click)="deletePending()">Quitar de la lista</button>
-</legend>
-<legend *ngIf="weapon">
-  <p>{{weapon.name}}</p>
 
-  <p>{{weapon.type}}</p>
-  @if(weapon.crafting.craftable){
-    @for(material of weapon.crafting.craftingMaterials; track $index){
-      <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-      @for (item of materialesNecesarios; track $index) {
-        @if (item.id == material.item.id && item.adquirido) {
-          <p>Material Adquirido!</p>
-          <button (click)="adquirirMaterial(item.id)">Borrar</button>
-        }
-        @if (item.id == material.item.id && !item.adquirido) {
-          <p>Material Faltante</p>
-          <button (click)="adquirirMaterial(item.id)">Adquirir</button>
-        }
+<!-- <p>{{userPending.id}}{{userPending.materiales}}{{userPending.type}}</p> -->
+<legend *ngIf="armorCheck && !weaponCheck">
+  <div style="display: flex; flex-direction: row; align-items: center;">
+    <app-armor-card [armor]="armor" ></app-armor-card>
+    <div style="display: flex; flex-direction: column;padding-left: 2rem;">
+    @for(material of armor.crafting.materials; track $index){
+      <div class="material">
+        <input (change)="updateMaterialUser()" [(ngModel)]="userPending.materiales[$index].acquired" type="checkbox" name={{material.item.name}}/>
+        <p mat-raised-button
+        matTooltip={{material.item.description}}
+        matTooltipClass="example-tooltip-uppercase"
+        aria-label="Button that shows a red tooltip">{{material.item.name}} x{{material.quantity}}</p>
+      </div>
+    }
+    </div>
+  </div>
+  <input *ngIf="falseCheck()" (click)="addAcquired()" type="button" value="+ Acquired"/>
+  <button (click)="deletePending()">Remove</button>
+</legend>
+
+<legend *ngIf="!armorCheck && weaponCheck">
+  <div style="display: flex; flex-direction: row; align-items: center;">
+    <app-weapon-card [weapon]="weapon" ></app-weapon-card>
+    <div style="display: flex; flex-direction: column;padding-left: 2rem;">
+
+    @if(weapon.crafting.craftable){
+      
+      @for(material of weapon.crafting.craftingMaterials; track $index){
+        <div class="material">
+        <p mat-raised-button
+        matTooltip={{material.item.description}}
+        matTooltipClass="example-tooltip-uppercase"
+        aria-label="Button that shows a red tooltip">{{material.item.name}} x{{material.quantity}}</p>
+      </div>
+    }
+    
+   }
+
+   @if(!weapon.crafting.craftable){
+      <div style="display: flex; flex-direction: column; padding-left: 2rem;"></div>
+      @for(material of weapon.crafting.upgradeMaterials; track $index){
+        <div class="material">
+          <input (change)="updateMaterialUser()" [(ngModel)]="userPending.materiales[$index].acquired" type="checkbox" name={{material.item.name}}/>
+          <p mat-raised-button
+          matTooltip={{material.item.description}}
+          matTooltipClass="example-tooltip-uppercase"
+          aria-label="Button that shows a red tooltip">{{material.item.name}} x{{material.quantity}}</p>
+        
+        </div>
       }
     }
-  }
-  @if(!weapon.crafting.craftable){
-    @for(material of weapon.crafting.upgradeMaterials; track $index){
-      <p>{{material.item.name}} x{{material.quantity}} - ({{material.item.description}})</p>
-      @for (item of materialesNecesarios; track $index) {
-        @if (item.id == material.item.id && item.adquirido) {
-          <p>Material Adquirido!</p>
-          <button (click)="adquirirMaterial(item.id)">Borrar</button>
-        }
-        @if (item.id == material.item.id && !item.adquirido) {
-          <p>Material Faltante</p>
-          <button (click)="adquirirMaterial(item.id)">Borrar</button>
-        }
-      }
-    }
-  }
-  <button (click)="deletePending()">Quitar de la lista</button>
+    </div>
+  </div>
+    <input *ngIf="falseCheck()" (click)="addAcquired()" type="button" value="+ Acquired"/>
+    <button (click)="deletePending()">Remove</button>
+  
 </legend>
 

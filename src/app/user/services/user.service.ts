@@ -70,7 +70,7 @@ export class UserService {
   }
 
   login(term: User) : Observable<boolean>{
-    console.log(term)
+
     return this.getUsersByParams(term.username).pipe(
       map( response => {
           if(response.length && bcrypt.compareSync(term.password,response[0].password)){

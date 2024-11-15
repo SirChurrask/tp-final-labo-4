@@ -43,16 +43,35 @@ export class PendingService {
     }
   }
 
-  getPending() : void{
-     this.http.get<User>(`${this.url}/${this.db.getUserId()}`).subscribe({
+  updatePending(item: WantedItem[]) : Observable<User>{
+      let rta = this.http.patch<User>(`${this.url}/${this.db.getUserId()}`,{
+        pending:item
+      })
+
+      rta.subscribe({
         next: (data) => {
           this.changePending(data.pending);
         },
         error: (err : Error) => {console.log(err)}
      })
+
+      return rta;
   }
 
-  deletePending(item: WantedItem) : void{
+  getPending() : Observable<User>{
+     let rta = this.http.get<User>(`${this.url}/${this.db.getUserId()}`);
+     
+     rta.subscribe({
+        next: (data) => {
+          this.changePending(data.pending);
+        },
+        error: (err : Error) => {console.log(err)}
+     })
+
+     return rta;
+  }
+
+  deletePending(item: WantedItem) : WantedItem{
     if(this.pending.value.some(x => x.id == item.id && item.type == x.type)){
       this.http.patch<User>(`${this.url}/${this.db.getUserId()}`,{
         pending: this.pending.value.filter(x => (x.id != item.id || x.type != item.type))
@@ -65,6 +84,7 @@ export class PendingService {
     } else{
       console.log('item a borrar no encontrado');
     }
+    return item;
   }
 
   changePending(data:WantedItem[]){

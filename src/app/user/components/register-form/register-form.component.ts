@@ -51,10 +51,8 @@ export class RegisterFormComponent {
             this.changeDiv();
           }
         }else{
-          console.log(this.form.value)
           this.service.postUser(this.form.value).subscribe({
             next: (data) => {
-              console.log(data);
               this.userRegistered = true;
             },
             error: (err: Error) => { console.log(err) }
