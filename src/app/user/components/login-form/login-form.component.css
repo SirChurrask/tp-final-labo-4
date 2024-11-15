@@ -11,3 +11,17 @@ form, .ng-template{
     border-top: 0cap;
     border-bottom: 0cap;
 }
+
+#loginbutton{
+  min-width: 5%;
+  min-height: 2rem;
+  background-color: gray;
+  border-radius: 0.3rem;
+  color: white;
+
+}
+
+#loginbutton:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}

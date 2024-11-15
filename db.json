@@ -70,22 +70,92 @@
               "acquired": false
             }
           ]
+        },
+        {
+          "id": 30,
+          "type": "weapon",
+          "materiales": [
+            {
+              "id": 416,
+              "acquired": false
+            },
+            {
+              "id": 309,
+              "acquired": false
+            },
+            {
+              "id": 308,
+              "acquired": false
+            },
+            {
+              "id": 172,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 29,
+          "type": "weapon",
+          "materiales": [
+            {
+              "id": 365,
+              "acquired": false
+            },
+            {
+              "id": 309,
+              "acquired": false
+            },
+            {
+              "id": 308,
+              "acquired": false
+            },
+            {
+              "id": 161,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 31,
+          "type": "weapon",
+          "materiales": [
+            {
+              "id": 390,
+              "acquired": false
+            },
+            {
+              "id": 389,
+              "acquired": false
+            },
+            {
+              "id": 387,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 32,
+          "type": "weapon",
+          "materiales": [
+            {
+              "id": 421,
+              "acquired": false
+            },
+            {
+              "id": 390,
+              "acquired": false
+            },
+            {
+              "id": 389,
+              "acquired": false
+            },
+            {
+              "id": 173,
+              "acquired": false
+            }
+          ]
         }
       ]
-    },
-    {
-      "id": "5ac1",
-      "username": "SirChurrask",
-      "password": "$2a$10$UlGazDbHWCyK5v4qeEbAHOzc5lkgZSZyxhT/BiUs5Xqd.maIb3xg.",
-      "acquired": [],
-      "pending": []
-    },
-    {
-      "id": "f7fc",
-      "username": "us1234",
-      "password": "$2a$10$dwx5yqH2fzKSmc7m9mkSiu7XGKxgzW.h4CdcYf/pK/W0VBk8uKAMK",
-      "acquired": [],
-      "pending": []
     }
   ]
 }

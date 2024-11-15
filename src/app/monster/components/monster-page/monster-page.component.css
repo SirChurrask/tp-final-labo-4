@@ -1,0 +1,7 @@
+.advice{
+  border: 0.3rem black;
+  border-style: dotted;
+  margin-top: 1rem;
+  background-color: rgba(222, 189, 139,0.7);
+  padding: 2rem;
+}

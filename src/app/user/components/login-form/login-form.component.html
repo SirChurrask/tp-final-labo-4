@@ -9,7 +9,7 @@
             <small  *ngIf="form.get('username')?.errors?.['minlength']">Username minlength 5</small>
         </div>
     </div><br/>
-        
+
     <div>
         <label for="password">Password: </label>
         <input type="password" id="password" formControlName="password" required/>
@@ -18,7 +18,7 @@
             <small *ngIf="form.get('password')?.errors?.['minlength']">Password minlength 5</small>
         </div>
     </div><br/>
-    
+
     <div class="alert" *ngIf="wrongUorP && submitted" >Wrong username or password</div>
-    <button type="submit">Log In</button>
+    <button id="loginbutton" type="submit">Log In</button>
 </form>
