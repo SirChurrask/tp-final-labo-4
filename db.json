@@ -1,3 +1,11 @@
 {
-  "user": []
+  "user": [
+    {
+      "id": "bc62",
+      "username": "DuroTron",
+      "password": "$2a$10$BFCHiGVTM6clYhRhVvvZheMYvkE8JK6cVvY2KEm4bSna5sbqoodB2",
+      "acquired": [],
+      "pending": []
+    }
+  ]
 }
