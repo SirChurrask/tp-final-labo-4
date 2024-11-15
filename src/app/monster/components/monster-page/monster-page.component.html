@@ -45,8 +45,10 @@
           <img style="width: 30rem; height:fit-content; margin-left: 2rem;" class="image" src="https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-{{monster.name.toLowerCase().replaceAll(' ','_')}}_render_001.png" />
         }
     </div>
-    <div style="border: 0.1rem black solid; margin-top: 1rem; background-color: rgb(222, 189, 139);"  *ngIf="monster.ailments">
-      <label style="padding-left: 1rem; margin-top: 1rem;"> Advice: </label>
+
+      @if (monster.type == 'large'){
+        <div style="border: 0.1rem black solid; margin-top: 1rem; background-color: rgb(222, 189, 139);"  *ngIf="monster.ailments.length">
+         <label *ngIf="monster.type == 'large'" style="padding-left: 1rem; margin-top: 1rem;"> Advice: </label>
       @for (ailgment of monster.ailments; track $index){
         <p style="padding-left: 3rem;">Watch out! This monster inflicts {{ailgment.name}}.</p>
         @if (ailgment.recovery.items.length) {
@@ -71,4 +73,6 @@
         }
       }
     </div>
+      }
+
 </div>
