@@ -12,10 +12,11 @@ export interface ArmorSet {
 export interface ArmorSetBonus{
   id: number,
   name: string,
-  rank: Array<ArmorSetBonusRank>,
+  ranks: Array<ArmorSetBonusRank>,
 }
 
 export interface ArmorSetBonusRank{
   pieces: number,
   skill: Rank,
+  description: string,
 }
