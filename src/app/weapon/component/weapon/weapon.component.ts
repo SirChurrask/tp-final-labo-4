@@ -9,11 +9,12 @@ import { PendingService } from '../../../shared/service/pending.service';
 import { AcquiredService } from '../../../shared/service/acquired.service';
 import { AcquiredItem } from '../../../shared/interface/acquired-item';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-weapon',
   standalone: true,
-  imports: [WeaponCardComponent,CommonModule],
+  imports: [WeaponCardComponent,CommonModule,FormsModule],
   templateUrl: './weapon.component.html',
   styleUrl: './weapon.component.css'
 })
@@ -34,6 +35,8 @@ export class WeaponComponent implements OnInit{
   filterElement: string[] = [];
 
   cargando: boolean = true;
+
+  searchW:string = '';
 
   toggleFilterType(type: string){
     this.cargando = true;
@@ -81,6 +84,8 @@ export class WeaponComponent implements OnInit{
     if(this.filterElement.length){
      this.filterweapons = this.filterweapons.filter(x => x.elements.map( element => element.type).some( ele => this.filterElement.includes(ele)));
     };
+    if(this.searchW.length)
+      this.filterweapons = this.filterweapons.filter(x=>x.name.toLocaleLowerCase().includes(this.searchW.toLocaleLowerCase()))
     
   }
   

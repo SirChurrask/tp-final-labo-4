@@ -2,6 +2,9 @@
   <div>
     <h2>Weapons</h2>
   </div>
+  <div style="display: flex;justify-content: center;padding-bottom: 1rem;">
+    <input (input)="activeFilter()" placeholder="Search" type="text" style="width: 30%;" [(ngModel)]="searchW" name="search"/>
+  </div>
   <div class="divFiltro">
     <button class="filterButton" name='sword-and-shield' (click)="toggleFilterType('sword-and-shield')"><img class="image" scr="https://assets.mhw-db.com/weapons/sword-and-shield/icons/bba6138275380056204165eb9ed5d9cb.2e880e7ffa9e558cef1365b0d2e492a092f399a8.png"/>Sword and Shield</button>
     <button class="filterButton" name="great-sword" (click)="toggleFilterType('great-sword')">Greatsword</button>

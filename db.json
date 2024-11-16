@@ -184,28 +184,6 @@
               "acquired": true
             }
           ]
-        }
-      ],
-      "pending": [
-        {
-          "id": 1,
-          "type": "armor",
-          "materiales": [
-            {
-              "id": 116,
-              "acquired": false
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "type": "armor",
-          "materiales": [
-            {
-              "id": 116,
-              "acquired": false
-            }
-          ]
         },
         {
           "id": 12,
@@ -213,14 +191,16 @@
           "materiales": [
             {
               "id": 201,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 147,
-              "acquired": false
+              "acquired": true
             }
           ]
-        },
+        }
+      ],
+      "pending": [
         {
           "id": 1089,
           "type": "weapon",
