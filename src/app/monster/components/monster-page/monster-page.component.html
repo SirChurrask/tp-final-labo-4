@@ -59,7 +59,7 @@
           @if (ailgment.recovery.actions.length){
             <p style="padding-left: 4rem;">You can also cure it by:</p>
             @for (action of ailgment.recovery.actions; track $index){
-              <p style="padding-left: 5rem;">{{action}}</p>
+              <p style="padding-left: 5rem;">-> {{action}}</p>
             }
           }
         }
@@ -67,12 +67,22 @@
           @if (ailgment.recovery.actions.length){
             <p style="padding-left: 4rem;">You can cure it by:</p>
             @for (action of ailgment.recovery.actions; track $index){
-              <p style="padding-left: 5rem;">{{action}}</p>
+              <p style="padding-left: 5rem;">-> {{action}}</p>
+            }
+          }
+        }
+        @if (!ailgment.recovery.items.length){
+          @if (!ailgment.recovery.actions.length){
+            @if (ailgment.protection.skills.length){
+              <p style="padding-left: 4rem;">You can mitigate it's effects with the skill:</p>
+              @for (skll of ailgment.protection.skills; track $index){
+                <p style="padding-left: 5rem;">-> {{skll.name}}</p>
+              }
             }
           }
         }
       }
     </div>
-      }
+  }
 
 </div>
