@@ -2,11 +2,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ArmorService } from '../../service/armor.service';
 import { ArmorSet } from '../../interface/armor-set';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-armor-set-detalles',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './armor-set-detalles.component.html',
   styleUrl: './armor-set-detalles.component.css'
 })
