@@ -8,11 +8,11 @@
     <div style="display: flex;flex-direction: row;">
         <div >
             <div style="border: 0.1rem black solid;padding: 1rem;">
-                <label>Species:</label>
-                <p style="padding-left: 3rem;">{{monster.species}}</p>
+                <label>Species</label>
+                <p style="padding-left: 3rem;">{{monster.species[0].toUpperCase() + monster.species.slice(1)}}</p>
             </div>
             <div style="border: 0.1rem black solid;padding: 1rem; border-top: 0;">
-                <label>Locations:</label>
+                <label>Locations</label>
                 <p style="padding-left: 3rem;" *ngFor="let item of monster.locations">{{item.name}}</p>
             </div>
             <div style="border: 0.1rem black solid;padding: 1rem; border-top: 0;" *ngIf="monster.elements.length">
@@ -21,29 +21,29 @@
             </div>
             <div  style="border: 0.1rem black solid;padding: 1rem; border-top: 0;" *ngIf="monster.ailments.length">
                 <label>Ailments</label>
-                <p mat-raised-button
-                matTooltip={{item.description}}
-                matTooltipClass="example-tooltip-uppercase"
-                aria-label="Button that shows a red tooltip" style="padding-left: 3rem;" *ngFor="let item of monster.ailments">{{item.name}}</p>
+                <p matTooltip={{item.description}} style="padding-left: 3rem;" *ngFor="let item of monster.ailments">{{item.name}}</p>
             </div>
             <div  style="border: 0.1rem black solid;padding: 1rem; border-top: 0;" *ngIf="monster.resistances.length">
                 <label>Resistances</label>
-                <p style="padding-left: 3rem;"  *ngFor="let item of monster.resistances">{{item.element}} {{item.condition}}</p>
+                <p style="padding-left: 3rem;"  *ngFor="let item of monster.resistances">{{item.element[0].toUpperCase() + item.element.slice(1)}} {{item.condition}}</p>
             </div>
         </div>
         <div style="padding-left: 3rem;">
-            <div style="border: 0.1rem black solid;padding: 1rem;" *ngIf="monster.weaknesses.length">
+          <div style="display: flex; flex-direction: row;">
+            <div style="border: 0.1rem black solid;padding: 1rem; height: fit-content;" *ngIf="monster.weaknesses.length">
                 <label>Weaknesses</label>
-                <p style="padding-left: 3rem;"  *ngFor="let item of monster.weaknesses">{{item.element}} {{item.condition}} ✰{{item.stars}}</p>
+                <p style="padding-left: 3rem;"  *ngFor="let item of monster.weaknesses">{{item.element[0].toUpperCase() + item.element.slice(1)}} {{item.condition}} ✰{{item.stars}}</p>
             </div>
+            @if(monster.type == 'large'){
+              <img style="max-width: 75%; height: fit-content; margin-left: 2rem;" class="image" src="https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-{{monster.name.toLowerCase().replaceAll(' ','_')}}_render_001.png" />
+            }
+          </div>
             <div style="border: 0.1rem black solid;padding: 1rem; border-top: 0;"*ngIf="monster.rewards.length">
                 <label>Rewards</label>
                 <p style="padding-left: 3rem;" *ngFor="let item of monster.rewards">{{item.item.name}}</p>
             </div>
         </div>
-        @if(monster.type == 'large'){
-          <img style="width: 30rem; height:fit-content; margin-left: 2rem;" class="image" src="https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-{{monster.name.toLowerCase().replaceAll(' ','_')}}_render_001.png" />
-        }
+        
     </div>
 
       @if (monster.type == 'large'){

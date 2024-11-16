@@ -7,9 +7,6 @@ body{
     font-size: larger;
     background-repeat: repeat;
 
-    /* background-image: url('../media/background/pattern-bc2.webp');
-    background-size: 40%; */
-
      background-image: url('../media/background/pattern-bc.png');
     background-size: 10%;
     
@@ -38,3 +35,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mdc-tooltip__surface {
+    letter-spacing: -0.5px!important;
+    border: 1px solid #333!important;
+    font-size: 20px!important;
+    padding: 15px!important;
+  }

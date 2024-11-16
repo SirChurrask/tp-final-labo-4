@@ -1,24 +1,24 @@
 .monsterContainer{
-    justify-content: center;
     width: 75%;
     margin: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .monsterType{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    
+    justify-content: space-between;
+    width: 100%;
 }
 
 .monsterType > p{
-    display: table-cell;
+    display: flex;
     vertical-align: middle;
     color: gray;
     padding-top: 1rem;
-    padding-left: 3rem;
+    justify-content: end;
 }
 
 p{
@@ -30,6 +30,7 @@ h3{
 }
 
 .seeDetails{
+    width: fit-content;
     padding-top: 0.5rem;
     color: #99efca;
 }

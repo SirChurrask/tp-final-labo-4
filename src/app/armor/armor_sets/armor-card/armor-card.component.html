@@ -32,10 +32,8 @@
      <p style="background-color: blue;">{{armor.resistances.water}}</p>
    </div>
    @for (skill of armor.skills; track $index){
-    <p mat-raised-button
-    matTooltip="{{skill.description}}"
-    matTooltipClass="example-tooltip-uppercase"
-    aria-label="Button that shows a red tooltip">{{skill.skillName}}</p>
+    <p
+    matTooltip="{{skill.description}}">{{skill.skillName}} {{skill.level}}</p>
     <!-- <p>{{skill.description}}</p> -->
   }
   <p class="seeDetails" (click)="routeDetalles(armor.armorSet.id)">See details</p>

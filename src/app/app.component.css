@@ -4,16 +4,13 @@ header{
     background-color: rgb(37, 41, 41);
     width: 100%;
     color: rgba(202, 223, 223, 0.637);
-    /*color: #414a66;*/
     top: 0;
-    border-width: 0rem;
-    border-bottom: 0.25rem;
+    border: 0;
+    border-bottom: 0.1rem;
     border-style:solid;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .arriba2{
@@ -21,6 +18,8 @@ header{
     margin-left: 3%;
     margin-top: 0%;
     padding-top: 1%;
+    margin-bottom: 0;
+    width: 15%;
 }
 
 #arriba{
@@ -38,29 +37,30 @@ header{
     display: flex;
     justify-content: center;
     width: 50%;
+    height: 100%;
+    align-items: center;
+    
 }
 
 #navCategorias > a{
     color: aliceblue;
-    /* background-color: rgba(53, 48, 47, 0.5); */
     text-decoration: none;
     padding: 1rem;
     width: 15rem;
     text-align: center;
     vertical-align:middle;
-    border-color: white;
-    border-width: 0.10rem;
-    border-style:solid;
-    border-top: 0;
-    border-bottom: 0;
-    /* border-radius: 1.5rem; */
 }
 
 #navCategorias > a:hover{
     cursor: pointer;
     border-bottom: 0.15rem;
-    transform: scale(1.1);
-    font-size: xx-large;
-    color: black;
-    background-color: rgb(196, 182, 182);
+    /* transform: scale(1.1); */
+    /* font-size: xx-large; */
+    /* color: black; */
+    /* background-color: rgb(196, 182, 182); */
+    background-color: rgb(48, 53, 53);
+}
+
+#itemsButton{
+    border-left: 0.1rem;
 }

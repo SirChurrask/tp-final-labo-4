@@ -4,5 +4,6 @@ id: number,
 name: string,
 description: string,
 skillName: string,
-ranks: Rank[]
+ranks: Rank[],
+level: Number
 }

@@ -1,11 +1,13 @@
 
-<div *ngIf="!logged; else logout">
+<div *ngIf="!logged; else logout" class="divUserButtons">
     <input type="button" value="Log In" [routerLink]="['/login']" routerLinkActive="router-link-active" name="login"/>
     <input type="button" value="Register" [routerLink]="['/register']" routerLinkActive="router-link-active" name="register"/>
 </div>
 
-<ng-template #logout>
-    <input type="button" value="WishList" routerLink='/pending' routerLinkActive="router-link-active"  name="wishlist"/>
-    <input type="button" value="Acquired" routerLink='/acquired' routerLinkActive="router-link-active"  name="acquired"/>
-    <input type="button" value="Log Out" (click)="logoutFunc()" name="logOut"/>
+<ng-template class="divUserButtons" #logout>
+    <div class="divUserButtons">
+        <input type="button" value="WishList" routerLink='/pending' routerLinkActive="router-link-active"  name="wishlist"/>
+        <input type="button" value="Acquired" routerLink='/acquired' routerLinkActive="router-link-active"  name="acquired"/>
+        <input type="button" value="Log Out" (click)="logoutFunc()" name="logOut"/>
+    </div> 
 </ng-template>

@@ -34,7 +34,7 @@ legend{
 .material{
     display: flex;
     flex-direction: row;
-    border: 0.2rem solid white;
+    /* border: 0.2rem solid white; */
 }
 
 legend > button{
