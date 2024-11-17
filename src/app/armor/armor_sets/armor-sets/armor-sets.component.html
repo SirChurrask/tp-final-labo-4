@@ -1,13 +1,9 @@
 <div id="armorList">
   <h2>Armors</h2>
 
-  <div class="divFiltro">
-    <button class="filterButton" name='head' (click)="toggleFilterType('head')">Head</button>
-    <button class="filterButton" name='chest' (click)="toggleFilterType('chest')">Chest</button>
-    <button class="filterButton" name='gloves' (click)="toggleFilterType('gloves')">Gloves</button>
-    <button class="filterButton" name='waist' (click)="toggleFilterType('waist')">Waist</button>
-    <button class="filterButton" name='legs' (click)="toggleFilterType('legs')">Legs</button>
-  </div>
+  <app-search (activeFilterEvent)="activeFilterSearch($event)" [options]="nombres()"></app-search>
+
+  <app-filter (activeFilterEvent)="activeFilter($event)" [arrayOptions]="['head','chest','gloves','waist','legs']" [arrayFilter]="typeFilter" ></app-filter>
 
   <div>
     <p id="found">Found: {{armadurasFiltradas.length}}</p>

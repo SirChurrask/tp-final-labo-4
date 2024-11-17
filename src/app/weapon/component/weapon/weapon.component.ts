@@ -10,11 +10,13 @@ import { AcquiredService } from '../../../shared/service/acquired.service';
 import { AcquiredItem } from '../../../shared/interface/acquired-item';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FilterComponent } from '../../../shared/components/filter/filter.component';
+import { SearchComponent } from '../../../shared/components/search/search.component';
 
 @Component({
   selector: 'app-weapon',
   standalone: true,
-  imports: [WeaponCardComponent,CommonModule,FormsModule],
+  imports: [WeaponCardComponent,CommonModule,FormsModule,FilterComponent,SearchComponent],
   templateUrl: './weapon.component.html',
   styleUrl: './weapon.component.css'
 })
@@ -36,46 +38,28 @@ export class WeaponComponent implements OnInit{
 
   cargando: boolean = true;
 
-  searchW:string = '';
+  search:string = '';
 
-  toggleFilterType(type: string){
-    this.cargando = true;
-    if(this.filterType.includes(type)){
-      this.filterType = this.filterType.filter( x => x != type);
-    }else{
-      this.filterType.push(type);
-    }
-    this.activeFilter();
-    this.changeButtonBC();
-    this.cargando = false;
+  nombres(): string[]{
+    return this.filterweapons.map(x => x.name);
   }
 
-  changeButtonBC(){
-    let buttons : any = document.getElementsByClassName("filterButton");
-    for(let i = 0;i < buttons.length;i++){
-      let aux = buttons[i];
-      if(this.filterElement.includes(aux.name) || this.filterType.includes(aux.name))
-        aux.style.background = '#414a66';
-      else{
-        aux.style.background = '#323232';
-      }
-    }
+  activeFilterSearch(str : string){
+    this.search = str;
+    this.activeFilter();
   }
 
-  toggleFilterElement(element: string){
-    this.cargando = true;
-    if(this.filterElement.includes(element)){
-      this.filterElement = this.filterElement.filter( x => x != element);
-    }else{
-      this.filterElement.push(element);
-    }
+  activeFilterType(array:string[]){
+    this.filterType = array;
     this.activeFilter();
-    this.changeButtonBC();
-    this.cargando = false;
+  }
+
+  activeFilterElement(array:string[]){
+    this.filterElement = array;
+    this.activeFilter();
   }
 
   activeFilter(){
-
     if(this.filterType.length){
       this.filterweapons = this.WeapnService.getWeaponsValue().filter(x => this.filterType.includes(x.type));
     }else{
@@ -84,9 +68,8 @@ export class WeaponComponent implements OnInit{
     if(this.filterElement.length){
      this.filterweapons = this.filterweapons.filter(x => x.elements.map( element => element.type).some( ele => this.filterElement.includes(ele)));
     };
-    if(this.searchW.length)
-      this.filterweapons = this.filterweapons.filter(x=>x.name.toLocaleLowerCase().includes(this.searchW.toLocaleLowerCase()))
-    
+    if(this.search.length)
+      this.filterweapons = this.filterweapons.filter(x=>x.name.toLocaleLowerCase().includes(this.search.toLocaleLowerCase()))
   }
   
 

@@ -21,7 +21,7 @@ export class AppComponent implements OnInit{
           let buttons : any = document.getElementsByClassName("navButton");
           for(let i = 0;i < buttons.length;i++){
             let aux : HTMLButtonElement = buttons[i];
-            if(this.router.url.includes(aux.name)){
+            if(this.router.url.includes(aux.name) && !this.router.url.match(/\d/)){
 
               aux.style.background =  '#374141';
               aux.disabled = false;

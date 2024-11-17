@@ -25,11 +25,11 @@
    <p>Defense: {{armor.defense.base}}</p>
    <p *ngIf="armor.resistances">Resistances:</p>
    <div  *ngIf="armor.resistances" class="boxResistances">
-     <p style="background-color: purple;">{{armor.resistances.dragon}}</p>
-     <p style="background-color: orangered;">{{armor.resistances.fire}}</p>
-     <p style="background-color: rgb(40, 199, 199);">{{armor.resistances.ice}}</p>
-     <p style="background-color: yellow;">{{armor.resistances.thunder}}</p>
-     <p style="background-color: blue;">{{armor.resistances.water}}</p>
+     <p matTooltip="Dragon" style="background-color: purple;">{{armor.resistances.dragon}}</p>
+     <p matTooltip="Fire" style="background-color: orangered;">{{armor.resistances.fire}}</p>
+     <p matTooltip="Ice" style="background-color: rgb(40, 199, 199);">{{armor.resistances.ice}}</p>
+     <p matTooltip="Thunder" style="background-color: yellow;">{{armor.resistances.thunder}}</p>
+     <p matTooltip="Water" style="background-color: blue;">{{armor.resistances.water}}</p>
    </div>
    @for (skill of armor.skills; track $index){
     <p
