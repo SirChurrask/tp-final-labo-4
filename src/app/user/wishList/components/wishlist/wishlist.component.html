@@ -1,0 +1,37 @@
+<h3>Wish List</h3>
+
+<app-search [options]="nombres()" (activeFilterEvent)="activeFilterSearch($event)"></app-search>
+
+<app-filter (activeFilterEvent)="activeFilterType($event)" [arrayOptions]="['head','chest','gloves','waist','legs']" [arrayFilter]="filterType" ></app-filter>
+
+<app-filter (activeFilterEvent)="activeFilterType($event)" [arrayFilter]="filterType" [arrayOptions]="['sword-and-shield','great-sword','dual-blades','long-sword','hammer','hunting-horn','lance','gunlance','switch-axe','charge-blade','insect-glaive','bow','light-bowgun','heavy-bowgun']"  ></app-filter>
+
+<app-filter (activeFilterEvent)="activeFilterElement($event)" [arrayFilter]="filterElement" [arrayOptions]="['fire','blast','water','thunder','ice','dragon','paralysis','sleep','poison']"  ></app-filter>
+
+<div id="wishlistList">
+  <div>
+    @if (!pendientesArmor.length && !pendientesWeapon.length){
+      <p>Wishlist empty:D</p>
+    }
+  </div>
+  <div>
+    @if (pendientesArmorf.length){
+      <h3>Armor</h3>
+      <ul>
+        @for (armor of pendientesArmorf; track $index){
+          <app-wishlist-card (addToAcquired)="addToAcquired($event)"  (updateMaterial)="updateMaterial($event)" class="wishlistCard" [userPending]="userPending[findIndexItem(armor.id,'armor')]"  (deleteWantedEvent)="deletePending($event)" [armor]="armor" [armorCheck]="true" [weaponCheck]="false" [materialesNecesarios]="getMaterialesItem(armor.id,'armor')"></app-wishlist-card>
+        }
+    </ul>
+    }
+  </div>
+  <div>
+    @if (pendientesWeaponf.length){
+      <h3>Weapon</h3>
+      <ul>
+        @for (weapon of pendientesWeaponf; track $index){
+          <app-wishlist-card (addToAcquired)="addToAcquired($event)" (updateMaterial)="updateMaterial($event)"  class="wishlistCard" [userPending]="userPending[findIndexItem(weapon.id,'weapon')]" (deleteWantedEvent)="deletePending($event)" [weapon]="weapon" [armorCheck]="false" [weaponCheck]="true" [materialesNecesarios]="getMaterialesItem(weapon.id,'weapon')"></app-wishlist-card>
+        }
+      </ul>
+    }
+  </div>
+</div>

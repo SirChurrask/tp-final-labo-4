@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
-import { NavUserComponent } from './user/components/nav-user/nav-user.component';
 import { filter } from 'rxjs/operators';
+import { NavUserComponent } from './user/auth/components/nav-user/nav-user.component';
 
 
 @Component({

@@ -1,12 +1,16 @@
-<div id="itemList">
-  <h2>Items</h2>
+<app-search (activeFilterEvent)="activeFilterSearch($event)" [options]="nombres()"></app-search>
 
-  <app-search (activeFilterEvent)="activeFilterSearch($event)" [options]="nombres()"></app-search>
+<div *ngIf="loading; else itemlist">
+  <p>Loading...</p>
+</div>
 
+<ng-template #itemlist>
+  <app-found [items]="filtrarSearch().length"></app-found>
   <ul>
     @for (item of filtrarSearch(); track $index){
       <app-item-card class="itemCard" [item]="item"></app-item-card>
     }
   </ul>
-</div>
+</ng-template>
+
 

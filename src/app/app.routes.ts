@@ -1,42 +1,38 @@
-import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
-import { MonstListadoComponent } from './monster/components/monst-listado/monst-listado.component';
-import { ArmorSetsComponent } from './armor/armor_sets/armor-sets/armor-sets.component';
-import { WeaponPipe } from './weapon/page/weapon.pipe';
-import { WeaponComponent } from './weapon/component/weapon/weapon.component';
-import { ListaPendientesComponent } from './user/components/lista-pendientes/lista-pendientes.component';
-
+import { WishlistComponent } from './user/wishList/components/wishlist/wishlist.component';
 import { ArmorSetDetallesComponent } from './armor/armor_sets/armor-set-detalles/armor-set-detalles.component';
-
-import { LoginFormComponent } from './user/components/login-form/login-form.component';
-import { RegisterFormComponent } from './user/components/register-form/register-form.component';
-import { ListaAdquiridosComponent } from './user/components/lista-adquiridos/lista-adquiridos.component';
-import { ItemListadoComponent } from './item/components/item-listado/item-listado.component';
-import { MonsterPageComponent } from './monster/components/monster-page/monster-page.component';
+import { LoginFormComponent } from './user/auth/components/login-form/login-form.component';
+import { RegisterFormComponent } from './user/auth/components/register-form/register-form.component';
+import { AcquiredListComponent } from './user/adquiredList/components/acquired-list/acquired-list.component';
 import { HomeComponent } from './home/component/home/home.component';
+import { ItemPageComponent } from './item/page/item-page/item-page.component';
+import { ArmorListPageComponent } from './armor/pages/armor-list-page/armor-list-page.component';
+import { WeaponListPageComponent } from './weapon/pages/weapon-list-page/weapon-list-page.component';
+import { MonsterListPageComponent } from './monster/pages/monster-list-page/monster-list-page.component';
+import { MonsterPageComponent } from './monster/pages/monster-page/monster-page.component';
 
 
 export const routes: Routes = [
   {
-    path: 'Items', component: ItemListadoComponent
+    path: 'Items', component: ItemPageComponent
   },
   {
-    path: 'Monsters', component: MonstListadoComponent
+    path: 'Monsters', component: MonsterListPageComponent
   },
   {
     path: 'Monsters/:id', component: MonsterPageComponent
   },
   {
-    path: 'Armors', component: ArmorSetsComponent
+    path: 'Armors', component: ArmorListPageComponent
   },
   {
-    path: 'Weapons', component: WeaponComponent
+    path: 'Weapons', component: WeaponListPageComponent
   },
   {
-    path: 'pending', component: ListaPendientesComponent
+    path: 'pending', component: WishlistComponent
   },
   {
-    path: 'acquired', component: ListaAdquiridosComponent
+    path: 'acquired', component: AcquiredListComponent
   },
   {
     path: 'Armors/:id', component: ArmorSetDetallesComponent

@@ -14,8 +14,16 @@ export class WeaponsService {
   private weapons = new BehaviorSubject<Weapon[]>([]);
   currentData = this.weapons.asObservable();
 
+  private loading = new BehaviorSubject<boolean>(true);
+  currentLoading = this.loading.asObservable();
+
+  changeLoading(data: boolean){
+    this.loading.next(data)
+  }
+
   changeWeapons(data: Weapon[]){
-    this.weapons.next(data)
+    this.weapons.next(data);
+    this.changeLoading(false);
   }
 
   getWeaponsValue(){
@@ -23,6 +31,7 @@ export class WeaponsService {
   }
 
   getWeapons(){
+    this.changeLoading(true);
     if(!this.weapons.value.length){
       let response = this.http.get<Weapon[]>(this.urlbase)
       response.subscribe({
@@ -35,6 +44,7 @@ export class WeaponsService {
         })
         return response;
       }else{
+        this.changeLoading(false);
         return true;
       }
   }

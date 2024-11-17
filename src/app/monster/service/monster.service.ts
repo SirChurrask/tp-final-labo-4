@@ -14,11 +14,20 @@ export class MonsterService {
   private monsters = new BehaviorSubject<Monster[]>([]);
   currentData = this.monsters.asObservable();
 
+  private loading = new BehaviorSubject<boolean>(true);
+  currentLoading = this.loading.asObservable();
+
+  changeLoading(data: boolean){
+    this.loading.next(data)
+  }
+
   changeMonsters(data: Monster[]){
-    this.monsters.next(data)
+    this.monsters.next(data);
+    this.changeLoading(false);
   }
 
   getMonsters(){
+    this.changeLoading(true);
     if(!this.monsters.value.length){
       let response = this.http.get<Monster[]>(this.UrlBase)
       response.subscribe({
@@ -31,6 +40,7 @@ export class MonsterService {
         })
         return response;
       }else{
+        this.changeLoading(false);
         return true;
       }
   }
@@ -40,6 +50,18 @@ export class MonsterService {
   }
 
   getMonstersbyid(id: number): Observable<Monster>{
-    return this.http.get<Monster>(`${this.UrlBase}/${id}`);
+    this.changeLoading(true);
+    let rta = this.http.get<Monster>(`${this.UrlBase}/${id}`);
+    
+    rta.subscribe({
+      next: () => {
+        this.changeLoading(false);
+      },
+      error: (err: Error) => {
+        console.log(err);
+      }
+    });
+
+    return rta;
   }
 }

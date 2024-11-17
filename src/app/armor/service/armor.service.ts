@@ -15,19 +15,24 @@ export class ArmorService {
   private armors = new BehaviorSubject<Armor[]>([]);
   currentData = this.armors.asObservable()
 
-  changeArmor(data: Armor[]){
-    this.armors.next(data);
+  private loading = new BehaviorSubject<boolean>(true);
+  currentLoading = this.loading.asObservable();
+
+  changeLoading(data: boolean){
+    this.loading.next(data)
   }
 
-  /*getArmor(): Observable<Armor[]> {
-    return this.http.get<Armor[]>(this.urlBase);
-  }*/
+  changeArmor(data: Armor[]){
+    this.armors.next(data);
+    this.changeLoading(false);
+  }
 
   getArmorValue(){
     return this.armors.value;
   }
 
   getArmors(){
+    this.changeLoading(true);
     if(!this.armors.value.length){
       let response = this.http.get<Armor[]>(this.urlBase)
       response.subscribe({
@@ -40,6 +45,7 @@ export class ArmorService {
         })
         return response;
       }else{
+        this.changeLoading(false);
         return true;
       }
   }
