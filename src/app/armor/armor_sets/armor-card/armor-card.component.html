@@ -1,15 +1,3 @@
-<!-- <h3>{{armor.name}}</h3>
-<p>Rareza: {{armor.rarity}}</p>
-<p (click)="routeDetalles(armor.armorSet.id)" style="color: blue;">Detalles del set</p>
-@for (skill of armor.skills; track $index){
-  <p>{{skill.skillName}}</p>
-  <p>{{skill.description}}</p>
-}
-<div *ngIf="logged">
-  <input type="button" value="Acquired" (click)="addAcquired()">
-  <input type="button" value="Pending" (click)="addPending()">
-</div> -->
-
 <div class="armorContainer">
   <div>
    
@@ -25,11 +13,13 @@
    <p>Defense: {{armor.defense.base}}</p>
    <p *ngIf="armor.resistances">Resistances:</p>
    <div  *ngIf="armor.resistances" class="boxResistances">
-     <p matTooltip="Dragon" style="background-color: purple;">{{armor.resistances.dragon}}</p>
-     <p matTooltip="Fire" style="background-color: orangered;">{{armor.resistances.fire}}</p>
-     <p matTooltip="Ice" style="background-color: rgb(40, 199, 199);">{{armor.resistances.ice}}</p>
-     <p matTooltip="Thunder" style="background-color: yellow;">{{armor.resistances.thunder}}</p>
-     <p matTooltip="Water" style="background-color: blue;">{{armor.resistances.water}}</p>
+    <div class="boxResistances" *ngFor="let item of getResistences() | keyvalue">
+      <img style="width: 24px;height: 24px;" src={{getString(item.key)}} />
+      <p style="margin: 0;">{{item.value}}</p>
+    </div>
+   </div>
+   <div class="boxGems">
+    <img style="width: 24px;height: 24px;margin-left: 0.2rem;" *ngFor="let slot of armor.slots" src={{makeString(slot.rank)}} alt={{slot.rank}}/>
    </div>
    @for (skill of armor.skills; track $index){
     <p

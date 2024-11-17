@@ -8,49 +8,38 @@
       <h1 style="padding-left: 2rem;">{{armorSet.name}}</h1>
       <h4 style="display: flex; justify-content: right; padding-right: 4rem;">Rank: {{armorSet.rank}}</h4>
 
-      @for (piece of armorSet.pieces; track $index){
       <div style="--y: calc(100% - 2rem);
                   background: radial-gradient(circle at 30% var(--y), rgb(50 50 50), rgb(0 0 0));
                   padding: 1rem; padding-bottom: 2rem; 
-                  border-radius: 1rem; 
                   margin-bottom: 1rem;">
-          <h3>{{piece.name}}</h3>
-          <h4 style="padding-left: 4rem;">Type: {{piece.type}} </h4>
-            <div style="display: flex; flex-direction: row; justify-content: space-evenly; text-justify:auto">
-
+            <div style="display: flex; flex-direction: column; justify-content: space-around;">
+              <h4>Armor set stats:</h4>
               <div>
-                <p>Defense: {{piece.defense.base}}</p>
-                @if(piece.slots.length){
-                  @for (slot of piece.slots; track $index) {
-                    <p>Slot rank: {{slot.rank}}</p>
-                  }
-                }
+                <p style="margin-left: 5rem;">Total base defense: {{getDefense()}}</p>
+                <p style="margin-left: 5rem;">Total maxed defense: {{getDefenseMax()}}</p>
               </div>
+              
+              <div class="boxResistances" style="margin-left: 5rem;display: flex; flex-direction: row; justify-content: start;">
+                <p style="margin-right: 5rem;">Total resistances:</p>
+                <div style="display: flex;flex-direction: row;align-items: center;margin-left: 1rem;" *ngFor="let item of getResistence() | keyvalue">
+                  <img style="width: 24px;height: 24px;" src={{getString(item.key)}} />
+                  <p style=" margin: 0;margin-right: 0.5rem;">{{item.value}}</p>
+                </div>
+                
 
-              <div >
-                <p *ngIf="piece.resistances" style="display: flex; justify-content: center;">Resistances:</p>
-            <div  *ngIf="piece.resistances" class="boxResistances" style="display: flex; flex-direction: row;">
-              <p style="background-color: purple;">{{piece.resistances.dragon}}</p>
-              <p style="background-color: orangered;">{{piece.resistances.fire}}</p>
-              <p style="background-color: rgb(40, 199, 199);">{{piece.resistances.ice}}</p>
-              <p style="background-color: yellow;">{{piece.resistances.thunder}}</p>
-              <p style="background-color: blue;">{{piece.resistances.water}}</p>
-            </div>
-              </div>
-
-
-              <div style="display: flex; flex-direction: row; justify-content: right;">
-                <img class="image" src="{{piece.assets.imageMale}}"/>
-                <img class="image" src="{{piece.assets.imageFemale}}"/>
+                <!-- <p style="background-color: purple; margin-left: 1rem;">{{getResistence()?.['dragon']}}</p>
+                <p style="background-color: orangered; margin-left: 1rem;">{{getResistence()?.fire}}</p>
+                <p style="background-color: rgb(40, 199, 199); margin-left: 1rem;">{{getResistence()?.ice}}</p>
+                <p style="background-color: yellow; margin-left: 1rem;">{{getResistence()?.thunder}}</p>
+                <p style="background-color: blue; margin-left: 1rem;">{{getResistence()?.water}}</p> -->
               </div>
             </div>
       </div>
-      }
 
       @if(armorSet.bonus){
         <div style="border: 0.3rem black;
         border-style: dotted;
-        margin-top: 1rem;
+        margin-bottom: 1rem;
         background-color:rgb(95, 95, 95, 0.9);
         padding: 2rem;">
           <h2>Bonus: {{armorSet.bonus.name}}</h2>
@@ -60,7 +49,23 @@
             <p style="padding-left: 3rem;"> - Pieces of the armor set needed for the bonus above: {{rank.pieces}}</p>
           }
         </div>
+      }@else{
+        <div style="border: 0.3rem black;
+        border-style: dotted;
+        margin-bottom: 1rem;
+        background-color:rgb(95, 95, 95, 0.9);
+        padding: 2rem;">
+          <h2> This set has no bonuses </h2>
+        </div>
       }
+
+      <ul>
+      @for (piece of armorSet.pieces; track $index){
+        <app-armor-card class="armorCard" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [armor]="piece" ></app-armor-card>
+      
+      }
+    </ul>
+      
 
 
     }

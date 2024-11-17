@@ -70,6 +70,18 @@ export class ArmorCardComponent {
     }
   }
 
+  makeString(str:number){
+    return "gem_level_" + str + ".png";
+  }
+
+  getString(str:string){
+    return `mhw-${str}-damage_s.png`
+  }
+
+  getResistences(): {[key: string]: number} {
+    return this.armor.resistances
+  }
+
   addPending(){
     this.addWantedEvent.emit({
       id: this.armor.id,

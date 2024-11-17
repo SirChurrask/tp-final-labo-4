@@ -10,6 +10,8 @@
 .boxResistances{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    margin-right: 0.2rem;
 }
 
 .boxResistances > p{
