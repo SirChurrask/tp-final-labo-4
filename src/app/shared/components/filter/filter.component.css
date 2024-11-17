@@ -1,6 +1,6 @@
 .divFiltro{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
     align-items: center;
     justify-content: space-around;
     width: 100%;
@@ -10,7 +10,7 @@
 
 .divFiltro > button{
     background-color: rgb(50 50 50);
-    width: 10%;
+
     min-height: 3rem;
     border-radius: 1rem;
     color: white;
@@ -22,3 +22,19 @@
     cursor: pointer;
     transform: scale(1.05);
 }
+
+@media only screen and (max-width:850px) {
+    .divFiltro > button{
+        background-color: rgb(50 50 50);
+    }
+    .divFiltro{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    }
+    
+  }
+
+
+  @media only screen and (max-width: 600px) {
+
+  }

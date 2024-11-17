@@ -19,19 +19,13 @@
                 <p style="margin-left: 5rem;">Total maxed defense: {{getDefenseMax()}}</p>
               </div>
               
-              <div class="boxResistances" style="margin-left: 5rem;display: flex; flex-direction: row; justify-content: start;">
+              <div class="boxResistances" style="margin-left: 5rem;display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr)); justify-content: start;">
                 <p style="margin-right: 5rem;">Total resistances:</p>
                 <div style="display: flex;flex-direction: row;align-items: center;margin-left: 1rem;" *ngFor="let item of getResistence() | keyvalue">
                   <img style="width: 24px;height: 24px;" src={{getString(item.key)}} />
                   <p style=" margin: 0;margin-right: 0.5rem;">{{item.value}}</p>
                 </div>
-                
-
-                <!-- <p style="background-color: purple; margin-left: 1rem;">{{getResistence()?.['dragon']}}</p>
-                <p style="background-color: orangered; margin-left: 1rem;">{{getResistence()?.fire}}</p>
-                <p style="background-color: rgb(40, 199, 199); margin-left: 1rem;">{{getResistence()?.ice}}</p>
-                <p style="background-color: yellow; margin-left: 1rem;">{{getResistence()?.thunder}}</p>
-                <p style="background-color: blue; margin-left: 1rem;">{{getResistence()?.water}}</p> -->
               </div>
             </div>
       </div>

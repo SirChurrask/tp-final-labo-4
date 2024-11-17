@@ -4,6 +4,7 @@ input{
     background-color: gray;
     border-radius: 0.3rem;
     color: white;
+    width: fit-content;
 
 }
 
