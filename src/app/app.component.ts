@@ -16,6 +16,17 @@ export class AppComponent implements OnInit{
 
   router = inject(Router);
 
+  navChange() {
+    let x = document.getElementById("arriba");
+    if(x){
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  }
+
 
   changeButtonBC(){
           let buttons : any = document.getElementsByClassName("navButton");

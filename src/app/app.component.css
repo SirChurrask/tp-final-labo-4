@@ -9,22 +9,34 @@ header{
     border-bottom: 0.1rem;
     border-style:solid;
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
-.arriba2{
-    margin-right: 3%;
-    margin-left: 3%;
-    margin-top: 0%;
-    padding-top: 1%;
-    margin-bottom: 0;
+#navUser{
     width: 15%;
 }
 
+#title{
+    cursor: pointer;
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+#arriba .icon {
+    text-decoration: none;
+    display: none;
+    margin: 0%;
+    padding: 1rem;
+    padding-right: 0rem;
+    height: 100%;
+  }
+
 #arriba{
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
 }
 
@@ -35,6 +47,7 @@ header{
 #navCategorias{
     font-size: larger;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     width: 50%;
     height: 100%;
@@ -54,3 +67,71 @@ header{
 #itemsButton{
     border-left: 0.1rem;
 }
+
+@media only screen and (max-width:850px) {
+    /* For tablets: */
+    header{
+        width: 100%;
+        flex-direction: column;
+        position: relative;
+    }
+    #title {
+      width: 100%;
+      padding: 0;
+    }
+    #navCategorias{
+        width: 100%;
+        flex-direction: column;
+    }
+    #arriba{
+        width: 100%;
+        flex-direction: column;
+    }
+    .navButton{
+        width: auto;
+        height: fit-content;
+        padding: 0.5rem;
+    }
+    #navUser{
+        width: 100%;
+    }
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    #title{
+        margin: 0%;
+        height: 40px;
+        padding: 16px;
+        padding-right: 0%;
+        width: fit-content;
+    }
+    #arriba{
+        justify-content: space-around;
+    }
+
+    .topnav #navCategorias,.topnav #navUser {display: none;}
+
+    .topnav .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    #arriba a.icon {
+        background-color: rgb(67, 66, 66);
+        float: right;
+        display: block;
+      }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    .topnav.responsive #navCategorias,.topnav.responsive #navUser  {
+      display: flex;
+      width: 100%;
+    }
+  }

@@ -6,7 +6,7 @@
 }
 
 .searchInput{
-    width: 30%;
+    width: 50%;
     height: 1rem;;
 }
 
@@ -21,3 +21,16 @@
     padding: 0.1rem;
     margin-left: 1rem;
 }
+
+@media only screen and (max-width:850px) {
+    .searchDiv{
+        margin: 0%;
+    }
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .searchInput{
+        width: 90%;
+    }
+  }

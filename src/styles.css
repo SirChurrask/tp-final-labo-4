@@ -42,9 +42,6 @@ html{
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 .mdc-tooltip__surface {
     letter-spacing: -0.5px!important;
     border: 1px solid #333!important;

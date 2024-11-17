@@ -4,6 +4,7 @@ input{
     background-color: gray;
     border-radius: 0.3rem;
     color: white;
+    width: fit-content;
 
 }
 
@@ -17,3 +18,19 @@ input:hover{
     flex-direction: row;
     justify-content: end;
 }
+
+@media only screen and (max-width:850px) {
+    /* For tablets: */
+
+    .divUserButtons{
+        justify-content: center;
+    }
+
+  }
+  @media only screen and (max-width:600px) {
+    /* For mobile phones: */
+    .divUserButtons{
+        width: 100%;
+        justify-content: center;
+    }
+  }
