@@ -6,6 +6,10 @@
 
   - Luciano Serio (Laboratorio 4, Comisión 1)
 
+## Instalación:
+
+Para la correcta instalación y funcionamiento del programa, es necesario utilizar el comando `ng add @angular/material` en la consola para completar los archivos faltantes si es necesario. Después de esto, el programa se puede cargar utilizando `ng serve -o`, además de `json-server --watch db.json` para la base de datos.
+
 ## Proyecto:
 
 Al cargar el proyecto, la página iniciará con el contenido del componente **'Home'**. Este muestra una breve descripción del proyecto además del nombre de los integrantes, arriba mencionados, y la api de la cual se consume y procesa la información. Estos funcionan como links para páginas externas: el perfil de GitHub de cada integrante, la página con la documentación de la api y la página de la tienda del juego en Steam al que el proyecto está relacionado.
