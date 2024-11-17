@@ -42,23 +42,13 @@ header{
     
 }
 
-#navCategorias > a{
+.navButton{
     color: aliceblue;
     text-decoration: none;
     padding: 1rem;
     width: 15rem;
     text-align: center;
     vertical-align:middle;
-}
-
-#navCategorias > a:hover{
-    cursor: pointer;
-    border-bottom: 0.15rem;
-    /* transform: scale(1.1); */
-    /* font-size: xx-large; */
-    /* color: black; */
-    /* background-color: rgb(196, 182, 182); */
-    background-color: rgb(48, 53, 53);
 }
 
 #itemsButton{

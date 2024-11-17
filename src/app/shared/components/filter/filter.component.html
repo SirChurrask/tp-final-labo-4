@@ -1,0 +1,5 @@
+<div class="divFiltro">
+
+    <button *ngFor="let item of arrayOptions" class="filterButton" name={{item}} (click)="toggleFilter(item)">{{item[0].toUpperCase() + item.slice(1)}}</button>
+
+</div>

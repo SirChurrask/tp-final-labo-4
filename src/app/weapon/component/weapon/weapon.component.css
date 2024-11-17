@@ -5,35 +5,6 @@
     margin-right: 3rem;
 }
 
-.divFiltro{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    height: auto;
-    margin-bottom: 3rem;
-}
-
-.divFiltro > button{
-    background-color: rgb(50 50 50);
-    width: 10%;
-    min-height: 3rem;
-    border-radius: 1rem;
-    color: white;
-    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
-    1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
-}
-
-#filtroElementos > button{
-    font-size: larger;
-}
-
-.divFiltro > button:hover{
-    cursor: pointer;
-    transform: scale(1.05);
-}
-
 #found{
     font-size: larger;
     color: white;
@@ -57,8 +28,6 @@ h2{
 ul{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-column-gap: 10px;
-    grid-row-gap: 1em;
     margin: 0%;
     padding: 0%;
     
@@ -67,8 +36,6 @@ ul{
     display: grid;
     gap: 1rem;
 }
-
-
 
 .weaponCard{
     display: flex;

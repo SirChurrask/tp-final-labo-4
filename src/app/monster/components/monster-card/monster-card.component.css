@@ -39,3 +39,7 @@ h3{
     cursor: pointer;
     transform: scale(1.2);
 }
+
+.navButton{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

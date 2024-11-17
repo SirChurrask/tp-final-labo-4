@@ -14,11 +14,13 @@ import { ListaPendientesCardComponent } from '../lista-pendientes-card/lista-pen
 import { CommonModule } from '@angular/common';
 import { Observable, Subscription } from 'rxjs';
 import { Material } from '../../../shared/interface/material';
+import { SearchComponent } from '../../../shared/components/search/search.component';
+import { FilterComponent } from '../../../shared/components/filter/filter.component';
 
 @Component({
   selector: 'app-lista-pendientes',
   standalone: true,
-  imports: [ListaPendientesCardComponent,CommonModule],
+  imports: [ListaPendientesCardComponent,CommonModule,SearchComponent,FilterComponent],
   templateUrl: './lista-pendientes.component.html',
   styleUrl: './lista-pendientes.component.css'
 })
@@ -26,6 +28,8 @@ export class ListaPendientesComponent implements OnInit {
 
   pendientesArmor: Array<Armor> = [];
   pendientesWeapon: Array<Weapon> = [];
+  pendientesArmorf: Array<Armor> = [];
+  pendientesWeaponf: Array<Weapon> = [];
   data: WantedItem[] = [];
   logged: boolean = false;
   db = inject(UserService);
@@ -35,6 +39,55 @@ export class ListaPendientesComponent implements OnInit {
   Armorservice = inject(ArmorService);
   router = inject(Router);
   userPending: WantedItem[] = [];
+
+  
+  filterType : string[] = [];
+
+  filterElement : string[] = [];
+
+  search : string = "";
+
+  nombres(): string[]{
+    return [...this.pendientesArmorf.map(x => x.name),...this.pendientesWeaponf.map(x => x.name)];
+  }
+  
+  activeFilterSearch(str: string){
+    this.search = str;
+    this.activeFilter()
+  }
+
+  activeFilterType(str: string[]){
+    this.filterType = str;
+    this.activeFilter()
+  }
+
+  activeFilterElement(str: string[]){
+    this.filterElement = str;
+    this.activeFilter()
+  }
+
+  activeFilter(){
+
+    this.pendientesWeaponf = this.pendientesWeapon;
+    this.pendientesArmorf = this.pendientesArmor;
+
+    if(this.filterType.length){
+      this.pendientesWeaponf = this.pendientesWeaponf.filter(x => this.filterType.includes(x.type));
+      this.pendientesArmorf = this.pendientesArmorf.filter(x => this.filterType.includes(x.type));
+    }else{
+      this.pendientesWeaponf = this.pendientesWeaponf;
+      this.pendientesArmorf = this.pendientesArmorf;
+    }
+    if(this.filterElement.length){
+     this.pendientesWeaponf = this.pendientesWeaponf.filter(x => x.elements.map( element => element.type).some( ele => this.filterElement.includes(ele)));
+    };
+
+    if(this.search.length){
+      this.pendientesWeaponf = this.pendientesWeaponf.filter(x=>x.name.toLocaleLowerCase().includes(this.search.toLocaleLowerCase()))
+      this.pendientesArmorf = this.pendientesArmorf.filter(x=>x.name.toLocaleLowerCase().includes(this.search.toLocaleLowerCase()))
+    }
+    
+  }
 
   getMaterialesItem(id: string, type: string): Material[] {
     var rst : Material[] = []
@@ -69,6 +122,7 @@ export class ListaPendientesComponent implements OnInit {
         this.pendientesArmor.push(this.Armorservice.getArmorById(element.id));
       }
     }
+    this.activeFilter();
   }
 
   orderWeapon(){
@@ -78,6 +132,7 @@ export class ListaPendientesComponent implements OnInit {
         this.pendientesWeapon.push(this.weaponservice.getWeaponbyId(element.id));
       }
     }
+    this.activeFilter();
   }
 
   orderByType(){
@@ -106,6 +161,7 @@ export class ListaPendientesComponent implements OnInit {
         error: (err: Error) => {console.log(err)}
       })
     }
+    this.activeFilter();
   }
 
   addToAcquired(item: WantedItem){
@@ -138,6 +194,7 @@ export class ListaPendientesComponent implements OnInit {
           this.data = value;
           this.userPending = value;
           this.orderByType();
+          this.activeFilter();
         }
       }
     )

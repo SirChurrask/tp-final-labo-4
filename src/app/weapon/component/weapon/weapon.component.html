@@ -2,36 +2,13 @@
   <div>
     <h2>Weapons</h2>
   </div>
-  <div class="divFiltro">
-    <button class="filterButton" name='sword-and-shield' (click)="toggleFilterType('sword-and-shield')"><img class="image" scr="https://assets.mhw-db.com/weapons/sword-and-shield/icons/bba6138275380056204165eb9ed5d9cb.2e880e7ffa9e558cef1365b0d2e492a092f399a8.png"/>Sword and Shield</button>
-    <button class="filterButton" name="great-sword" (click)="toggleFilterType('great-sword')">Greatsword</button>
-    <button class="filterButton" name='dual-blades' (click)="toggleFilterType('dual-blades')">Dual Blades</button>
-    <button class="filterButton" name='long-sword' (click)="toggleFilterType('long-sword')">Longsword</button>
-    <button class="filterButton" name="hammer" (click)="toggleFilterType('hammer')">Hammer</button>
-    <button class="filterButton" name="hunting-horn" (click)="toggleFilterType('hunting-horn')">Hunting Horn</button>
-    <button class="filterButton" name="lance" (click)="toggleFilterType('lance')">Lance</button>
-    <button class="filterButton" name="gunlance" (click)="toggleFilterType('gunlance')">Gunlance</button>
-    <button class="filterButton" name="switch-axe" (click)="toggleFilterType('switch-axe')">Switch Axe</button>
-    <button class="filterButton" name="charge-blade" (click)="toggleFilterType('charge-blade')">Charge Blade</button>
-    <button class="filterButton" name="insect-glaive" (click)="toggleFilterType('insect-glaive')">Insect Glaive</button>
-    <button class="filterButton" name="bow" (click)="toggleFilterType('bow')">Bow</button>
-    <button class="filterButton" name="light-bowgun" (click)="toggleFilterType('light-bowgun')">Light Bowgun</button>
-    <button class="filterButton" name="heavy-bowgun" (click)="toggleFilterType('heavy-bowgun')">Heavy Bowgun</button>
-  </div>
-  <div id="filtroElementos" class="divFiltro">
-    <button class="filterButton" name="fire" (click)="toggleFilterElement('fire')">Fire</button>
-    <button class="filterButton" name="blast" (click)="toggleFilterElement('blast')">Blast</button>
-    <button class="filterButton" name="water" (click)="toggleFilterElement('water')">Water</button>
-    <button class="filterButton" name="thunder" (click)="toggleFilterElement('thunder')">Thunder</button>
-    <button class="filterButton" name="ice" (click)="toggleFilterElement('ice')">Ice</button>
-    <button class="filterButton" name="dragon" (click)="toggleFilterElement('dragon')">Dragon</button>
-    <button class="filterButton" name="paralysis" (click)="toggleFilterElement('paralysis')">Paralysis</button>
-    <button class="filterButton" name="sleep" (click)="toggleFilterElement('sleep')">Sleep</button>
-    <button class="filterButton" name="poison" (click)="toggleFilterElement('poison')">Poison</button>
-    <!-- <button (click)="toggleFilterElement('stun')">Stun</button> -->
-    <!-- <button (click)="toggleFilterElement('blastblight')">Blastblight</button> -->
-    <!-- <button (click)="toggleFilterElement('bleeding ')">Bleeding</button> -->
-  </div>
+
+  <app-search [options]="nombres()" (activeFilterEvent)="activeFilterSearch($event)"></app-search>
+
+  <app-filter (activeFilterEvent)="activeFilterType($event)" [arrayFilter]="filterType" [arrayOptions]="['sword-and-shield','great-sword','dual-blades','long-sword','hammer','hunting-horn','lance','gunlance','switch-axe','charge-blade','insect-glaive','bow','light-bowgun','heavy-bowgun']"  ></app-filter>
+  
+  <app-filter (activeFilterEvent)="activeFilterElement($event)" [arrayFilter]="filterElement" [arrayOptions]="['fire','blast','water','thunder','ice','dragon','paralysis','sleep','poison']"  ></app-filter>
+
   <div *ngIf="!cargando; else cargandoP">
       <p id="found">Found: {{filterweapons.length}}</p>
       <ul>

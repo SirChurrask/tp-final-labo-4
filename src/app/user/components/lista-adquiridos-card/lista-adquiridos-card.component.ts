@@ -108,7 +108,7 @@ export class ListaAdquiridosCardComponent {
         }
       ]
     }
-  }
+  };
 
   @Input() armorCheck: boolean = false;
   @Input() weaponCheck: boolean = false;

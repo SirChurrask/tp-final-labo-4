@@ -11,11 +11,13 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ListaAdquiridosCardComponent } from '../lista-adquiridos-card/lista-adquiridos-card.component';
 import { User } from '../../interfaces/user';
+import { FilterComponent } from '../../../shared/components/filter/filter.component';
+import { SearchComponent } from '../../../shared/components/search/search.component';
 
 @Component({
   selector: 'app-lista-adquiridos',
   standalone: true,
-  imports: [ListaAdquiridosCardComponent],
+  imports: [ListaAdquiridosCardComponent,FilterComponent,SearchComponent],
   templateUrl: './lista-adquiridos.component.html',
   styleUrl: './lista-adquiridos.component.css'
 })
@@ -40,43 +42,31 @@ export class ListaAdquiridosComponent implements OnInit{
 
   filterElement : string[] = [];
 
+  search : string = "";
 
-
-  toggleFilterType(type: string){
-
-    if(this.filterType.includes(type)){
-      this.filterType = this.filterType.filter( x => x != type);
-    }else{
-      this.filterType.push(type);
-    }
-    this.activeFilter();
-    this.changeButtonBC();
-
+  nombres(): string[]{
+    return [...this.adquiridosArmorf.map(x => x.name),...this.adquiridosWeaponf.map(x => x.name)];
+  }
+  
+  activeFilterSearch(str: string){
+    this.search = str;
+    this.activeFilter()
   }
 
-  changeButtonBC(){
-    let buttons : any = document.getElementsByClassName("filterButton");
-    for(let i = 0;i < buttons.length;i++){
-      let aux = buttons[i];
-      if(this.filterElement.includes(aux.name) || this.filterType.includes(aux.name))
-        aux.style.background = '#414a66';
-      else{
-        aux.style.background = '#323232';
-      }
-    }
+  activeFilterType(str: string[]){
+    this.filterType = str;
+    this.activeFilter()
   }
 
-  toggleFilterElement(element: string){
-    if(this.filterElement.includes(element)){
-      this.filterElement = this.filterElement.filter( x => x != element);
-    }else{
-      this.filterElement.push(element);
-    }
-    this.activeFilter();
-    this.changeButtonBC();
+  activeFilterElement(str: string[]){
+    this.filterElement = str;
+    this.activeFilter()
   }
 
   activeFilter(){
+
+    this.adquiridosArmorf = this.adquiridosArmor;
+    this.adquiridosWeaponf = this.adquiridosWeapon;
 
     if(this.filterType.length){
       this.adquiridosWeaponf = this.adquiridosWeapon.filter(x => this.filterType.includes(x.type));
@@ -88,6 +78,11 @@ export class ListaAdquiridosComponent implements OnInit{
     if(this.filterElement.length){
      this.adquiridosWeaponf = this.adquiridosWeaponf.filter(x => x.elements.map( element => element.type).some( ele => this.filterElement.includes(ele)));
     };
+
+    if(this.search.length){
+      this.adquiridosWeaponf = this.adquiridosWeaponf.filter(x=>x.name.toLocaleLowerCase().includes(this.search.toLocaleLowerCase()))
+      this.adquiridosArmorf = this.adquiridosArmorf.filter(x=>x.name.toLocaleLowerCase().includes(this.search.toLocaleLowerCase()))
+    }
     
   }
 
