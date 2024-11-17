@@ -1,12 +1,12 @@
 @if (armorCheck && !weaponCheck){
-<legend>
+<legend style="display: flex; flex-direction: column; justify-content: space-between;height: 100%;">
   <app-armor-card [armor]="armor"></app-armor-card>
   <button (click)="deleteAcquired()">Remove</button>
 </legend>
 }
 
 @if(!armorCheck && weaponCheck){
-<legend>
+<legend style="display: flex; flex-direction: column; justify-content: space-between;height: 100%;">
   <app-weapon-card [weapon]="weapon"></app-weapon-card>
   <button (click)="deleteAcquired()">Remove</button>
 </legend>

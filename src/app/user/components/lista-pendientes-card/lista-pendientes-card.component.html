@@ -1,6 +1,4 @@
-
-<!-- <p>{{userPending.id}}{{userPending.materiales}}{{userPending.type}}</p> -->
-<legend *ngIf="armorCheck && !weaponCheck">
+<legend *ngIf="armorCheck && !weaponCheck"  style="display: flex; flex-direction: column; justify-content: space-between;height: 100%;">
   <div style="display: flex; flex-direction: row; align-items: center;">
     <app-armor-card [armor]="armor" ></app-armor-card>
     <div style="display: flex; flex-direction: column;padding-left: 2rem;">
@@ -19,7 +17,7 @@
   <button (click)="deletePending()">Remove</button>
 </legend>
 
-<legend *ngIf="!armorCheck && weaponCheck">
+<legend *ngIf="!armorCheck && weaponCheck"  style="display: flex; flex-direction: column; justify-content: space-between;height: 100%;">
   <div style="display: flex; flex-direction: row; align-items: center;">
     <app-weapon-card [weapon]="weapon" ></app-weapon-card>
     <div style="display: flex; flex-direction: column;padding-left: 2rem;">
