@@ -55,6 +55,16 @@ export class ArmorService {
   }
 
   getArmorSetByID(id: string | null): Observable<ArmorSet> {
-    return this.http.get<ArmorSet>(`${this.urlBase}/sets/${id}`);
+    this.changeLoading(true);
+    let response = this.http.get<ArmorSet>(`${this.urlBase}/sets/${id}`);
+    response.subscribe({
+      next: (data) => {
+        this.changeLoading(false);
+      },
+      error: (err: Error) => {
+        console.log(err);
+      }
+    })
+    return response;
   }
 }  //Even flow

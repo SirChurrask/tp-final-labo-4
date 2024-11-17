@@ -45,8 +45,20 @@ export class WishlistComponent implements OnInit {
 
   search : string = "";
 
+  loading:boolean = true;
+  loadingWeapon:boolean = true;
+  loadingArmor:boolean = true;
+
   nombres(): string[]{
     return [...this.pendientesArmorf.map(x => x.name),...this.pendientesWeaponf.map(x => x.name)];
+  }
+
+  comprobation(){
+    return this.data.filter(x => x.type == 'weapon').length != this.pendientesWeapon.length || this.data.filter(x => x.type == 'armor').length != this.pendientesArmor.length;
+  }
+
+  acquiredNumber(str: string){
+    return  this.data.filter(x => x.type == str);
   }
   
   activeFilterSearch(str: string){
@@ -169,6 +181,24 @@ export class WishlistComponent implements OnInit {
   }
 
   ngOnInit(){
+
+    this.as.currentLoading.subscribe(
+      value => {
+        this.loading = value;
+      }
+    );
+
+    this.weaponservice.currentLoading.subscribe(
+      value => {
+        this.loadingWeapon = value;
+      }
+    );
+
+    this.Armorservice.currentLoading.subscribe(
+      value => {
+        this.loadingArmor = value;
+      }
+    );
 
     this.db.currentData.subscribe(
       value => {

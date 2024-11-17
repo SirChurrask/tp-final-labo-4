@@ -18,6 +18,13 @@ export class PendingService {
   private pending =  new BehaviorSubject<WantedItem[]>([]);
   currentData = this.pending.asObservable();
 
+  private loading = new BehaviorSubject<boolean>(true);
+  currentLoading = this.loading.asObservable();
+
+  changeLoading(data: boolean){
+    this.loading.next(data)
+  }
+
   putPending(item: WantedItem) : void{
     if(!this.pending.value.some(x => x.id === item.id)){
       this.http.patch<User>(`${this.url}/${this.db.getUserId()}`,{
@@ -60,6 +67,7 @@ export class PendingService {
   }
 
   getPending() : Observable<User>{
+    this.changeLoading(true);
      let rta = this.http.get<User>(`${this.url}/${this.db.getUserId()}`);
      
      rta.subscribe({
@@ -90,6 +98,7 @@ export class PendingService {
 
   changePending(data:WantedItem[]){
     this.pending.next(data)
+    this.changeLoading(false);
   }
 
 }

@@ -5,19 +5,21 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-armor-set-detalles',
+  selector: 'app-armor-set-details',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './armor-set-detalles.component.html',
-  styleUrl: './armor-set-detalles.component.css'
+  templateUrl: './armor-set-details.component.html',
+  styleUrl: './armor-set-details.component.css'
 })
-export class ArmorSetDetallesComponent implements OnInit{
+export class ArmorSetDetailsComponent implements OnInit{
 
   constructor(private route: ActivatedRoute) {}
 
   armrService = inject(ArmorService);
 
   armorSet: ArmorSet | null = null;
+
+  loading:boolean = true;
 
   cargarArmorSet(id: string | null){
     this.armrService.getArmorSetByID(id).subscribe({
@@ -31,6 +33,11 @@ export class ArmorSetDetallesComponent implements OnInit{
   }
 
   ngOnInit(){
+    this.armrService.currentLoading.subscribe(
+      value => {
+        this.loading = value;
+      }
+    );
     const armorID = this.route.snapshot.paramMap.get('id');
     this.cargarArmorSet(armorID);
   }
