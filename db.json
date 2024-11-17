@@ -227,19 +227,19 @@
           "materiales": [
             {
               "id": 229,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 232,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 231,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 158,
-              "acquired": false
+              "acquired": true
             }
           ]
         },
@@ -315,6 +315,13 @@
       "id": "9a31",
       "username": "us4321",
       "password": "$2a$10$44yCuF37.UQ9YRulhx6znOTORJbtMmH0YZs3YgYon7xHPBg6rVAGG",
+      "acquired": [],
+      "pending": []
+    },
+    {
+      "id": "187e",
+      "username": "Marcos",
+      "password": "$2a$10$Y8uW8CzpcUdbShyVNSJKcuRWuPoL3.g1YSfiAp6zfju3RzEEg.eke",
       "acquired": [],
       "pending": []
     }
