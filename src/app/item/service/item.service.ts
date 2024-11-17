@@ -14,16 +14,26 @@ export class ItemService {
   private items = new BehaviorSubject<Item[]>([]);
   currentData = this.items.asObservable();
 
+  private loading = new BehaviorSubject<boolean>(true);
+  currentLoading = this.loading.asObservable();
+
+  changeLoading(data: boolean){
+    this.loading.next(data)
+  }
+
   changeItems(data: Item[]){
     this.items.next(data)
+    this.changeLoading(false);
   }
 
   getItems(){
+    this.changeLoading(true);
     if(!this.items.value.length){
       let response = this.http.get<Item[]>(this.urlBase)
       response.subscribe({
           next: (data) => {
             this.changeItems(data);
+
           },
           error: (err: Error) => {
             console.log(err);
@@ -31,6 +41,7 @@ export class ItemService {
         })
         return response;
       }else{
+        this.changeLoading(false);
         return true;
       }
   }

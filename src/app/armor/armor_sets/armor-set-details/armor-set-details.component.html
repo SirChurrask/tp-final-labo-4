@@ -1,0 +1,68 @@
+<div *ngIf="loading;else armorSetDetails">
+  <p>Loading...</p>
+</div>
+
+<ng-template #armorSetDetails>
+  <div style="background-color: rgb(76, 76, 76, 0.7 ); padding: 1rem; border-radius: 1rem;">
+    @if (armorSet){
+      <h1 style="padding-left: 2rem;">{{armorSet.name}}</h1>
+      <h4 style="display: flex; justify-content: right; padding-right: 4rem;">Rank: {{armorSet.rank}}</h4>
+
+      @for (piece of armorSet.pieces; track $index){
+      <div style="--y: calc(100% - 2rem);
+                  background: radial-gradient(circle at 30% var(--y), rgb(50 50 50), rgb(0 0 0));
+                  padding: 1rem; padding-bottom: 2rem; 
+                  border-radius: 1rem; 
+                  margin-bottom: 1rem;">
+          <h3>{{piece.name}}</h3>
+          <h4 style="padding-left: 4rem;">Type: {{piece.type}} </h4>
+            <div style="display: flex; flex-direction: row; justify-content: space-evenly; text-justify:auto">
+
+              <div>
+                <p>Defense: {{piece.defense.base}}</p>
+                @if(piece.slots.length){
+                  @for (slot of piece.slots; track $index) {
+                    <p>Slot rank: {{slot.rank}}</p>
+                  }
+                }
+              </div>
+
+              <div >
+                <p *ngIf="piece.resistances" style="display: flex; justify-content: center;">Resistances:</p>
+            <div  *ngIf="piece.resistances" class="boxResistances" style="display: flex; flex-direction: row;">
+              <p style="background-color: purple;">{{piece.resistances.dragon}}</p>
+              <p style="background-color: orangered;">{{piece.resistances.fire}}</p>
+              <p style="background-color: rgb(40, 199, 199);">{{piece.resistances.ice}}</p>
+              <p style="background-color: yellow;">{{piece.resistances.thunder}}</p>
+              <p style="background-color: blue;">{{piece.resistances.water}}</p>
+            </div>
+              </div>
+
+
+              <div style="display: flex; flex-direction: row; justify-content: right;">
+                <img class="image" src="{{piece.assets.imageMale}}"/>
+                <img class="image" src="{{piece.assets.imageFemale}}"/>
+              </div>
+            </div>
+      </div>
+      }
+
+      @if(armorSet.bonus){
+        <div style="border: 0.3rem black;
+        border-style: dotted;
+        margin-top: 1rem;
+        background-color:rgb(95, 95, 95, 0.9);
+        padding: 2rem;">
+          <h2>Bonus: {{armorSet.bonus.name}}</h2>
+
+          @for (rank of armorSet.bonus.ranks; track $index){
+            <p>{{rank.description}}</p>
+            <p style="padding-left: 3rem;"> - Pieces of the armor set needed for the bonus above: {{rank.pieces}}</p>
+          }
+        </div>
+      }
+
+
+    }
+  </div>
+</ng-template>

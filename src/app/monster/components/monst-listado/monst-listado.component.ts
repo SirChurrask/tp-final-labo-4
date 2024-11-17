@@ -5,12 +5,14 @@ import { MonsterService } from '../../service/monster.service';
 import { MonsterCardComponent } from "../monster-card/monster-card.component";
 import { FilterComponent } from '../../../shared/components/filter/filter.component';
 import { SearchComponent } from "../../../shared/components/search/search.component";
+import { CommonModule } from '@angular/common';
+import { FoundComponent } from '../../../shared/components/found/found.component';
 
 
 @Component({
   selector: 'app-monst-listado',
   standalone: true,
-  imports: [MonsterCardComponent, FilterComponent, SearchComponent],
+  imports: [MonsterCardComponent, FilterComponent, SearchComponent,CommonModule,FoundComponent],
   templateUrl: './monst-listado.component.html',
   styleUrl: './monst-listado.component.css'
 })
@@ -23,6 +25,8 @@ export class MonstListadoComponent implements OnInit{
   filterType: string[] = [];
 
   search:string = '';
+
+  loading:boolean = false;
 
   nombres(){
     return this.AllBois.map(x => x.name)
@@ -50,6 +54,11 @@ export class MonstListadoComponent implements OnInit{
   }
   
   ngOnInit(){
+    this.MonsterServ.currentLoading.subscribe(
+      value => {
+        this.loading = value;
+      }
+    );
     this.MonsterServ.currentData.subscribe(
       value => {
         this.AllBois = value;
@@ -59,6 +68,4 @@ export class MonstListadoComponent implements OnInit{
     this.MonsterServ.getMonsters();
     
   }
-
-
 }
