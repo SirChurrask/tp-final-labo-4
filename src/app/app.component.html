@@ -1,7 +1,7 @@
 <header>
-  <div id="arriba">
-    <h2 style="cursor: pointer;" routerLink="/" class="arriba2">{{title}}</h2>
-    <nav id="navCategorias">
+  <div id="arriba" class="topnav">
+    <h2 id="title" routerLink="/">{{title}}</h2>
+    <nav class="topnav" id="navCategorias">
       <a class="navButton" name="Items" routerLink="/Items">
         Items
       </a>
@@ -14,8 +14,12 @@
       <a class="navButton" name="Weapons" routerLink="/Weapons">
         Weapons
       </a>
+      
     </nav>
-    <app-nav-user class="arriba2"></app-nav-user>
+    <app-nav-user id="navUser"></app-nav-user>
+    <a style="max-width: 40px; max-height: 40px;" href="javascript:void(0);" class="icon" (click)="navChange()">
+      <img style="max-width: 75%; height: fit-content;" src="fa-bars.png"/>
+    </a>
   </div>
 
 </header>
