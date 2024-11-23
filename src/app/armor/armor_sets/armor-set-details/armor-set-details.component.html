@@ -1,5 +1,5 @@
-<div *ngIf="loading;else armorSetDetails">
-  <p>Loading...</p>
+<div *ngIf="loading;else armorSetDetails" class="loader">
+  <app-loading></app-loading>
 </div>
 
 <ng-template #armorSetDetails>
@@ -55,7 +55,7 @@
 
       <ul>
       @for (piece of armorSet.pieces; track $index){
-        <app-armor-card class="armorCard" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [armor]="piece" ></app-armor-card>
+        <app-armor-card class="cardItem" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [armor]="piece" ></app-armor-card>
       
       }
     </ul>

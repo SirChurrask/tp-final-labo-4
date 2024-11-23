@@ -12,11 +12,12 @@ import { UserService } from '../../../user/auth/service/user.service';
 import { AcquiredService } from '../../../user/adquiredList/service/acquired.service';
 import { PendingService } from '../../../user/wishList/service/pending.service';
 import { WantedItem } from '../../../user/interfaces/wanted-item';
+import { LoadingComponent } from "../../../shared/components/loading/loading.component";
 
 @Component({
   selector: 'app-armor-list',
   standalone: true,
-  imports: [ArmorCardComponent,FilterComponent,CommonModule,SearchComponent,FoundComponent],
+  imports: [ArmorCardComponent, FilterComponent, CommonModule, SearchComponent, FoundComponent, LoadingComponent],
   templateUrl: './armor-list.component.html',
   styleUrl: './armor-list.component.css'
 })

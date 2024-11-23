@@ -19,7 +19,7 @@
   </div> 
   <div  *ngIf="weapon.elements">
     @for (item of weapon.elements; track $index) {
-      <p >{{item.type}} {{item.damage}}</p>
+      <p >{{item.type[0].toLocaleUpperCase() + item.type.slice(1)}} {{item.damage}}</p>
     }
   </div>
 

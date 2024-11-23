@@ -1,17 +1,20 @@
-
-  <app-search (activeFilterEvent)="activeFilterSearch($event)" [options]="nombres()"></app-search>
-
   <app-filter (activeFilterEvent)="activeFilter($event)" [arrayOptions]="['head','chest','gloves','waist','legs']" [arrayFilter]="typeFilter" ></app-filter>
 
-  <div *ngIf="loading;else armorList">
-    <p>Loading...</p>
+  <div class="foundSearch">
+    <app-found [items]="armadurasFiltradas.length"></app-found>
+    <app-search [placeH]="'Search armors'" (activeFilterEvent)="activeFilterSearch($event)" [options]="nombres()"></app-search>
+  </div>
+  
+
+  <div *ngIf="loading;else armorList" class="loader">
+    <app-loading></app-loading>
   </div>
 
   <ng-template #armorList>
-    <app-found [items]="armadurasFiltradas.length"></app-found>
+    
     <ul>
       @for (armor of armadurasFiltradas; track $index){
-        <app-armor-card class="armorCard" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [armor]="armor"></app-armor-card>
+        <app-armor-card class="cardItem" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [armor]="armor"></app-armor-card>
       }
     </ul>
   </ng-template>

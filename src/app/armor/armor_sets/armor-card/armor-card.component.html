@@ -10,7 +10,7 @@
     <img *ngIf="armor.assets && armor.assets.imageMale" class="armorImage" src={{armor.assets.imageMale}}/>
     <img *ngIf="armor.assets && armor.assets.imageMale" class="armorImage" src={{armor.assets.imageFemale}}/>
    </div>
-   <p>Defense: {{armor.defense.base}}</p>
+   <p class="defenseP">Defense: {{armor.defense.base}}</p>
    <p *ngIf="armor.resistances">Resistances:</p>
    <div  *ngIf="armor.resistances" class="boxResistances">
     <div class="boxResistances" *ngFor="let item of getResistences() | keyvalue">

@@ -1,8 +1,9 @@
-
-<div class="searchDiv">
-    <input (input)="activeFilter()" placeholder="Search" type="text" class="searchInput" [(ngModel)]="search" name="search" list="op"/>
-    <datalist id="op">
-        <option *ngFor="let item of options  | slice:0:10" value={{item}} >{{item[0].toLocaleUpperCase() + item.slice(1)}}</option>
-    </datalist>
-    <p id="clear" *ngIf="search.length" (click)="clear()">X</p>
+<div id="searchContainer">
+    <div class="searchDiv">
+        <input (input)="activeFilter()" placeholder={{placeH}}... type="text" class="searchInput" [(ngModel)]="search" name="search" list="op">
+        <datalist id="op">
+            <option *ngFor="let item of options  | slice:0:10" value={{item}} >{{item[0].toLocaleUpperCase() + item.slice(1)}}</option>
+        </datalist>
+        <span id="clear" *ngIf="search.length" (click)="clear()">X</span>
+    </div>
 </div>

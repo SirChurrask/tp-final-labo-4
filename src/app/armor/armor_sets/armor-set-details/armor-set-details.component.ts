@@ -11,11 +11,12 @@ import { AcquiredItem } from '../../../user/interfaces/acquired-item';
 import { PendingService } from '../../../user/wishList/service/pending.service';
 import { AcquiredService } from '../../../user/adquiredList/service/acquired.service';
 import { ObjectType } from 'typescript';
+import { LoadingComponent } from "../../../shared/components/loading/loading.component";
 
 @Component({
   selector: 'app-armor-set-details',
   standalone: true,
-  imports: [CommonModule, ArmorCardComponent],
+  imports: [CommonModule, ArmorCardComponent, LoadingComponent],
   templateUrl: './armor-set-details.component.html',
   styleUrl: './armor-set-details.component.css'
 })

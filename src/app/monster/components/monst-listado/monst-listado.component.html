@@ -1,16 +1,22 @@
-  <app-search (activeFilterEvent)="activeFilterSearch($event)" [options]="nombres()"></app-search>
+  
 
   <app-filter (activeFilterEvent)="activeFilterType($event)" [arrayOptions]="['large','small']" [arrayFilter]="filterType" ></app-filter>
 
-  <div *ngIf="loading; else monsterList">
-    <p>Loading...</p>
+  <div class="foundSearch">
+    <app-found [items]="AllBois.length"></app-found>
+    <app-search [placeH]="'Search monsters'" (activeFilterEvent)="activeFilterSearch($event)" [options]="nombres()"></app-search>
+  </div>
+
+  <div *ngIf="loading; else monsterList" class="loader">
+    <app-loading></app-loading>
   </div>
 
   <ng-template #monsterList>
-    <app-found [items]="AllBois.length"></app-found>
+    
+    
     <ul>
       @for (monster of AllBois; track $index) {
-        <app-monster-card class="monsterCard" [monster]="monster"></app-monster-card>
+        <app-monster-card class="cardItem" [monster]="monster"></app-monster-card>
       }
     </ul>
   </ng-template>

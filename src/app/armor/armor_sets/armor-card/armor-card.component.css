@@ -56,7 +56,7 @@ p{
 }
 
 .armorImage{
-    max-width: 10rem;
+    /* max-width: 10rem; */
     height: auto;
 }
 
@@ -72,3 +72,9 @@ h3{
     cursor: pointer;
     transform: scale(1.2);
 }
+
+/* @media screen and (max-width: 600px) {
+    .boxResistances, .defenseP{
+        display: none;
+    }
+  } */

@@ -10,6 +10,7 @@ header{
     border-style:solid;
     display: flex;
     align-items: center;
+    font-family: "IBM Plex Mono", monospace;
 }
 
 #navUser{
@@ -29,7 +30,7 @@ header{
     display: none;
     margin: 0%;
     padding: 1rem;
-    padding-right: 0rem;
+    /* padding-right: 0rem; */
     height: 100%;
   }
 
@@ -69,7 +70,7 @@ header{
     border-left: 0.1rem;
 }
 
-@media only screen and (max-width:850px) {
+@media only screen and (max-width:1000px) {
     /* For tablets: */
     header{
         width: 100%;
@@ -105,13 +106,14 @@ header{
         height: 40px;
         padding: 16px;
         padding-right: 0%;
+        padding-left: 1rem;
         width: fit-content;
     }
 
     .topnav #navCategorias,.topnav #navUser {display: none;}
 
     #arriba{
-        justify-content: start;
+        align-items: start;
     }
 
     .topnav .icon {
@@ -120,9 +122,12 @@ header{
         top: 0;
       }
     #arriba a.icon {
-        background-color: rgb(67, 66, 66);
+        /* background-color: rgb(67, 66, 66); */
         float: right;
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
       }
   }
   

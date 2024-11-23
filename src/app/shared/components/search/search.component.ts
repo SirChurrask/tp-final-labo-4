@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 export class SearchComponent {
   @Output() activeFilterEvent = new EventEmitter();
   @Input() options: string[] = [];
+  @Input() placeH: string = 'Search';
 
   search :string = "";
 
