@@ -16,6 +16,7 @@ export class ArmorCardComponent {
   routes = inject(Router);
   @Output() addWantedEvent = new EventEmitter();
   @Output() addAcquiredEvent = new EventEmitter();
+  @Input() showDetails : boolean = true;
   @Input() logged : boolean = false;
   @Input() armor : Armor ={
     id: '',

@@ -26,7 +26,7 @@
     matTooltip="{{skill.description}}">{{skill.skillName}} {{skill.level}}</p>
     <!-- <p>{{skill.description}}</p> -->
   }
-  <p class="seeDetails" (click)="routeDetalles(armor.armorSet.id)">See details</p>
+  <p *ngIf="showDetails" class="seeDetails" (click)="routeDetalles(armor.armorSet.id)">See details</p>
   <div class="divPending" *ngIf="logged">
      <input type="button" value="+ Acquired" (click)="addAcquired()">
      <input type="button" value="+ Pending" (click)="addPending()">
