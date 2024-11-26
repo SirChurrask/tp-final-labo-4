@@ -28,4 +28,16 @@
   <router-outlet />
 </div>
 
+<button class="go-to-top" *ngIf="showTopButton" (click)="scrollToTop()">
+  <span class="material-symbols-outlined">
+    arrow_upward
+    </span>
+</button>
+
+<button class="go-to-bottom" *ngIf="showBottomButton" (click)="scrollToBottom()">
+  <span class="material-symbols-outlined">
+    arrow_downward
+    </span>
+</button>
+
 
