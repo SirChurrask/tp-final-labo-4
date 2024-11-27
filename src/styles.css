@@ -12,12 +12,16 @@ body{
     
 }
 
+#footer {
+  margin-top: auto;
+}
+
 a { 
-    color:blue;
+    color:white;
     text-decoration: none;
 }
 /* a:visited { text-decoration: none; color:red; } */
-a:hover { text-decoration:underline; color:blue; }
+a:hover { text-decoration:underline; color:white; }
 /* a:focus { text-decoration: none; color:yellow; }
 a:hover, a:active { text-decoration: none; color:black } */
 
@@ -26,11 +30,12 @@ html{
 }
 
 .pageBC{
+    min-height: 100vh;
     width: auto;
     background-color: rgba(128, 121, 121, 0.8);
+    margin-top: 4rem;
     margin-left: 3rem;
     margin-right: 3rem;
-    margin-top: 0%;
     margin-bottom: 0%;
     padding: 3rem;
     padding-top: 1rem;
@@ -86,7 +91,6 @@ hr{
   flex-direction: row; 
   justify-content: space-between;
 }
-
   
 .cardItem:hover {
     transform: scale(1.1);

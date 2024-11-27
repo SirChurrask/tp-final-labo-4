@@ -1,24 +1,41 @@
-<h2>Login form</h2><br/>
+<div style="display: flex;justify-content: center;height: 100%;">
+    <div id="loginDiv">
+        <h2 id="loginTitle">Login form</h2><br />
 
-<form #registerForm [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="username">Username: </label>
-        <input type="text" id="username" formControlName="username" required/>
-        <div class="alert" *ngIf="form.get('username')?.invalid && (form.get('username')?.touched || submitted)">
-            <small  *ngIf="form.get('username')?.errors?.['required']">Username required</small>
-            <small  *ngIf="form.get('username')?.errors?.['minlength']">Username minlength 5</small>
-        </div>
-    </div><br/>
+        <form style="width: 100%;" #registerForm [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div id="loginform">
+                <div
+                    style="display: flex;flex-direction: column;justify-content: start;align-items: start;width: 100%;max-width: 15rem;">
+                    <label for="username">Username </label>
+                    <input class="inputLogin" type="text" id="username" formControlName="username" required />
+                    <div class="alert"
+                        *ngIf="form.get('username')?.invalid && (form.get('username')?.touched || submitted);else else1">
+                        <small *ngIf="form.get('username')?.errors?.['required']">Username required</small>
+                        <small *ngIf="form.get('username')?.errors?.['minlength']">Username minlength 5</small>
+                    </div>
+                    <ng-template #else1>
+                        <br />
+                    </ng-template>
+                </div><br />
 
-    <div>
-        <label for="password">Password: </label>
-        <input type="password" id="password" formControlName="password" required/>
-        <div class="alert" *ngIf="form.get('password')?.invalid && (form.get('password')?.touched || submitted)">
-            <small *ngIf="form.get('password')?.errors?.['required']">Password required</small>
-            <small *ngIf="form.get('password')?.errors?.['minlength']">Password minlength 5</small>
-        </div>
-    </div><br/>
+                <div
+                    style="display: flex;flex-direction: column;justify-content: start;align-items: start;width: 100%;max-width: 15rem;">
+                    <label for="password">Password </label>
+                    <input class="inputLogin" type="password" id="password" formControlName="password" required />
+                    <div class="alert"
+                        *ngIf="form.get('password')?.invalid && (form.get('password')?.touched || submitted);else else2">
+                        <small *ngIf="form.get('password')?.errors?.['required']">Password required</small>
+                        <small *ngIf="form.get('password')?.errors?.['minlength']">Password minlength 5</small>
+                    </div>
+                    <ng-template #else2>
+                        <br />
+                    </ng-template>
+                </div><br />
 
-    <div class="alert" *ngIf="wrongUorP && submitted" >Wrong username or password</div>
-    <button id="loginbutton" type="submit">Log In</button>
-</form>
+                <div class="alert" *ngIf="wrongUorP && submitted">Wrong username or password</div>
+                <button id="loginbutton" type="submit">Log In</button>
+            </div>
+
+        </form>
+    </div>
+</div>

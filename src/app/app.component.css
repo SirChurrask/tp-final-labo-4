@@ -1,5 +1,5 @@
 header{
-    position: sticky;
+    position: fixed;
     z-index: 1;
     background-color: rgb(37, 41, 41);
     width: 100%;

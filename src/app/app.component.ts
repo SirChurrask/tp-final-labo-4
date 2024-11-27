@@ -35,11 +35,11 @@ export class AppComponent implements OnInit{
   @HostListener('window:scroll')
   onWindowScroll() {
     this.showTopButton = window.scrollY > 350;
-    this.showBottomButton = ((window.document.body.scrollHeight - window.innerHeight) - window.scrollY) > 350 && this.showTopButton;
+    this.showBottomButton = ((window.document.body.scrollHeight - window.innerHeight) - window.scrollY) > 350; //&& this.showTopButton;
   }
 
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0 }); //behavior: 'smooth'
   }
 
   scrollToBottom() {
