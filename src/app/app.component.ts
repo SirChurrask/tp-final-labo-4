@@ -34,8 +34,8 @@ export class AppComponent implements OnInit{
 
   @HostListener('window:scroll')
   onWindowScroll() {
-    this.showTopButton = window.scrollY > 350;
-    this.showBottomButton = ((window.document.body.scrollHeight - window.innerHeight) - window.scrollY) > 350; //&& this.showTopButton;
+    this.showTopButton = window.scrollY > 350; 
+    this.showBottomButton = !(Math.round(window.innerHeight + window.scrollY) >= document.body.scrollHeight)// ((window.document.body.scrollHeight - window.innerHeight) - window.scrollY) > 350; //&& this.showTopButton;
   }
 
   scrollToTop() {
@@ -43,7 +43,7 @@ export class AppComponent implements OnInit{
   }
 
   scrollToBottom() {
-    window.scrollTo(0, (window.document.body.scrollHeight - window.innerHeight));
+    window.scrollTo(0, (window.document.body.scrollHeight - window.innerHeight)+100);
   }
 
 
@@ -69,6 +69,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.onWindowScroll();
 
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)  
