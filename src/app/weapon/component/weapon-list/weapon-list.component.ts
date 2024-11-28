@@ -12,11 +12,12 @@ import { UserService } from '../../../user/auth/service/user.service';
 import { AcquiredService } from '../../../user/adquiredList/service/acquired.service';
 import { PendingService } from '../../../user/wishList/service/pending.service';
 import { WantedItem } from '../../../user/interfaces/wanted-item';
+import { LoadingComponent } from "../../../shared/components/loading/loading.component";
 
 @Component({
   selector: 'app-weapon-list',
   standalone: true,
-  imports: [WeaponCardComponent,CommonModule,FormsModule,FilterComponent,SearchComponent,FoundComponent],
+  imports: [WeaponCardComponent, CommonModule, FormsModule, FilterComponent, SearchComponent, FoundComponent, LoadingComponent],
   templateUrl: './weapon-list.component.html',
   styleUrl: './weapon-list.component.css'
 })

@@ -1,13 +1,14 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { NavUserComponent } from './user/auth/components/nav-user/nav-user.component';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, NavUserComponent],
+  imports: [RouterOutlet, RouterLink, NavUserComponent,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -15,6 +16,10 @@ export class AppComponent implements OnInit{
   title = 'MonsterHunterHandler';
 
   router = inject(Router);
+
+  showTopButton : boolean = false;
+  showBottomButton: boolean = false;
+
 
   navChange() {
     let x = document.getElementById("arriba");
@@ -25,6 +30,20 @@ export class AppComponent implements OnInit{
         x.className = "topnav";
       }
     }
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.showTopButton = window.scrollY > 350; 
+    this.showBottomButton = !(Math.round(window.innerHeight + window.scrollY) >= document.body.scrollHeight)// ((window.document.body.scrollHeight - window.innerHeight) - window.scrollY) > 350; //&& this.showTopButton;
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0 }); //behavior: 'smooth'
+  }
+
+  scrollToBottom() {
+    window.scrollTo(0, (window.document.body.scrollHeight - window.innerHeight)+100);
   }
 
 
@@ -50,6 +69,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.onWindowScroll();
 
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)  

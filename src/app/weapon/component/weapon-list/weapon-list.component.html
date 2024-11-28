@@ -1,19 +1,25 @@
 
-  <app-search [options]="nombres()" (activeFilterEvent)="activeFilterSearch($event)"></app-search>
 
-  <app-filter (activeFilterEvent)="activeFilterType($event)" [arrayFilter]="filterType" [arrayOptions]="['sword-and-shield','great-sword','dual-blades','long-sword','hammer','hunting-horn','lance','gunlance','switch-axe','charge-blade','insect-glaive','bow','light-bowgun','heavy-bowgun']"  ></app-filter>
+
+  <app-filter (activeFilterEvent)="activeFilterType($event)" [arrayFilter]="filterType" [arrayOptions]="['sword and shield','great-sword','dual-blades','long-sword','hammer','hunting-horn','lance','gunlance','switch-axe','charge-blade','insect-glaive','bow','light-bowgun','heavy-bowgun']"  ></app-filter>
   
   <app-filter (activeFilterEvent)="activeFilterElement($event)" [arrayFilter]="filterElement" [arrayOptions]="['fire','blast','water','thunder','ice','dragon','paralysis','sleep','poison']"  ></app-filter>
 
-  <div *ngIf="loading;else weaponList">
-    <p>Loading...</p>
+  <div class="foundSearch">
+    <app-found [items]="filterweapons.length" ></app-found>
+    <app-search [placeH]="'Search weapons'" [options]="nombres()" (activeFilterEvent)="activeFilterSearch($event)"></app-search>
+  </div>
+
+  <div *ngIf="loading;else weaponList" class="loader">
+    <app-loading></app-loading>
   </div>
 
   <ng-template #weaponList>
-      <app-found [items]="filterweapons.length" ></app-found>
+    
+      
       <ul>
         @for (weapon of filterweapons; track $index){
-        <app-weapon-card class="weaponCard" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
+        <app-weapon-card class="cardItem" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>
         }
       </ul>
   </ng-template>

@@ -1,25 +1,65 @@
 .searchDiv{
     display: flex;
-    justify-content: start;
-    padding-bottom: 1rem;
-    margin-left: 5rem;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1.5rem;
+    background: rgb(49, 49, 49);
+    width: 80%;
+    border: 0.35rem;
+    border-color: rgb(24, 24, 24);
+    border-style: solid;
+}
+
+#searchContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.searchDiv:focus-within{
+    outline: auto;
+    outline-color: black;
 }
 
 .searchInput{
-    width: 50%;
-    height: 1rem;;
+    width: 100%;
+    height: 2rem;;
+    border-radius: 2rem;
+    padding: 0%;
+    padding-top: 2px;
+    padding-left: 1rem;
+    border: none;
+    outline: none;
+    font-size: large;
+    background: none;
+    align-items: center;
+    color: rgb(103, 101, 101);;
 }
 
-#clear{
 
-    background-color: rgb(50 50 50);
-    color: white;
-    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
-    1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+.searchInput::placeholder{
+    /* font-family: "Pacifico", cursive; */
+    color: rgb(126, 123, 123);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 500;
+    font-style: italic;
+    font-weight: bold;
+}
+
+input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+#clear{
+    color: rgb(103, 101, 101);
     margin: 0;
     cursor: pointer;
     padding: 0.1rem;
-    margin-left: 1rem;
+    margin-right: 0.5rem;
+    text-shadow: none;
 }
 
 @media only screen and (max-width:850px) {
@@ -30,6 +70,9 @@
 
 
   @media only screen and (max-width: 600px) {
+    #searchContainer{
+        justify-content: start;
+    }
     .searchInput{
         width: 90%;
     }

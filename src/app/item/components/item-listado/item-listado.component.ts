@@ -5,11 +5,12 @@ import { ItemCardComponent } from '../item-card/item-card.component';
 import { SearchComponent } from '../../../shared/components/search/search.component';
 import { CommonModule } from '@angular/common';
 import { FoundComponent } from '../../../shared/components/found/found.component';
+import { LoadingComponent } from "../../../shared/components/loading/loading.component";
 
 @Component({
   selector: 'app-item-listado',
   standalone: true,
-  imports: [ItemCardComponent,SearchComponent,CommonModule,FoundComponent],
+  imports: [ItemCardComponent, SearchComponent, CommonModule, FoundComponent, LoadingComponent],
   templateUrl: './item-listado.component.html',
   styleUrl: './item-listado.component.css'
 })

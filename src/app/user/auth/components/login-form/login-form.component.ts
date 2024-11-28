@@ -3,11 +3,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../service/user.service';
+import { TitleComponent } from "../../../../shared/components/title/title.component";
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, TitleComponent],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
 })

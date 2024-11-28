@@ -7,12 +7,13 @@ import { FilterComponent } from '../../../shared/components/filter/filter.compon
 import { SearchComponent } from "../../../shared/components/search/search.component";
 import { CommonModule } from '@angular/common';
 import { FoundComponent } from '../../../shared/components/found/found.component';
+import { LoadingComponent } from "../../../shared/components/loading/loading.component";
 
 
 @Component({
   selector: 'app-monst-listado',
   standalone: true,
-  imports: [MonsterCardComponent, FilterComponent, SearchComponent,CommonModule,FoundComponent],
+  imports: [MonsterCardComponent, FilterComponent, SearchComponent, CommonModule, FoundComponent, LoadingComponent],
   templateUrl: './monst-listado.component.html',
   styleUrl: './monst-listado.component.css'
 })

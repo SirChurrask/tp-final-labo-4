@@ -19,7 +19,7 @@ input:hover{
     justify-content: end;
 }
 
-@media only screen and (max-width:850px) {
+@media only screen and (max-width:1000px) {
     /* For tablets: */
 
     .divUserButtons{

@@ -1,3 +1,4 @@
+import { S } from '@angular/cdk/keycodes';
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
@@ -21,6 +22,10 @@ export class FilterComponent {
     }
     this.activeFilter();
     this.changeButtonBC();
+  }
+
+  replaceLine(str : string){
+    return str.replaceAll('-',' ')
   }
 
   activeFilter(){

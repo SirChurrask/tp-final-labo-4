@@ -18,7 +18,10 @@
     </nav>
     <app-nav-user id="navUser"></app-nav-user>
     <a style="max-width: 40px; max-height: 40px;" href="javascript:void(0);" class="icon" (click)="navChange()">
-      <img style="max-width: 75%; height: fit-content;" src="fa-bars.png"/>
+      <!-- <img style="max-width: 75%; height: fit-content;" src="fa-bars.png"/> -->
+      <span style="transform: scale(2);" class="material-symbols-outlined">
+        menu
+        </span>
     </a>
   </div>
 
@@ -27,5 +30,33 @@
 <div class="pageBC">
   <router-outlet />
 </div>
+
+<button class="go-to-top" *ngIf="showTopButton" (click)="scrollToTop()">
+  <span class="material-symbols-outlined">
+    arrow_upward
+    </span>
+</button>
+
+<button class="go-to-bottom" *ngIf="showBottomButton" (click)="scrollToBottom()">
+  <span class="material-symbols-outlined">
+    arrow_downward
+    </span>
+</button>
+
+<footer id="footer">
+  <div style="border: 0; background-color: rgb(37, 41, 41);color: rgba(202, 223, 223, 0.637); padding: 1.5rem;font-size: 80%;display: flex;flex-direction: row;">
+    <div style="width: 70%;">
+      <h3 style="margin-left: 2rem;">About the page</h3>
+      <p style="margin-left: 2rem;">This page relates to the videogame <a target="_blank" href="https://store.steampowered.com/app/582010/Monster_Hunter_World/">Monster Hunter: World</a> as a personal assistant
+      that maintains a clear and easy-to-access record of the user's acquired and pending equipment,
+      and shows information about the game from the API <a target="_blank" href="https://mhw-db.com">"https://mhw-db.com"</a>.</p>
+    </div>
+    <div style="margin-left: 2rem;">
+      <h4 style="margin-left: 2rem;">Devs</h4>
+      <p style="margin-left: 2rem;"><a href="https://github.com/LeonelBoccanfuso"  target="_blank">Leonel Boccanfuso</a></p>
+      <p style="margin-left: 2rem;"><a href="https://github.com/SirChurrask"  target="_blank">Luciano Serio</a></p>
+    </div>
+  </div>
+</footer>
 
 
