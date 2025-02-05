@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MonsterService } from '../../service/monster.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ViewEncapsulation} from '@angular/core';
 import { Monster } from '../../interface/monster';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
+import { routes } from '../../../app.routes';
 
 @Component({
   selector: 'app-monster-details',
@@ -17,6 +18,7 @@ import {MatButtonModule} from '@angular/material/button';
 export class MonsterDetailsComponent implements OnInit{
   ar = inject(ActivatedRoute);
   ms = inject(MonsterService);
+  routes = inject(Router);
 
   id : null | number = -1;
 
@@ -49,7 +51,11 @@ export class MonsterDetailsComponent implements OnInit{
           this.monster = data;
           console.log(this.monster)
         },
-        error: (err: Error) => {console.log(err)}
+        error: (err: Error) => {
+          console.log(err);
+          alert("Error al encontrar en la base de datos :(");
+          this.routes.navigate(['']);
+        }
       })
     })
   }
