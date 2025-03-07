@@ -10,32 +10,6 @@
           "type": "weapon"
         },
         {
-          "id": 18,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 120,
-              "acquired": true
-            },
-            {
-              "id": 324,
-              "acquired": true
-            },
-            {
-              "id": 327,
-              "acquired": true
-            },
-            {
-              "id": 169,
-              "acquired": true
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "type": "armor"
-        },
-        {
           "id": 11,
           "type": "armor",
           "materiales": [
@@ -122,28 +96,6 @@
           ]
         },
         {
-          "id": 1088,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 227,
-              "acquired": true
-            },
-            {
-              "id": 225,
-              "acquired": true
-            },
-            {
-              "id": 224,
-              "acquired": true
-            },
-            {
-              "id": 119,
-              "acquired": true
-            }
-          ]
-        },
-        {
           "id": 12,
           "type": "armor",
           "materiales": [
@@ -171,28 +123,6 @@
             },
             {
               "id": 170,
-              "acquired": true
-            }
-          ]
-        },
-        {
-          "id": 835,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 150,
-              "acquired": true
-            },
-            {
-              "id": 118,
-              "acquired": true
-            },
-            {
-              "id": 122,
-              "acquired": true
-            },
-            {
-              "id": 117,
               "acquired": true
             }
           ]
@@ -272,30 +202,6 @@
               "acquired": true
             }
           ]
-        }
-      ],
-      "pending": [
-        {
-          "id": 1089,
-          "type": "weapon",
-          "materiales": [
-            {
-              "id": 409,
-              "acquired": false
-            },
-            {
-              "id": 227,
-              "acquired": false
-            },
-            {
-              "id": 226,
-              "acquired": false
-            },
-            {
-              "id": 172,
-              "acquired": false
-            }
-          ]
         },
         {
           "id": 46,
@@ -303,24 +209,66 @@
           "materiales": [
             {
               "id": 229,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 232,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 231,
-              "acquired": false
+              "acquired": true
             },
             {
               "id": 158,
+              "acquired": true
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "type": "weapon"
+        },
+        {
+          "id": 782,
+          "type": "weapon"
+        },
+        {
+          "id": 52,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 238,
+              "acquired": true
+            },
+            {
+              "id": 240,
+              "acquired": true
+            },
+            {
+              "id": 237,
+              "acquired": true
+            },
+            {
+              "id": 242,
+              "acquired": true
+            }
+          ]
+        }
+      ],
+      "pending": [
+        {
+          "id": 2,
+          "type": "weapon",
+          "materiales": [
+            {
+              "id": 116,
               "acquired": false
             }
           ]
         },
         {
-          "id": 6,
+          "id": 3,
           "type": "armor",
           "materiales": [
             {
@@ -330,12 +278,60 @@
           ]
         },
         {
-          "id": 2,
+          "id": 12,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 201,
+              "acquired": false
+            },
+            {
+              "id": 147,
+              "acquired": true
+            }
+          ]
+        },
+        {
+          "id": 11,
           "type": "weapon",
           "materiales": [
             {
-              "id": 116,
+              "id": 118,
+              "acquired": true
+            },
+            {
+              "id": 258,
               "acquired": false
+            },
+            {
+              "id": 257,
+              "acquired": true
+            },
+            {
+              "id": 170,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 824,
+          "type": "weapon",
+          "materiales": [
+            {
+              "id": 376,
+              "acquired": false
+            },
+            {
+              "id": 377,
+              "acquired": false
+            },
+            {
+              "id": 380,
+              "acquired": true
+            },
+            {
+              "id": 381,
+              "acquired": true
             }
           ]
         }
@@ -352,6 +348,55 @@
       "id": "187e",
       "username": "Marcos",
       "password": "$2a$10$Y8uW8CzpcUdbShyVNSJKcuRWuPoL3.g1YSfiAp6zfju3RzEEg.eke",
+      "acquired": [],
+      "pending": []
+    },
+    {
+      "id": "63e3",
+      "username": "aaaaa",
+      "password": "$2a$10$0lsllxMUoompZAH41A6YWeqzyfRg7e0a8yGmt0o7gFOGam.IdSr82",
+      "acquired": [],
+      "pending": []
+    },
+    {
+      "id": "531f",
+      "username": "Leonel",
+      "password": "$2a$10$Pi2H./SiMVTYSmYVM1xVfeLEqbuI2aJH/wn0tZkxz6fww18dsJgVO",
+      "acquired": [],
+      "pending": []
+    },
+    {
+      "id": "b2e0",
+      "username": "carneee23",
+      "password": "$2a$10$oi5l0Ownokx0yImGJNvRnOiXcf81IBBkgRLT3mpnzoTQEXeSragS6",
+      "acquired": [],
+      "pending": []
+    },
+    {
+      "id": "6f40",
+      "username": "us9898",
+      "password": "$2a$10$2t.rUWKtqq4bln/5nzYD6eJwKHgMRLlq4h7UYy.T7aYwPFMs8PveO",
+      "acquired": [],
+      "pending": []
+    },
+    {
+      "id": "3582",
+      "username": "carn2323",
+      "password": "$2a$10$Np36JhfFqDflxTQb2yoZ0u2mAS.EyIBa.y8FEfQUrHEtQ5Qat0i8O",
+      "acquired": [],
+      "pending": []
+    },
+    {
+      "id": "75ea",
+      "username": "usuario",
+      "password": "$2a$10$FijkKzy.ETKzg45ohx2wde3Zt2IaOOfFZOfD/lyk22.tA1XLBIgLq",
+      "acquired": [],
+      "pending": []
+    },
+    {
+      "id": "64a8",
+      "username": "nouser",
+      "password": "$2a$10$eJYXbXaDvGp/JtoZ15cB4O.1xvo.GM948wOdqg3dyCl/7T38UtAhq",
       "acquired": [],
       "pending": []
     }

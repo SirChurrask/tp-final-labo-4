@@ -2,7 +2,7 @@
 
 <app-filter (activeFilterEvent)="activeFilterType($event)" [arrayOptions]="['head','chest','gloves','waist','legs']" [arrayFilter]="filterType" ></app-filter>
 
-<app-filter (activeFilterEvent)="activeFilterType($event)" [arrayFilter]="filterType" [arrayOptions]="['sword and shield','great-sword','dual-blades','long-sword','hammer','hunting-horn','lance','gunlance','switch-axe','charge-blade','insect-glaive','bow','light-bowgun','heavy-bowgun']"  ></app-filter>
+<app-filter (activeFilterEvent)="activeFilterType($event)" [arrayFilter]="filterType" [arrayOptions]="['sword-and-shield','great-sword','dual-blades','long-sword','hammer','hunting-horn','lance','gunlance','switch-axe','charge-blade','insect-glaive','bow','light-bowgun','heavy-bowgun']"  ></app-filter>
 
 <app-filter (activeFilterEvent)="activeFilterElement($event)" [arrayFilter]="filterElement" [arrayOptions]="['fire','blast','water','thunder','ice','dragon','paralysis','sleep','poison']"  ></app-filter>
 
@@ -11,7 +11,7 @@
 </div>
 
 <ng-template #loading2>
-  
+
   <div *ngIf="loadingWeapon || loadingArmor; else loading3">
     <label>Weapons:</label>
     <p *ngIf="!loadingWeapon">ready!</p>
@@ -37,12 +37,12 @@
       }
     </div>
 
-    
+
       <div id="acquiredList">
-        
+
         <ul>
         @if (adquiridosArmorf.length){
-        
+
             @for (armor of adquiridosArmorf; track $index){
               <app-acquired-list-card class="cardItem" (deleteAcquiredEvent)="remove($event)" [armor]="armor" [armorCheck]="true" [weaponCheck]="false"></app-acquired-list-card>
             }

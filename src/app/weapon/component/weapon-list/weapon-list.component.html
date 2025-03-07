@@ -1,8 +1,8 @@
 
 
 
-  <app-filter (activeFilterEvent)="activeFilterType($event)" [arrayFilter]="filterType" [arrayOptions]="['sword and shield','great-sword','dual-blades','long-sword','hammer','hunting-horn','lance','gunlance','switch-axe','charge-blade','insect-glaive','bow','light-bowgun','heavy-bowgun']"  ></app-filter>
-  
+  <app-filter (activeFilterEvent)="activeFilterType($event)" [arrayFilter]="filterType" [arrayOptions]="['sword-and-shield','great-sword','dual-blades','long-sword','hammer','hunting-horn','lance','gunlance','switch-axe','charge-blade','insect-glaive','bow','light-bowgun','heavy-bowgun']"  ></app-filter>
+
   <app-filter (activeFilterEvent)="activeFilterElement($event)" [arrayFilter]="filterElement" [arrayOptions]="['fire','blast','water','thunder','ice','dragon','paralysis','sleep','poison']"  ></app-filter>
 
   <div class="foundSearch">
@@ -15,8 +15,8 @@
   </div>
 
   <ng-template #weaponList>
-    
-      
+
+
       <ul>
         @for (weapon of filterweapons; track $index){
         <app-weapon-card class="cardItem" (addWantedEvent)="addPending($event)" (addAcquiredEvent)="addAcquired($event)" [logged]="logged" [weapon]="weapon" [showImage]="showImage"></app-weapon-card>

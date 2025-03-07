@@ -55,7 +55,7 @@ export class UserService {
     let encodedPass = bcrypt.hashSync(user.password,key);
 
     user.password = encodedPass;
-    
+
     return this.http.post<User>(this.url,user);
 
   }
@@ -66,11 +66,13 @@ export class UserService {
   }
 
   getUsersByParams(term: any): Observable<User[]>{
-    return this.http.get<User[]>( this.url, {params: term});
+    //es la misma funcion de arriba, habría que borrarla
+    const params = new HttpParams({fromString: `username=${term}`});
+    return this.http.request<User[]>('GET', this.url, {responseType:'json', params});
   }
 
   login(term: User) : Observable<boolean>{
-
+    //tmb se puede cambiar por un find para filtrar la base automaticamente
     return this.getUsersByParams(term.username).pipe(
       map( response => {
           if(response.length && bcrypt.compareSync(term.password,response[0].password)){

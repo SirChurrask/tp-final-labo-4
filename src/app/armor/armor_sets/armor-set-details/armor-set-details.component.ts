@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ArmorService } from '../../service/armor.service';
 import { Armor } from '../../interface/armor';
 import { ArmorSet } from '../../interface/armor-set';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ArmorCardComponent } from "../armor-card/armor-card.component";
 import { UserService } from '../../../user/auth/service/user.service';
@@ -32,6 +32,7 @@ export class ArmorSetDetailsComponent implements OnInit{
   ps = inject(PendingService);
   as = inject(AcquiredService);
   armrService = inject(ArmorService);
+  routes = inject(Router);
 
   armorSet: ArmorSet = {
     id: 0,
@@ -82,6 +83,9 @@ export class ArmorSetDetailsComponent implements OnInit{
       },
       error: (err: Error) => {
         console.log(err.message);
+        //agregue esto por el tema de los errores (se podría hacer una page 404)
+        alert("Error al encontrar en la base de datos :(");
+        this.routes.navigate(['']);
       },
     })
   }
@@ -96,6 +100,7 @@ export class ArmorSetDetailsComponent implements OnInit{
       value => { this.logged = value}
     )
     const armorID = this.route.snapshot.paramMap.get('id');
+    //hacer un chequeo antes de cargar la pag, mandar al home si error
     this.cargarArmorSet(armorID);
   }
 }
