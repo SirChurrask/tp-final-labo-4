@@ -1,0 +1,155 @@
+<div style="display: flex; justify-content: center;">
+  <app-title [titleString]="'Help'"></app-title>
+</div>
+
+<div>
+  <h1>Item list</h1>
+  <p>This page shows a list of every consumable, tool and material of the game and a quick description of the utility of the item or its origin.</p>
+    <div style="display: flex; justify-content: center; gap: 1rem;">
+    <div>
+      <h2>Elements:</h2>
+      <p>1. Name of the item</p>
+      <p>2. Price in the market</p>
+      <p>3. Description</p>
+    </div>
+    <img style="width: 100%;height: auto; max-width: 40%; -webkit-filter: drop-shadow(10px 10px 10px #222);
+      filter: drop-shadow(10px 10px 10px #222);" src="itemex.png"/>
+  </div>
+</div>
+
+<div>
+  <h1>Monster list and details</h1>
+  <p>The list of monster shows every monster in the game, wich can be filtered by their type (Small or Large). While the list have only a brief description of the monster, the details page of each one shows more information in detail and (in case of the large monsters) an image and even some advice to how fight them.</p>
+    <div style="display: flex; justify-content: center; gap: 1rem;">
+      <img style="width: 100%;height: auto; max-width: 40%; -webkit-filter: drop-shadow(10px 10px 10px #222);
+        filter: drop-shadow(10px 10px 10px #222);" src="monsterex1.png"/>
+      <img style="width: 100%;height: auto; max-width: 60%; -webkit-filter: drop-shadow(10px 10px 10px #222);
+        filter: drop-shadow(10px 10px 10px #222);" src="monsterex2.png"/>
+    </div>
+    <div>
+      <h2>Elements:</h2>
+      <p>1. Name of the monster</p>
+      <p>2. A quick description of the creature</p>
+      <p>3. The species wich its part.</p>
+      <p>4. The monster type</p>
+      <p> - Most small monster being low treat or passive. Meawhile, large monsters being primary targets of hunts.</p>
+      <p>5. The efficiency of each type of damage or effect on the creature, from 1 as the lowest to 3 as very effective.</p>
+      <p>6. Extra information about the monster, like its location, ailments that can inflict, immunities, etc.</p>
+    </div>
+</div>
+
+<div>
+  <h1>Armor list</h1>
+  <p>The armor list can be filtered by each type of piece or searched by name. Like the monster list, the list only shows the basic information of the equipment. Meanwhile the details include all the rest of the pieces that are part of the same set, and the stats and bonus of the entire set combined.</p>
+  <p>While logged, the Hunter can add any piece to their Pending or Adquired list. More information about both below.</p>
+  <div style="display: flex; justify-content: center; gap: 1rem;">
+    <div>
+      <h2>Elements:</h2>
+      <p>1. Name of the armor</p>
+      <p>2. Image of the variants</p>
+      <p>3. Base defense</p>
+      <p>4. Elemental resistances :</p>
+      <p> - From left to right: Dragon, Fire, Ice, Lighting, Water</p>
+      <p>5. Skill of the armor (some pieces doesn't have a skill)</p>
+      <p>6. (Only Logged) Add the armor to the Adquired list</p>
+      <p>7. (Only Logged) Add the armor to the Pending/Wishlist list</p>
+    </div>
+    <img style="width: 100%;height: auto; max-width: 40%; -webkit-filter: drop-shadow(10px 10px 10px #222);
+      filter: drop-shadow(10px 10px 10px #222);" src="armorex.png"/>
+  </div>
+</div>
+
+<div>
+  <h1>Weapons list</h1>
+  <p>The weapons of this page can be filtered not only by their types, but also by their extra elemental damage or effect.</p>
+  <p>Like the armor list, the Hunter can add any weapons they want to their Adquired or Pending.</p>
+    <div style="display: flex; justify-content: center; gap: 1rem;">
+    <div>
+      <h2>Elements:</h2>
+      <p>1. Icon of the weapon type (the color represents the rarity)</p>
+      <p>2. Name of the weapon</p>
+      <p>3. Preview of the weapon</p>
+      <p>4. Base damage</p>
+      <p>5. Durability bar of the weapon</p>
+      <p> - Each color represents a tier (From purple (Perfect) to red (Broken)) </p>
+      <p>6. Special effect: extra elemental damage or status</p>
+      <p>7. (Only Logged) Add the weapon to the Adquired list</p>
+      <p>8. (Only Logged) Add the weapon to the Pending/Wishlist list</p>
+    </div>
+    <img style="width: 100%;height: auto; max-width: 40%; -webkit-filter: drop-shadow(10px 10px 10px #222);
+      filter: drop-shadow(10px 10px 10px #222);" src="weaponex.png"/>
+  </div>
+</div>
+
+<div>
+  <h1>Adquired and Pending list</h1>
+  <p>Both only appearing after the Hunter logged, each shows their respective equipment that the Hunter added before.</p>
+  <p>The Adquired page serves as a "favorites" list, and also as "finished" equipment.</p>
+  <p>The Pending page (or Wishlist) shows every material needed for the crafting of the equipment in it, tracking the ones that the Hunter has. When all the materials of a specific piece are gathered, the Hunter has the option to move that item to Adquired.</p>
+    <div style="display: flex; justify-content: center; gap: 1rem;">
+    <div>
+      <h2>Elements:</h2>
+      <p>1. to 6. Same elements as the list of the specific equipment</p>
+      <h4>// Unique to the Wishlist</h4>
+      <p>7. Checklist of materials</p>
+      <p>8. (Only if all materials are checked) Move the equipment to the Adquired list</p>
+      <h4>// From both Adquired and Wishlist</h4>
+      <p>9. Remove the equipment from the list</p>
+    </div>
+    <img style="width: 100%;height: auto; max-width: 60%; -webkit-filter: drop-shadow(10px 10px 10px #222);
+      filter: drop-shadow(10px 10px 10px #222);" src="wishlistex.png"/>
+  </div>
+</div>
+
+
+<!-- @if (0) {<div *ngIf="monster.name.length" style="justify-content: center;display: flex;flex-direction: column; background-color:rgba(85, 84, 84, 0.705); padding: 3rem; padding-top: 0;" id="monsterPage">
+       <div style="display: flex; flex-direction: row; justify-content: center;vertical-align: middle; padding-left: 3rem;">
+           <h1 style="font-size: 250%;">{{monster.name}}</h1>
+           <p style="padding-top: 1rem;padding-left: 2rem;">{{monster.type}} monster</p>
+       </div>
+
+       <p>{{monster.description}}</p>
+       <div style="display: flex;flex-direction: row;">
+           <div >
+               <div style="border: 0.1rem black solid;padding: 1rem;">
+                   <label>Species</label>
+                   <p style="padding-left: 3rem;">{{monster.species[0].toUpperCase() + monster.species.slice(1)}}</p>
+               </div>
+               <div style="border: 0.1rem black solid;padding: 1rem; border-top: 0;">
+                   <label>Locations</label>
+                   <p style="padding-left: 3rem;" *ngFor="let item of monster.locations">{{item.name}}</p>
+               </div>
+               <div style="border: 0.1rem black solid;padding: 1rem; border-top: 0;" *ngIf="monster.elements.length">
+                   <label>Elements</label>
+                   <p *ngFor="let item of monster.elements" >{{item}}</p>
+               </div>
+               <div  style="border: 0.1rem black solid;padding: 1rem; border-top: 0;" *ngIf="monster.ailments.length">
+                   <label>Ailments</label>
+                   <p matTooltip={{item.description}} style="padding-left: 3rem;" *ngFor="let item of monster.ailments">{{item.name}}</p>
+               </div>
+               <div  style="border: 0.1rem black solid;padding: 1rem; border-top: 0;" *ngIf="monster.resistances.length">
+                   <label>Resistances</label>
+                   <p style="padding-left: 3rem;"  *ngFor="let item of monster.resistances">{{item.element[0].toUpperCase() + item.element.slice(1)}} {{item.condition}}</p>
+               </div>
+           </div>
+           <div style="padding-left: 3rem;">
+           <div style="display: flex; flex-direction: row;">
+               <div style="border: 0.1rem black solid;padding: 1rem; height: fit-content;" *ngIf="monster.weaknesses.length">
+                   <label>Weaknesses</label>
+                   <p style="padding-left: 3rem;"  *ngFor="let item of monster.weaknesses">{{item.element[0].toUpperCase() + item.element.slice(1)}} {{item.condition}} ✰{{item.stars}}</p>
+               </div>
+               @if(monster.type == 'large'){
+               <img style="max-width: 75%; height: fit-content; margin-left: 2rem;" class="image" src="https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/mhw-{{monster.name.toLowerCase().replaceAll(' ','_')}}_render_001.png" />
+               }
+           </div>
+               <div style="width: fit-content;border: 0.1rem black solid;padding: 1rem; border-top: 0;"*ngIf="monster.rewards.length">
+                   <label>Rewards</label>
+                   <p style="padding-left: 3rem;" *ngFor="let item of monster.rewards">{{item.item.name}}</p>
+               </div>
+           </div>
+    </div>
+</div>} -->
+
+
+
+
