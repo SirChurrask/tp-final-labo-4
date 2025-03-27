@@ -1,0 +1,5 @@
+<ul id="stockList">
+    @for (item of stockimages; track item) {
+        <img class="stockimage" (click)="changeAvatar(item)" id="avatarButton" [src]="item" alt="Image Source">
+    } 
+</ul>

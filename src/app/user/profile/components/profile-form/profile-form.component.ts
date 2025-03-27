@@ -4,11 +4,12 @@ import { AvatarComponent } from "../avatar-change/avatar-change.component";
 import { UserService } from '../../../auth/service/user.service';
 import { Router } from '@angular/router';
 import { ProfileService } from '../../service/profile.service';
+import { StockImagesComponent } from "../stock-images/stock-images.component";
 
 @Component({
   selector: 'app-profile-form',
   standalone: true,
-  imports: [MatIconModule, AvatarComponent],
+  imports: [MatIconModule, AvatarComponent, StockImagesComponent],
   templateUrl: './profile-form.component.html',
   styleUrl: './profile-form.component.css'
 })

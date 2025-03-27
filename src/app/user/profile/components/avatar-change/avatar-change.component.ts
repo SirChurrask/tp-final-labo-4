@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
+import { Observable, timeout } from 'rxjs';
 import { ImageCropperComponent } from '../image-cropper/image-cropper.component';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -36,10 +36,11 @@ export class AvatarComponent implements OnInit, ControlValueAccessor {
     this.ps.currentdata.subscribe(
       value => {
         this.avatar = value;
-        this.writeValue(value);
+        this.writeValue(this.avatar);
       }
     )
-    this.ps.getAvatar();
+    // this.ps.getAvatar();
+    
 
   }
 
@@ -95,17 +96,7 @@ export class AvatarComponent implements OnInit, ControlValueAccessor {
     const input = document.getElementById('avatar-input-file') as HTMLInputElement;
     if(input){
       input.value = "";
+      this.writeValue(this.avatar);
     }
   }
-
-  fileToBase64(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
-    });
-  }
-
 }
