@@ -399,6 +399,46 @@
       "password": "$2a$10$eJYXbXaDvGp/JtoZ15cB4O.1xvo.GM948wOdqg3dyCl/7T38UtAhq",
       "acquired": [],
       "pending": []
+    },
+    {
+      "id": "712f",
+      "username": "MrHunter",
+      "password": "$2a$10$b6gfDHXogI/JCslZlxUQveoL9mI20T7bQr.renXTejIAYYSb7Dcuy",
+      "acquired": [],
+      "pending": [
+        {
+          "id": 5,
+          "type": "armor",
+          "materiales": [
+            {
+              "id": 116,
+              "acquired": false
+            }
+          ]
+        },
+        {
+          "id": 178,
+          "type": "weapon",
+          "materiales": [
+            {
+              "id": 409,
+              "acquired": true
+            },
+            {
+              "id": 410,
+              "acquired": true
+            },
+            {
+              "id": 407,
+              "acquired": true
+            },
+            {
+              "id": 406,
+              "acquired": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }
