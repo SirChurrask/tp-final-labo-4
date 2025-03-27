@@ -10,6 +10,7 @@ import { MonsterPageComponent } from './monster/pages/monster-page/monster-page.
 import { WishlistPageComponent } from './user/pages/wishlist-page/wishlist-page.component';
 import { ArmorSetPageComponent } from './armor/pages/armor-set-page/armor-set-page.component';
 import { AcquiredPageComponent } from './user/pages/acquired-page/acquired-page.component';
+import { ProfilePageComponent } from './user/pages/profile-page/profile-page.component';
 
 
 export const routes: Routes = [
@@ -45,6 +46,9 @@ export const routes: Routes = [
   },
   {
     path: '', component: HomeComponent
-  }
+  },
+  {
+    path: 'profile', component: ProfilePageComponent
+  },
   //agrear un path 404
 ];

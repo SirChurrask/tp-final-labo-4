@@ -28,9 +28,12 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/cropperjs/dist/cropper.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/cropperjs/dist/cropper.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,5 +97,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "07cb9a4d-b0f0-4b3a-85e5-3dadd467b5cb"
   }
 }
