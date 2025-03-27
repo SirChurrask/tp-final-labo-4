@@ -6,6 +6,8 @@
 
 <ng-template class="divUserButtons" #logout>
     <div class="divUserButtons">
+        <app-profile-button (click)="toProfile()"></app-profile-button>
+        <!-- <input type="button" value="Profile" routerLink='/profile' routerLinkActive="router-link-active"  name="profile"/> -->
         <input type="button" value="WishList" routerLink='/pending' routerLinkActive="router-link-active"  name="wishlist"/>
         <input type="button" value="Acquired" routerLink='/acquired' routerLinkActive="router-link-active"  name="acquired"/>
         <input type="button" value="Log Out" (click)="logoutFunc()" name="logOut"/>

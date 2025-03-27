@@ -5,6 +5,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import * as bcrypt from "bcryptjs";
+import {image as defaultimage} from "../../../../assets/defaultimage";
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +49,7 @@ export class UserService {
   postUser(user: User): Observable<User> {
     user.acquired = [];
     user.pending = [];
-
+    user.avatar = defaultimage;
     let salt = bcrypt.genSaltSync(10);
     let timestamp = Date.now();
     let key = salt + timestamp;

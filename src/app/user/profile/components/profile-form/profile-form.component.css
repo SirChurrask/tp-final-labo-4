@@ -1,0 +1,8 @@
+.profileForm{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    text-align: -webkit-center;
+    align-items: center;
+    margin-left: 2rem;
+}
