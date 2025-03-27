@@ -11,6 +11,8 @@ import { WishlistPageComponent } from './user/pages/wishlist-page/wishlist-page.
 import { ArmorSetPageComponent } from './armor/pages/armor-set-page/armor-set-page.component';
 import { AcquiredPageComponent } from './user/pages/acquired-page/acquired-page.component';
 import { ProfilePageComponent } from './user/pages/profile-page/profile-page.component';
+import { GuideComponent } from './helping/guide/guide.component';
+
 
 
 export const routes: Routes = [
@@ -50,5 +52,7 @@ export const routes: Routes = [
   {
     path: 'profile', component: ProfilePageComponent
   },
-  //agrear un path 404
+  {
+    path: 'help', component: GuideComponent
+  }
 ];
